@@ -1,0 +1,192 @@
+[
+  {
+    "_id": {
+      "$oid": "650000000000000000000001"
+    },
+    "title": "Introduction to NoSQL Databases",
+    "author": "Alice Johnson",
+    "content": "NoSQL databases provide horizontal scaling and flexible schema models...",
+    "tags": [
+      "nosql",
+      "mongodb",
+      "database"
+    ],
+    "published_at": {
+      "$date": "2026-01-10T10:00:00Z"
+    },
+    "comments": [
+      {
+        "comment_id": {
+          "$oid": "650000000000000000000011"
+        },
+        "author": "Reader101",
+        "comment_text": "Great introduction to NoSQL fundamentals!",
+        "created_at": {
+          "$date": "2026-01-10T11:00:00Z"
+        }
+      },
+      {
+        "comment_id": {
+          "$oid": "650000000000000000000012"
+        },
+        "author": "TechEnthusiast",
+        "comment_text": "How does document storage compare with key-value stores?",
+        "created_at": {
+          "$date": "2026-01-10T12:30:00Z"
+        }
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "650000000000000000000002"
+    },
+    "title": "Mastering the MongoDB Aggregation Pipeline",
+    "author": "Bob Smith",
+    "content": "Aggregation pipelines allow developers to transform, filter, and join documents...",
+    "tags": [
+      "mongodb",
+      "aggregation",
+      "tutorial"
+    ],
+    "published_at": {
+      "$date": "2026-01-12T14:30:00Z"
+    },
+    "comments": [
+      {
+        "comment_id": {
+          "$oid": "650000000000000000000013"
+        },
+        "author": "DataGeek",
+        "comment_text": "The $lookup operator makes joining collections straightforward.",
+        "created_at": {
+          "$date": "2026-01-12T15:00:00Z"
+        }
+      },
+      {
+        "comment_id": {
+          "$oid": "650000000000000000000014"
+        },
+        "author": "DevGuru",
+        "comment_text": "Can you also explain the performance cost of multiple $lookup stages?",
+        "created_at": {
+          "$date": "2026-01-12T16:10:00Z"
+        }
+      },
+      {
+        "comment_id": {
+          "$oid": "650000000000000000000015"
+        },
+        "author": "PyCoder",
+        "comment_text": "Pipelines in PyMongo are very readable.",
+        "created_at": {
+          "$date": "2026-01-13T09:00:00Z"
+        }
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "650000000000000000000003"
+    },
+    "title": "Embedded vs Referenced Schema Design",
+    "author": "Charlie Davis",
+    "content": "Choosing between embedding and referencing is the most critical decision in MongoDB...",
+    "tags": [
+      "data modeling",
+      "design patterns",
+      "architecture"
+    ],
+    "published_at": {
+      "$date": "2026-01-15T09:15:00Z"
+    },
+    "comments": [
+      {
+        "comment_id": {
+          "$oid": "650000000000000000000016"
+        },
+        "author": "ArchLead",
+        "comment_text": "Rule of thumb: embed 1-to-few, reference 1-to-squillions.",
+        "created_at": {
+          "$date": "2026-01-15T10:00:00Z"
+        }
+      },
+      {
+        "comment_id": {
+          "$oid": "650000000000000000000017"
+        },
+        "author": "CloudNinja",
+        "comment_text": "Always watch out for the 16MB document boundary!",
+        "created_at": {
+          "$date": "2026-01-15T11:45:00Z"
+        }
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "650000000000000000000004"
+    },
+    "title": "Indexing Strategies in MongoDB",
+    "author": "Diana Prince",
+    "content": "Proper indexes dramatically reduce query latency and memory consumption...",
+    "tags": [
+      "indexing",
+      "performance",
+      "optimization"
+    ],
+    "published_at": {
+      "$date": "2026-01-18T16:45:00Z"
+    },
+    "comments": [
+      {
+        "comment_id": {
+          "$oid": "650000000000000000000018"
+        },
+        "author": "DBA_Sam",
+        "comment_text": "Ensure ESR (Equality, Sort, Range) rule is followed on compound keys.",
+        "created_at": {
+          "$date": "2026-01-18T17:00:00Z"
+        }
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "650000000000000000000005"
+    },
+    "title": "Building RESTful APIs with Python and PyMongo",
+    "author": "Evan Wright",
+    "content": "FastAPI and Flask pair seamlessly with PyMongo for high-throughput microservices...",
+    "tags": [
+      "python",
+      "api",
+      "pymongo"
+    ],
+    "published_at": {
+      "$date": "2026-01-20T11:20:00Z"
+    },
+    "comments": [
+      {
+        "comment_id": {
+          "$oid": "650000000000000000000019"
+        },
+        "author": "Pythonista",
+        "comment_text": "Great tutorial on PyMongo driver integration.",
+        "created_at": {
+          "$date": "2026-01-20T12:10:00Z"
+        }
+      },
+      {
+        "comment_id": {
+          "$oid": "650000000000000000000020"
+        },
+        "author": "StudentDev",
+        "comment_text": "Applied this in our university course project today!",
+        "created_at": {
+          "$date": "2026-01-20T13:00:00Z"
+        }
+      }
+    ]
+  }
+]

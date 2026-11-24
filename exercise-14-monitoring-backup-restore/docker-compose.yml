@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # ==============================================================================
+  # Primary All-in-One Demonstration Container (Recommended for Grading)
+  # ==============================================================================
+  mongodb-lab14:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: chintan/mongodb-lab14:latest
+    container_name: mongodb-lab14-demo
+    ports:
+      - "27017:27017"
+      - "9099:9099"
+    environment:
+      - MONGO_URI=mongodb://127.0.0.1:27017/?directConnection=true
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./logs:/workspace/logs
+      - ./backups:/workspace/backups
+    command: ["demo"]
+
+  # ==============================================================================
+  # Optional Multi-Node Replica Set Cluster for Live Replication Lag Testing
+  # ==============================================================================
+  mongo-primary:
+    image: mongo:7
+    container_name: mongo-primary-node
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
+    ports:
+      - "27021:27017"
+    networks:
+      - mongo-net
+
+  mongo-secondary:
+    image: mongo:7
+    container_name: mongo-secondary-node
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
+    ports:
+      - "27022:27017"
+    depends_on:
+      - mongo-primary
+    networks:
+      - mongo-net
+
+networks:
+  mongo-net:
+    driver: bridge

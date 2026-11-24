@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Threat Intelligence - LLM/SLM Platform & SecOps Bot</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <div class="logo-icon">🛡️</div>
+      <div>
+        <h1 class="nav-title">THREAT INTELLIGENCE SOC</h1>
+        <p class="nav-subtitle">LLM/SLM RAG Assistant & Autonomous Mitigation Bot • MongoDB Capstone</p>
+      </div>
+    </div>
+    <div class="nav-metrics">
+      <div class="metric-badge"><span class="pulse-dot"></span> <span id="status-db">Connecting...</span></div>
+      <div class="metric-badge">Threats: <strong id="metric-threats">0</strong></div>
+      <div class="metric-badge">Vector Chunks: <strong id="metric-chunks">0</strong></div>
+      <div class="metric-badge">Engine: <strong id="metric-llm">SLM</strong></div>
+    </div>
+  </header>
+
+  <div class="main-layout">
+    <!-- Left: Navigation & Filters -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <h3>Target Platform</h3>
+        <div class="pill-group" id="platform-filters">
+          <button class="pill active" data-platform="All">All Platforms</button>
+          <button class="pill" data-platform="Windows">🪟 Windows</button>
+          <button class="pill" data-platform="Linux">🐧 Linux</button>
+          <button class="pill" data-platform="MacOS">🍏 MacOS</button>
+          <button class="pill" data-platform="Android">🤖 Android</button>
+          <button class="pill" data-platform="iOS">📱 iOS</button>
+          <button class="pill" data-platform="Cloud">☁️ Cloud</button>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Lifecycle State</h3>
+        <div class="lifecycle-list" id="lifecycle-filters">
+          <button class="lifecycle-btn active" data-status="All">
+            <span>All States</span>
+          </button>
+          <button class="lifecycle-btn status-anticipated" data-status="Anticipated">
+            <span class="badge yellow">Anticipated</span>
+            <small>Zero-day / PoC in wild</small>
+          </button>
+          <button class="lifecycle-btn status-active" data-status="Active">
+            <span class="badge red">Active</span>
+            <small>Active weaponization</small>
+          </button>
+          <button class="lifecycle-btn status-evolving" data-status="Evolving">
+            <span class="badge purple">Evolving</span>
+            <small>Mutation / evasion</small>
+          </button>
+          <button class="lifecycle-btn status-resolved" data-status="Resolved">
+            <span class="badge green">Resolved</span>
+            <small>Mitigated & hardened</small>
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar-section bot-panel">
+        <h3>🤖 Vulnerability Scanner Bot</h3>
+        <p class="panel-desc">Autonomous background daemon scanning target platforms and mitigating upon conversational confirmation.</p>
+        <div class="bot-controls">
+          <select id="bot-scan-platform" class="select-input">
+            <option value="Windows">Scan Windows System</option>
+            <option value="Linux">Scan Linux Server</option>
+            <option value="MacOS">Scan MacOS Endpoint</option>
+            <option value="Android">Scan Android APK / Fleet</option>
+            <option value="iOS">Scan iOS Fleet Profile</option>
+            <option value="Cloud">Scan Cloud Containers</option>
+          </select>
+          <button id="btn-trigger-scan" class="action-btn primary-btn">🔍 Run Vulnerability Scan</button>
+        </div>
+        <div id="bot-alert-box" class="bot-alert-box hidden">
+          <div class="alert-header">
+            <span class="badge red">VULNERABILITY DETECTED</span>
+            <span id="alert-vuln-id">VULN-000</span>
+          </div>
+          <h4 id="alert-vuln-title">Title</h4>
+          <p id="alert-vuln-desc">Description</p>
+          <div class="code-snippet" id="alert-vuln-cmd">command</div>
+          <button id="btn-confirm-mitigation" class="action-btn success-btn">⚡ Confirm & Mitigate via ACID Tx</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Center: Conversational RAG Chat -->
+    <main class="chat-container">
+      <div class="chat-header">
+        <div>
+          <h2>Threat Intelligence RAG Chat</h2>
+          <p id="chat-subtitle">Filtering: All Platforms | All Lifecycles</p>
+        </div>
+        <button id="btn-clear-chat" class="clear-btn">Clear Chat</button>
+      </div>
+
+      <!-- Quick prompts -->
+      <div class="quick-prompts">
+        <button class="quick-btn" data-query="Show active Linux kernel threats and exact mitigation procedures">🐧 Linux Dirty Pipe & XZ</button>
+        <button class="quick-btn" data-query="How do I mitigate LockBit 3.0 ransomware on Windows?">🪟 Windows LockBit Fix</button>
+        <button class="quick-btn" data-query="What evolving spyware threats target iOS and Android?">📱 Mobile Pegasus & Anatsa</button>
+        <button class="quick-btn" data-query="List container escape threats and Kubernetes mitigations">☁️ Cloud Leaky Vessels</button>
+      </div>
+
+      <!-- Messages Log -->
+      <div class="chat-messages" id="chat-messages">
+        <div class="message assistant-msg">
+          <div class="msg-avatar">🛡️</div>
+          <div class="msg-content">
+            <p><strong>Antigravity Threat Intelligence Assistant Ready.</strong></p>
+            <p>I provide real-time intelligence and verified remediation procedures across <strong>Anticipated</strong>, <strong>Active</strong>, <strong>Evolving</strong>, and <strong>Resolved</strong> threats for <strong>Windows, Linux, MacOS, Android, iOS, and Cloud</strong>.</p>
+            <p>You can also use the <strong>Vulnerability Bot</strong> on the left to scan your system and apply mitigations through conversational confirmation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input Box -->
+      <div class="chat-input-bar">
+        <textarea id="chat-input" placeholder="Ask about threats, CVEs, or mitigation procedures (e.g. 'How to mitigate Dirty Pipe on Linux?')..." rows="2"></textarea>
+        <button id="btn-send-chat" class="send-btn">
+          <span>Send</span>
+        </button>
+      </div>
+    </main>
+
+    <!-- Right: Exercises 1 - 18 Demonstration Studio -->
+    <aside class="exercises-panel">
+      <div class="exercises-header">
+        <h3>Exercises 1 - 18 Studio</h3>
+        <p>Live MongoDB & Polyglot Verification</p>
+        <button id="btn-run-all-exercises" class="action-btn secondary-btn">▶ Run All 18 Exercises</button>
+      </div>
+
+      <div class="exercises-grid">
+        <button class="ex-btn" data-ex="1">Ex 1: Document Model</button>
+        <button class="ex-btn" data-ex="2">Ex 2: CRUD & Projection</button>
+        <button class="ex-btn" data-ex="3">Ex 3: Embed vs Ref</button>
+        <button class="ex-btn" data-ex="4">Ex 4: Schema Patterns</button>
+        <button class="ex-btn" data-ex="5">Ex 5: Advanced Query</button>
+        <button class="ex-btn" data-ex="6">Ex 6: Indexing / ESR</button>
+        <button class="ex-btn" data-ex="7">Ex 7: BSON & WiredTiger</button>
+        <button class="ex-btn" data-ex="8">Ex 8: Replica Sets</button>
+        <button class="ex-btn" data-ex="9">Ex 9: CAP & Write Concern</button>
+        <button class="ex-btn" data-ex="10">Ex 10: ACID Transactions</button>
+        <button class="ex-btn" data-ex="11">Ex 11: Sharding & Scales</button>
+        <button class="ex-btn" data-ex="12">Ex 12: RBAC & $redact</button>
+        <button class="ex-btn" data-ex="13">Ex 13: Containerization</button>
+        <button class="ex-btn" data-ex="14">Ex 14: Backup & Restore</button>
+        <button class="ex-btn" data-ex="15">Ex 15: Multi-Tenant API</button>
+        <button class="ex-btn" data-ex="16">Ex 16: Polyglot Arch</button>
+        <button class="ex-btn" data-ex="17">Ex 17: Vector Search RAG</button>
+        <button class="ex-btn" data-ex="18">Ex 18: Capstone Benchmark</button>
+      </div>
+
+      <div class="exercise-output-container">
+        <div class="output-header">
+          <span id="output-title">Console Output</span>
+          <span class="badge" id="output-status">IDLE</span>
+        </div>
+        <pre id="exercise-output" class="console-box">Click any exercise button above or 'Run All 18 Exercises' to inspect live MongoDB execution proofs, metrics, and data outputs.</pre>
+      </div>
+    </aside>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

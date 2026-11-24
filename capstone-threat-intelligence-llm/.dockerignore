@@ -1,0 +1,12 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.git
+.gitignore
+.env
+nosql-repo
+.venv
+env/
+venv/
+reports/*.pdf

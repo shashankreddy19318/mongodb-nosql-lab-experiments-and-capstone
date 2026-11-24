@@ -1,0 +1,32 @@
+services:
+  mongo1:
+    image: mongo:7
+    container_name: mongo1-data
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    ports:
+      - "27017:27017"
+    volumes:
+      - rs0_arb_data1:/data/db
+
+  mongo2:
+    image: mongo:7
+    container_name: mongo2-data
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27018"]
+    ports:
+      - "27018:27018"
+    volumes:
+      - rs0_arb_data2:/data/db
+
+  mongo-arbiter:
+    image: mongo:7
+    container_name: mongo-arbiter
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27019"]
+    ports:
+      - "27019:27019"
+    volumes:
+      - rs0_arb_data3:/data/db
+
+volumes:
+  rs0_arb_data1:
+  rs0_arb_data2:
+  rs0_arb_data3:

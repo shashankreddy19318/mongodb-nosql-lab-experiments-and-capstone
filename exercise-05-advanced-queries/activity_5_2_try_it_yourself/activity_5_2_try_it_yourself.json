@@ -1,0 +1,317 @@
+{
+  "metadata": {
+    "activity": "Lab 5.2 - Try It Yourself: $lookup with Pipeline Sub-Expression",
+    "objective": "Filter joined documents on the foreign side using 'let' and 'pipeline'",
+    "mongodb_version_requirement": "3.6+"
+  },
+  "pipeline_1_foreign_filtered_orders": [
+    {
+      "order_id": "ORD-501",
+      "customer_name": "Aarav Sharma",
+      "product_id": "P-101",
+      "quantity": 1,
+      "order_date": "2024-02-01",
+      "status": "completed",
+      "electronic_product_match": [
+        {
+          "product_id": "P-101",
+          "name": "Ultra 4K Monitor 27-inch",
+          "category": "Electronics",
+          "base_price": 350.0
+        }
+      ],
+      "match_count": 1
+    },
+    {
+      "order_id": "ORD-502",
+      "customer_name": "Priya Patel",
+      "product_id": "P-102",
+      "quantity": 2,
+      "order_date": "2024-02-03",
+      "status": "completed",
+      "electronic_product_match": [
+        {
+          "product_id": "P-102",
+          "name": "Wireless Mechanical Keyboard",
+          "category": "Electronics",
+          "base_price": 95.0
+        }
+      ],
+      "match_count": 1
+    },
+    {
+      "order_id": "ORD-503",
+      "customer_name": "Rohan Mehta",
+      "product_id": "P-103",
+      "quantity": 1,
+      "order_date": "2024-02-07",
+      "status": "completed",
+      "electronic_product_match": [],
+      "match_count": 0
+    },
+    {
+      "order_id": "ORD-504",
+      "customer_name": "Ananya Iyer",
+      "product_id": "P-104",
+      "quantity": 1,
+      "order_date": "2024-02-12",
+      "status": "shipped",
+      "electronic_product_match": [],
+      "match_count": 0
+    },
+    {
+      "order_id": "ORD-505",
+      "customer_name": "Vikram Singh",
+      "product_id": "P-105",
+      "quantity": 3,
+      "order_date": "2024-02-15",
+      "status": "completed",
+      "electronic_product_match": [],
+      "match_count": 0
+    },
+    {
+      "order_id": "ORD-506",
+      "customer_name": "Aarav Sharma",
+      "product_id": "P-106",
+      "quantity": 2,
+      "order_date": "2024-02-20",
+      "status": "completed",
+      "electronic_product_match": [],
+      "match_count": 0
+    },
+    {
+      "order_id": "ORD-507",
+      "customer_name": "Neha Verma",
+      "product_id": "P-107",
+      "quantity": 1,
+      "order_date": "2024-02-25",
+      "status": "completed",
+      "electronic_product_match": [],
+      "match_count": 0
+    },
+    {
+      "order_id": "ORD-508",
+      "customer_name": "Siddharth Rao",
+      "product_id": "P-101",
+      "quantity": 2,
+      "order_date": "2024-03-02",
+      "status": "completed",
+      "electronic_product_match": [
+        {
+          "product_id": "P-101",
+          "name": "Ultra 4K Monitor 27-inch",
+          "category": "Electronics",
+          "base_price": 350.0
+        }
+      ],
+      "match_count": 1
+    },
+    {
+      "order_id": "ORD-509",
+      "customer_name": "Priya Patel",
+      "product_id": "P-105",
+      "quantity": 1,
+      "order_date": "2024-03-06",
+      "status": "pending",
+      "electronic_product_match": [],
+      "match_count": 0
+    },
+    {
+      "order_id": "ORD-510",
+      "customer_name": "Rohan Mehta",
+      "product_id": "P-102",
+      "quantity": 1,
+      "order_date": "2024-03-10",
+      "status": "completed",
+      "electronic_product_match": [
+        {
+          "product_id": "P-102",
+          "name": "Wireless Mechanical Keyboard",
+          "category": "Electronics",
+          "base_price": 95.0
+        }
+      ],
+      "match_count": 1
+    },
+    {
+      "order_id": "ORD-511",
+      "customer_name": "Ananya Iyer",
+      "product_id": "P-104",
+      "quantity": 2,
+      "order_date": "2024-03-15",
+      "status": "completed",
+      "electronic_product_match": [],
+      "match_count": 0
+    },
+    {
+      "order_id": "ORD-512",
+      "customer_name": "Vikram Singh",
+      "product_id": "P-106",
+      "quantity": 1,
+      "order_date": "2024-03-19",
+      "status": "completed",
+      "electronic_product_match": [],
+      "match_count": 0
+    },
+    {
+      "order_id": "ORD-513",
+      "customer_name": "Neha Verma",
+      "product_id": "P-103",
+      "quantity": 2,
+      "order_date": "2024-03-24",
+      "status": "cancelled",
+      "electronic_product_match": [],
+      "match_count": 0
+    },
+    {
+      "order_id": "ORD-514",
+      "customer_name": "Aarav Sharma",
+      "product_id": "P-107",
+      "quantity": 1,
+      "order_date": "2024-03-28",
+      "status": "completed",
+      "electronic_product_match": [],
+      "match_count": 0
+    },
+    {
+      "order_id": "ORD-515",
+      "customer_name": "Siddharth Rao",
+      "product_id": "P-102",
+      "quantity": 3,
+      "order_date": "2024-04-02",
+      "status": "completed",
+      "electronic_product_match": [
+        {
+          "product_id": "P-102",
+          "name": "Wireless Mechanical Keyboard",
+          "category": "Electronics",
+          "base_price": 95.0
+        }
+      ],
+      "match_count": 1
+    }
+  ],
+  "pipeline_2_foreign_filtered_products": [
+    {
+      "product_id": "P-101",
+      "name": "Ultra 4K Monitor 27-inch",
+      "category": "Electronics",
+      "base_price": 350.0,
+      "high_volume_completed_orders": [
+        {
+          "order_id": "ORD-508",
+          "customer_name": "Siddharth Rao",
+          "quantity": 2,
+          "order_date": "2024-03-02"
+        }
+      ],
+      "bulk_orders_count": 1
+    },
+    {
+      "product_id": "P-102",
+      "name": "Wireless Mechanical Keyboard",
+      "category": "Electronics",
+      "base_price": 95.0,
+      "high_volume_completed_orders": [
+        {
+          "order_id": "ORD-502",
+          "customer_name": "Priya Patel",
+          "quantity": 2,
+          "order_date": "2024-02-03"
+        },
+        {
+          "order_id": "ORD-515",
+          "customer_name": "Siddharth Rao",
+          "quantity": 3,
+          "order_date": "2024-04-02"
+        }
+      ],
+      "bulk_orders_count": 2
+    },
+    {
+      "product_id": "P-103",
+      "name": "Ergonomic Vertical Mouse",
+      "category": "Accessories",
+      "base_price": 45.0,
+      "high_volume_completed_orders": [],
+      "bulk_orders_count": 0
+    },
+    {
+      "product_id": "P-104",
+      "name": "Active Noise-Cancelling Headphones",
+      "category": "Audio",
+      "base_price": 210.0,
+      "high_volume_completed_orders": [
+        {
+          "order_id": "ORD-511",
+          "customer_name": "Ananya Iyer",
+          "quantity": 2,
+          "order_date": "2024-03-15"
+        }
+      ],
+      "bulk_orders_count": 1
+    },
+    {
+      "product_id": "P-105",
+      "name": "Aluminum USB-C Dock 10-in-1",
+      "category": "Accessories",
+      "base_price": 65.0,
+      "high_volume_completed_orders": [
+        {
+          "order_id": "ORD-505",
+          "customer_name": "Vikram Singh",
+          "quantity": 3,
+          "order_date": "2024-02-15"
+        }
+      ],
+      "bulk_orders_count": 1
+    },
+    {
+      "product_id": "P-106",
+      "name": "High-Speed NVMe 2TB SSD",
+      "category": "Storage",
+      "base_price": 160.0,
+      "high_volume_completed_orders": [
+        {
+          "order_id": "ORD-506",
+          "customer_name": "Aarav Sharma",
+          "quantity": 2,
+          "order_date": "2024-02-20"
+        }
+      ],
+      "bulk_orders_count": 1
+    },
+    {
+      "product_id": "P-107",
+      "name": "FHD Auto-Focus Webcam",
+      "category": "Video",
+      "base_price": 75.0,
+      "high_volume_completed_orders": [],
+      "bulk_orders_count": 0
+    },
+    {
+      "product_id": "P-108",
+      "name": "Smart Motorized Standing Desk",
+      "category": "Furniture",
+      "base_price": 480.0,
+      "high_volume_completed_orders": [],
+      "bulk_orders_count": 0
+    },
+    {
+      "product_id": "P-109",
+      "name": "Ergonomic Mesh Executive Chair",
+      "category": "Furniture",
+      "base_price": 290.0,
+      "high_volume_completed_orders": [],
+      "bulk_orders_count": 0
+    },
+    {
+      "product_id": "P-110",
+      "name": "Studio Condenser Broadcast Mic",
+      "category": "Audio",
+      "base_price": 140.0,
+      "high_volume_completed_orders": [],
+      "bulk_orders_count": 0
+    }
+  ]
+}

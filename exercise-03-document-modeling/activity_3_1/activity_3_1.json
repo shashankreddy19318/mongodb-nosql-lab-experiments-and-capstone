@@ -1,0 +1,136 @@
+[
+  {
+    "title": "Database Systems",
+    "code": "CS401",
+    "instructor": "Dr. Smith",
+    "schedule": {
+      "days": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "time": "10:00 AM - 11:30 AM",
+      "room": "Hall 301"
+    },
+    "students": [
+      {
+        "name": "Alice Johnson",
+        "student_id": "S101",
+        "grade": "A"
+      },
+      {
+        "name": "Bob Williams",
+        "student_id": "S102",
+        "grade": "B+"
+      },
+      {
+        "name": "Charlie Davis",
+        "student_id": "S103",
+        "grade": "A-"
+      }
+    ],
+    "_id": {
+      "$oid": "6b031a83979f853cc0c3734b"
+    }
+  },
+  {
+    "title": "Machine Learning",
+    "code": "CS502",
+    "instructor": "Dr. Patel",
+    "schedule": {
+      "days": [
+        "Tuesday",
+        "Thursday"
+      ],
+      "time": "02:00 PM - 03:30 PM",
+      "room": "Lab 205"
+    },
+    "students": [
+      {
+        "name": "Diana Ross",
+        "student_id": "S104",
+        "grade": "A"
+      },
+      {
+        "name": "Evan Wright",
+        "student_id": "S105",
+        "grade": "B"
+      },
+      {
+        "name": "Alice Johnson",
+        "student_id": "S101",
+        "grade": "A+"
+      }
+    ],
+    "_id": {
+      "$oid": "6b031a83979f853cc0c3734c"
+    }
+  },
+  {
+    "title": "Software Engineering",
+    "code": "CS303",
+    "instructor": "Dr. Smith",
+    "schedule": {
+      "days": [
+        "Monday",
+        "Wednesday"
+      ],
+      "time": "01:00 PM - 02:30 PM",
+      "room": "Hall 410"
+    },
+    "students": [
+      {
+        "name": "Frank Miller",
+        "student_id": "S106",
+        "grade": "B+"
+      },
+      {
+        "name": "Grace Hopper",
+        "student_id": "S107",
+        "grade": "A"
+      },
+      {
+        "name": "Bob Williams",
+        "student_id": "S102",
+        "grade": "A-"
+      }
+    ],
+    "_id": {
+      "$oid": "6b031a83979f853cc0c3734d"
+    }
+  },
+  {
+    "title": "Cloud Computing",
+    "code": "CS450",
+    "instructor": "Dr. Chen",
+    "schedule": {
+      "days": [
+        "Tuesday",
+        "Thursday",
+        "Friday"
+      ],
+      "time": "09:00 AM - 10:30 AM",
+      "room": "Hall 102"
+    },
+    "students": [
+      {
+        "name": "Henry Ford",
+        "student_id": "S108",
+        "grade": "B"
+      },
+      {
+        "name": "Diana Ross",
+        "student_id": "S104",
+        "grade": "A-"
+      },
+      {
+        "name": "Charlie Davis",
+        "student_id": "S103",
+        "grade": "B+"
+      }
+    ],
+    "_id": {
+      "$oid": "6b031a83979f853cc0c3734e"
+    }
+  }
+]

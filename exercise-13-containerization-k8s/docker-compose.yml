@@ -1,0 +1,133 @@
+version: "3.8"
+
+services:
+  # Node 1: Primary candidate
+  mongo-rs0-1:
+    image: mongo:7.0
+    container_name: prod-mongo-1
+    command:
+      - "mongod"
+      - "--replSet"
+      - "rs0"
+      - "--bind_ip_all"
+      - "--auth"
+      - "--keyFile"
+      - "/etc/mongodb/keyfile"
+    ports:
+      - "27017:27017"
+    volumes:
+      - prod_data1:/data/db
+      - ./keyfile:/etc/mongodb/keyfile:ro
+    healthcheck:
+      test: mongosh --port 27017 --eval "db.adminCommand('ping')" --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+    networks:
+      - mongo-cluster
+
+  # Node 2: Secondary member
+  mongo-rs0-2:
+    image: mongo:7.0
+    container_name: prod-mongo-2
+    command:
+      - "mongod"
+      - "--replSet"
+      - "rs0"
+      - "--bind_ip_all"
+      - "--auth"
+      - "--keyFile"
+      - "/etc/mongodb/keyfile"
+    ports:
+      - "27018:27017"
+    volumes:
+      - prod_data2:/data/db
+      - ./keyfile:/etc/mongodb/keyfile:ro
+    healthcheck:
+      test: mongosh --port 27017 --eval "db.adminCommand('ping')" --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+    networks:
+      - mongo-cluster
+
+  # Node 3: Secondary / Voting member
+  mongo-rs0-3:
+    image: mongo:7.0
+    container_name: prod-mongo-3
+    command:
+      - "mongod"
+      - "--replSet"
+      - "rs0"
+      - "--bind_ip_all"
+      - "--auth"
+      - "--keyFile"
+      - "/etc/mongodb/keyfile"
+    ports:
+      - "27019:27017"
+    volumes:
+      - prod_data3:/data/db
+      - ./keyfile:/etc/mongodb/keyfile:ro
+    healthcheck:
+      test: mongosh --port 27017 --eval "db.adminCommand('ping')" --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+    networks:
+      - mongo-cluster
+
+  # Activity 13.1: Prometheus MongoDB Exporter Sidecar
+  mongo-exporter:
+    image: percona/mongodb_exporter:0.40.0
+    container_name: mongo-exporter
+    environment:
+      - MONGODB_URI=mongodb://admin:AdminPass123!@mongo-rs0-1:27017/admin?authSource=admin&replicaSet=rs0
+      - COLLECT_OPLOG=true
+      - COLLECT_REPLSETSTATUS=true
+      - COLLECT_TOPMETRICS=true
+      - COLLECT_DBSTATS=true
+    ports:
+      - "9216:9216"
+    depends_on:
+      mongo-rs0-1:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - mongo-cluster
+
+  # Monitoring: Prometheus server scraping the exporter metrics
+  prometheus:
+    image: prom/prometheus:v2.51.0
+    container_name: mongo-prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
+    ports:
+      - "9090:9090"
+    depends_on:
+      - mongo-exporter
+    restart: unless-stopped
+    networks:
+      - mongo-cluster
+
+networks:
+  mongo-cluster:
+    name: mongo-cluster
+    driver: bridge
+
+volumes:
+  prod_data1:
+  prod_data2:
+  prod_data3:
+  prometheus_data:

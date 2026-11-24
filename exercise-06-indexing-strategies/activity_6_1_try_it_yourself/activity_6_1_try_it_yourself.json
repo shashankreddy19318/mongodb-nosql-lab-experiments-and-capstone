@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "lab": "Lab 6.1 Try It Yourself: Index Usage Measurement via $indexStats",
+    "total_documents": 50000,
+    "total_queries_simulated": 605,
+    "total_index_operations": 605,
+    "database_name": "nosql_lab_6_1_try_it_yourself",
+    "collection_name": "products"
+  },
+  "workload_simulation": [
+    {
+      "id": "W1",
+      "desc": "Category filter + Price Sort (Catalog page browsing)",
+      "query": {
+        "category": "Electronics"
+      },
+      "sort": [
+        [
+          "price",
+          1
+        ]
+      ],
+      "runs": 150,
+      "target_index": "idx_category_price"
+    },
+    {
+      "id": "W2",
+      "desc": "Price range filter $50-$150 (Budget filter slider)",
+      "query": {
+        "price": {
+          "$gte": 50.0,
+          "$lte": 150.0
+        }
+      },
+      "sort": null,
+      "runs": 85,
+      "target_index": "idx_price"
+    },
+    {
+      "id": "W3",
+      "desc": "Tag array filter 'wireless' (High-frequency tag search)",
+      "query": {
+        "tags": "wireless"
+      },
+      "sort": null,
+      "runs": 220,
+      "target_index": "idx_tags"
+    },
+    {
+      "id": "W4",
+      "desc": "Full-text search for 'Gaming Keyboard'",
+      "query": {
+        "$text": {
+          "$search": "Gaming Keyboard"
+        }
+      },
+      "sort": null,
+      "runs": 40,
+      "target_index": "idx_name_text"
+    },
+    {
+      "id": "W5",
+      "desc": "Category 'Audio' with Rating >= 4.5 and Stock > 0",
+      "query": {
+        "category": "Audio",
+        "rating": {
+          "$gte": 4.5
+        },
+        "stock": {
+          "$gt": 0
+        }
+      },
+      "sort": [
+        [
+          "rating",
+          -1
+        ]
+      ],
+      "runs": 110,
+      "target_index": "idx_cat_rating_stock"
+    }
+  ],
+  "index_statistics": [
+    {
+      "index_name": "idx_tags",
+      "key": {
+        "tags": 1
+      },
+      "operations": 220,
+      "usage_percentage": 36.36,
+      "tracked_since": "2026-11-22T17:59:47.363958+00:00"
+    },
+    {
+      "index_name": "idx_category_price",
+      "key": {
+        "category": 1,
+        "price": 1
+      },
+      "operations": 150,
+      "usage_percentage": 24.79,
+      "tracked_since": "2026-11-22T17:59:47.363919+00:00"
+    },
+    {
+      "index_name": "idx_cat_rating_stock",
+      "key": {
+        "category": 1,
+        "rating": -1,
+        "stock": 1
+      },
+      "operations": 110,
+      "usage_percentage": 18.18,
+      "tracked_since": "2026-11-22T17:59:47.363969+00:00"
+    },
+    {
+      "index_name": "idx_price",
+      "key": {
+        "price": 1
+      },
+      "operations": 85,
+      "usage_percentage": 14.05,
+      "tracked_since": "2026-11-22T17:59:47.363949+00:00"
+    },
+    {
+      "index_name": "idx_name_text",
+      "key": {
+        "name": "text"
+      },
+      "operations": 40,
+      "usage_percentage": 6.61,
+      "tracked_since": "2026-11-22T17:59:47.363964+00:00"
+    },
+    {
+      "index_name": "_id_",
+      "key": {
+        "_id": 1
+      },
+      "operations": 0,
+      "usage_percentage": 0.0,
+      "tracked_since": "2026-11-22T17:59:47.281006+00:00"
+    }
+  ],
+  "most_frequently_used": {
+    "name": "idx_tags",
+    "key": {
+      "tags": 1
+    },
+    "ops": 220
+  },
+  "least_frequently_used": {
+    "name": "_id_",
+    "key": {
+      "_id": 1
+    },
+    "ops": 0
+  },
+  "dba_recommendations": [
+    "Pin frequently used compound indexes in WiredTiger memory cache.",
+    "Schedule periodic $indexStats audits to detect zombie or unused indexes.",
+    "Drop indexes with near-zero access counts to recover memory and reduce write latency."
+  ]
+}

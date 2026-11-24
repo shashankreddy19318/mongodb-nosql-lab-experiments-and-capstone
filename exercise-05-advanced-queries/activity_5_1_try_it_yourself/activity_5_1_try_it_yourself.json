@@ -1,0 +1,214 @@
+{
+  "metadata": {
+    "activity": "Lab 5.1 - Try It Yourself: $bucket Stage",
+    "objective": "Categorize orders into small (<$50), medium ($50-$200), and large (>$200)",
+    "grand_total_revenue": 4912.5,
+    "total_orders": 24
+  },
+  "bucket_analytics": [
+    {
+      "bucket_id": 0,
+      "range": "$0.00 <= total < $50",
+      "tier_category": "Small (Under $50)",
+      "order_count": 2,
+      "total_revenue": 90.0,
+      "avg_order_value": 45.0,
+      "min_order_value": 45.0,
+      "max_order_value": 45.0,
+      "revenue_share_pct": 1.83,
+      "unique_customers_count": 1,
+      "customers": [
+        "Rohan Mehta"
+      ],
+      "orders": [
+        {
+          "order_id": "ORD-1003",
+          "customer": "Rohan Mehta",
+          "product": "Ergonomic Gaming Mouse",
+          "order_total": 45.0
+        },
+        {
+          "order_id": "ORD-1010",
+          "customer": "Rohan Mehta",
+          "product": "Desk Pad XXL",
+          "order_total": 45.0
+        }
+      ]
+    },
+    {
+      "bucket_id": 50,
+      "range": "$50.00 <= total < $200",
+      "tier_category": "Medium ($50 - $200)",
+      "order_count": 12,
+      "total_revenue": 1167.5,
+      "avg_order_value": 97.29,
+      "min_order_value": 60.0,
+      "max_order_value": 170.0,
+      "revenue_share_pct": 23.77,
+      "unique_customers_count": 6,
+      "customers": [
+        "Priya Patel",
+        "Vikram Singh",
+        "Siddharth Rao",
+        "Neha Verma",
+        "Rohan Mehta",
+        "Aarav Sharma"
+      ],
+      "orders": [
+        {
+          "order_id": "ORD-1002",
+          "customer": "Priya Patel",
+          "product": "Wireless Mechanical Keyboard",
+          "order_total": 170.0
+        },
+        {
+          "order_id": "ORD-1005",
+          "customer": "Vikram Singh",
+          "product": "USB-C Multi-Port Hub",
+          "order_total": 105.0
+        },
+        {
+          "order_id": "ORD-1008",
+          "customer": "Priya Patel",
+          "product": "HD Webcam 1080p",
+          "order_total": 60.0
+        },
+        {
+          "order_id": "ORD-1009",
+          "customer": "Siddharth Rao",
+          "product": "Studio Condenser Mic",
+          "order_total": 130.0
+        },
+        {
+          "order_id": "ORD-1012",
+          "customer": "Vikram Singh",
+          "product": "Wireless Mechanical Keyboard",
+          "order_total": 85.0
+        },
+        {
+          "order_id": "ORD-1014",
+          "customer": "Neha Verma",
+          "product": "Ergonomic Gaming Mouse",
+          "order_total": 90.0
+        },
+        {
+          "order_id": "ORD-1016",
+          "customer": "Priya Patel",
+          "product": "USB-C Multi-Port Hub",
+          "order_total": 70.0
+        },
+        {
+          "order_id": "ORD-1017",
+          "customer": "Rohan Mehta",
+          "product": "HD Webcam 1080p",
+          "order_total": 60.0
+        },
+        {
+          "order_id": "ORD-1019",
+          "customer": "Vikram Singh",
+          "product": "High-Speed NVMe SSD 1TB",
+          "order_total": 115.0
+        },
+        {
+          "order_id": "ORD-1020",
+          "customer": "Aarav Sharma",
+          "product": "Wireless Mechanical Keyboard",
+          "order_total": 85.0
+        },
+        {
+          "order_id": "ORD-1021",
+          "customer": "Neha Verma",
+          "product": "Studio Condenser Mic",
+          "order_total": 130.0
+        },
+        {
+          "order_id": "ORD-1023",
+          "customer": "Priya Patel",
+          "product": "Desk Pad XXL",
+          "order_total": 67.5
+        }
+      ]
+    },
+    {
+      "bucket_id": "large",
+      "range": "total >= $200.00",
+      "tier_category": "Large (Over $200)",
+      "order_count": 10,
+      "total_revenue": 3655.0,
+      "avg_order_value": 365.5,
+      "min_order_value": 220.0,
+      "max_order_value": 760.0,
+      "revenue_share_pct": 74.4,
+      "unique_customers_count": 5,
+      "customers": [
+        "Aarav Sharma",
+        "Ananya Iyer",
+        "Neha Verma",
+        "Siddharth Rao",
+        "Rohan Mehta"
+      ],
+      "orders": [
+        {
+          "order_id": "ORD-1001",
+          "customer": "Aarav Sharma",
+          "product": "Ultra HD 4K Monitor",
+          "order_total": 380.0
+        },
+        {
+          "order_id": "ORD-1004",
+          "customer": "Ananya Iyer",
+          "product": "Noise-Cancelling Headphones",
+          "order_total": 220.0
+        },
+        {
+          "order_id": "ORD-1006",
+          "customer": "Aarav Sharma",
+          "product": "High-Speed NVMe SSD 1TB",
+          "order_total": 230.0
+        },
+        {
+          "order_id": "ORD-1007",
+          "customer": "Neha Verma",
+          "product": "Adjustable Standing Desk",
+          "order_total": 450.0
+        },
+        {
+          "order_id": "ORD-1011",
+          "customer": "Ananya Iyer",
+          "product": "Ultra HD 4K Monitor",
+          "order_total": 760.0
+        },
+        {
+          "order_id": "ORD-1013",
+          "customer": "Aarav Sharma",
+          "product": "Noise-Cancelling Headphones",
+          "order_total": 220.0
+        },
+        {
+          "order_id": "ORD-1015",
+          "customer": "Siddharth Rao",
+          "product": "High-Speed NVMe SSD 1TB",
+          "order_total": 345.0
+        },
+        {
+          "order_id": "ORD-1018",
+          "customer": "Ananya Iyer",
+          "product": "Adjustable Standing Desk",
+          "order_total": 450.0
+        },
+        {
+          "order_id": "ORD-1022",
+          "customer": "Siddharth Rao",
+          "product": "Ultra HD 4K Monitor",
+          "order_total": 380.0
+        },
+        {
+          "order_id": "ORD-1024",
+          "customer": "Rohan Mehta",
+          "product": "Noise-Cancelling Headphones",
+          "order_total": 220.0
+        }
+      ]
+    }
+  ]
+}

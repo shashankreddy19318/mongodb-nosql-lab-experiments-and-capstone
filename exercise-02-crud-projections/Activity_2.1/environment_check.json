@@ -1,0 +1,14 @@
+{
+  "environment_check": {
+    "python_version": "3.14.0",
+    "checks": {
+      "Python 3.10+": true,
+      "PyMongo": true,
+      "Docker": true,
+      "MongoDB Local": true,
+      "MongoDB Atlas": true
+    },
+    "total_passed": 5,
+    "total_checks": 5
+  }
+}

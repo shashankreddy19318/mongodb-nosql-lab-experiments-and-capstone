@@ -1,0 +1,31 @@
+{
+  "comparison": {
+    "atlas_server_info": {
+      "version": "7.0.12",
+      "gitVersion": "b6513ce0781db6818e24619e34c40f1d75a9e01b",
+      "modules": ["enterprise"],
+      "allocator": "tcmalloc-google",
+      "javascriptEngine": "mozjs",
+      "sysInfo": "deprecated",
+      "storageEngines": ["devnull", "ephemeralForTest", "inMemory", "wiredTiger"],
+      "ok": 1.0,
+      "buildEnvironment": {
+        "cc": "gcc: gcc (GCC) 11.3.0"
+      }
+    },
+    "docker_server_info": {
+      "version": "7.0.14",
+      "gitVersion": "ce59cfc6a3c5e5c067dca0d30697edd68b4f8571",
+      "modules": [],
+      "allocator": "tcmalloc-google",
+      "javascriptEngine": "mozjs",
+      "sysInfo": "deprecated",
+      "storageEngines": ["devnull", "ephemeralForTest", "wiredTiger"],
+      "ok": 1.0,
+      "buildEnvironment": {
+        "cc": "gcc: gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0"
+      }
+    },
+    "version_match": false
+  }
+}

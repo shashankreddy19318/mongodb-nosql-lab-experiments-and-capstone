@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  threat-intel-benchmark:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: shashankreddy30/mongodb-lab18:latest
+    container_name: nosql-lab18-capstone
+    ports:
+      - "27018:27017"
+    environment:
+      - MONGO_URI=mongodb://127.0.0.1:27017/?directConnection=true
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./reports:/workspace/reports
+    command: ["demo"]

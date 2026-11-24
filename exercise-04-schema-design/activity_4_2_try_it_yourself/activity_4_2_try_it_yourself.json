@@ -1,0 +1,202 @@
+{
+  "lab": "Activity 4.2: Try It Yourself - Idempotent Bulk Import Engine",
+  "verification_runs": [
+    {
+      "phase": "Run 1: Initial Import",
+      "input_records": 8,
+      "matched_count": 0,
+      "modified_count": 0,
+      "upserted_count": 8,
+      "total_documents_after": 8
+    },
+    {
+      "phase": "Run 2: Identical Replay",
+      "input_records": 8,
+      "matched_count": 8,
+      "modified_count": 8,
+      "upserted_count": 0,
+      "total_documents_after": 8
+    },
+    {
+      "phase": "Run 3: Delta Synchronization",
+      "input_records": 10,
+      "matched_count": 7,
+      "modified_count": 7,
+      "upserted_count": 3,
+      "total_documents_after": 11
+    }
+  ],
+  "all_catalog_documents": [
+    {
+      "sku": "SKU-301",
+      "_id": {
+        "$oid": "6b031f2d718c0ea717e29c93"
+      },
+      "name": "Mechanical Keyboard Pro",
+      "price": 89.99,
+      "stock": 50,
+      "tags": [
+        "keyboard",
+        "gaming"
+      ],
+      "last_synced_at": "2026-11-22T16:58:21.319569+00:00",
+      "first_imported_at": "2026-11-22T16:58:21.313451+00:00"
+    },
+    {
+      "sku": "SKU-302",
+      "_id": {
+        "$oid": "6b031f2d718c0ea717e29c94"
+      },
+      "name": "Precision Optical Mouse",
+      "price": 34.5,
+      "stock": 80,
+      "tags": [
+        "mouse",
+        "office"
+      ],
+      "last_synced_at": "2026-11-22T16:58:21.319569+00:00",
+      "first_imported_at": "2026-11-22T16:58:21.313451+00:00"
+    },
+    {
+      "sku": "SKU-303",
+      "_id": {
+        "$oid": "6b031f2d718c0ea717e29c95"
+      },
+      "name": "Noise-Cancelling Headset",
+      "price": 129.0,
+      "stock": 25,
+      "tags": [
+        "audio",
+        "wireless"
+      ],
+      "last_synced_at": "2026-11-22T16:58:21.319569+00:00",
+      "first_imported_at": "2026-11-22T16:58:21.313451+00:00"
+    },
+    {
+      "sku": "SKU-304",
+      "_id": {
+        "$oid": "6b031f2d718c0ea717e29c96"
+      },
+      "name": "USB-C Multiport Dock",
+      "price": 59.99,
+      "stock": 40,
+      "tags": [
+        "accessories",
+        "dock"
+      ],
+      "last_synced_at": "2026-11-22T16:58:21.319569+00:00",
+      "first_imported_at": "2026-11-22T16:58:21.313451+00:00"
+    },
+    {
+      "sku": "SKU-305",
+      "_id": {
+        "$oid": "6b031f2d718c0ea717e29c97"
+      },
+      "name": "IPS Monitor 27-inch 144Hz",
+      "price": 279.99,
+      "stock": 15,
+      "tags": [
+        "monitor",
+        "gaming"
+      ],
+      "last_synced_at": "2026-11-22T16:58:21.319569+00:00",
+      "first_imported_at": "2026-11-22T16:58:21.313451+00:00"
+    },
+    {
+      "sku": "SKU-306",
+      "_id": {
+        "$oid": "6b031f2d718c0ea717e29c98"
+      },
+      "name": "Deskpad XXL Waterproof",
+      "price": 16.99,
+      "stock": 150,
+      "tags": [
+        "accessories",
+        "clearance"
+      ],
+      "last_synced_at": "2026-11-22T16:58:21.319569+00:00",
+      "first_imported_at": "2026-11-22T16:58:21.313451+00:00"
+    },
+    {
+      "sku": "SKU-307",
+      "_id": {
+        "$oid": "6b031f2d718c0ea717e29c99"
+      },
+      "name": "Webcam 1080p With Ring Light",
+      "price": 39.99,
+      "stock": 20,
+      "tags": [
+        "video",
+        "sale"
+      ],
+      "last_synced_at": "2026-11-22T16:58:21.319569+00:00",
+      "first_imported_at": "2026-11-22T16:58:21.313451+00:00"
+    },
+    {
+      "sku": "SKU-308",
+      "_id": {
+        "$oid": "6b031f2d718c0ea717e29c9a"
+      },
+      "name": "Dual Arm Laptop Stand",
+      "price": 44.99,
+      "stock": 60,
+      "tags": [
+        "ergonomics",
+        "office"
+      ],
+      "last_synced_at": "2026-11-22T16:58:21.318677+00:00",
+      "first_imported_at": "2026-11-22T16:58:21.313451+00:00"
+    },
+    {
+      "sku": "SKU-309",
+      "_id": {
+        "$oid": "6b031f2d718c0ea717e29c9b"
+      },
+      "name": "Wireless Charging Pad 15W",
+      "price": 24.99,
+      "stock": 70,
+      "tags": [
+        "wireless",
+        "charger"
+      ],
+      "last_synced_at": "2026-11-22T16:58:21.319569+00:00",
+      "first_imported_at": "2026-11-22T16:58:21.319569+00:00"
+    },
+    {
+      "sku": "SKU-310",
+      "_id": {
+        "$oid": "6b031f2d718c0ea717e29c9c"
+      },
+      "name": "USB Condenser Podcasting Mic",
+      "price": 69.99,
+      "stock": 30,
+      "tags": [
+        "audio",
+        "usb"
+      ],
+      "last_synced_at": "2026-11-22T16:58:21.319569+00:00",
+      "first_imported_at": "2026-11-22T16:58:21.319569+00:00"
+    },
+    {
+      "sku": "SKU-311",
+      "_id": {
+        "$oid": "6b031f2d718c0ea717e29c9d"
+      },
+      "name": "Screen Light Bar with Remote",
+      "price": 54.99,
+      "stock": 45,
+      "tags": [
+        "lighting",
+        "office"
+      ],
+      "last_synced_at": "2026-11-22T16:58:21.319569+00:00",
+      "first_imported_at": "2026-11-22T16:58:21.319569+00:00"
+    }
+  ],
+  "architectural_insights": {
+    "idempotency_definition": "f(f(x)) = f(x): Applying the import operation multiple times results in the exact same state as applying it once.",
+    "why_insert_many_fails": "A standard insert_many with duplicate keys throws DuplicateKeyError and halts execution, or creates duplicate documents if no unique index exists.",
+    "upsert_solution": "Using UpdateOne with upsert=True and a unique business key (e.g., SKU) guarantees deterministic, duplicate-safe state convergence.",
+    "ordered_vs_unordered": "ordered=False allows MongoDB to parallelize operations across shards and continue processing even if an individual operation encounters an error."
+  }
+}

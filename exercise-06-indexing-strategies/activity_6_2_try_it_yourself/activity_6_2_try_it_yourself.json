@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "lab": "Lab 6.2 Try It Yourself: Covered Queries Implementation & Verification",
+    "database_name": "nosql_lab_6_2_try_it_yourself",
+    "collection_name": "products_covered",
+    "total_documents": 50000,
+    "covering_index": {
+      "name": "idx_covered_cat_price_stock",
+      "keys": [
+        [
+          "category",
+          1
+        ],
+        [
+          "price",
+          1
+        ],
+        [
+          "stock",
+          1
+        ]
+      ]
+    }
+  },
+  "query_definitions": {
+    "filter": {
+      "category": "Electronics"
+    },
+    "non_covered_projection": {
+      "category": 1,
+      "price": 1,
+      "stock": 1
+    },
+    "covered_projection": {
+      "category": 1,
+      "price": 1,
+      "stock": 1,
+      "_id": 0
+    }
+  },
+  "explain_comparison": {
+    "non_covered": {
+      "stage": "FETCH",
+      "fetch_stage_present": true,
+      "totalDocsExamined": 100,
+      "totalKeysExamined": 8316,
+      "executionTimeMillis": 0.47
+    },
+    "covered": {
+      "stage": "PROJECTION_COVERED",
+      "fetch_stage_present": false,
+      "totalDocsExamined": 0,
+      "totalKeysExamined": 8316,
+      "executionTimeMillis": 0.47
+    }
+  },
+  "benchmark_results": {
+    "iterations": 2000,
+    "non_covered_total_seconds": 0.0331,
+    "non_covered_latency_ms": 0.017,
+    "covered_total_seconds": 0.0139,
+    "covered_latency_ms": 0.007,
+    "speedup_factor": 2.38
+  },
+  "verification_checklist": [
+    [
+      "Filter fields in Index",
+      "category in [('category', 1), ('price', 1), ('stock', 1)]",
+      "PASS"
+    ],
+    [
+      "Projection fields in Index",
+      "category, price, stock all present in index keys",
+      "PASS"
+    ],
+    [
+      "Explicit _id: 0 Exclusion",
+      "Projection includes '_id': 0 to prevent fetching ObjectID",
+      "PASS"
+    ],
+    [
+      "Elimination of FETCH Stage",
+      "Winning stage is PROJECTION_COVERED; FETCH is absent",
+      "VERIFIED"
+    ],
+    [
+      "totalDocsExamined == 0",
+      "totalDocsExamined is strictly 0",
+      "VERIFIED"
+    ]
+  ],
+  "research_summary": "RESEARCH ANALYSIS - ARCHITECTURAL ADVANTAGES OF COVERED QUERIES:\n1. Complete Bypass of WiredTiger Document Engine:\n   When a query is fully covered, the query engine resolves both the predicates and the requested\n   payload directly from the RAM-resident B-tree index buffers. The storage engine does not read\n   document blocks from disk or from the WiredTiger cache.\n\n2. Elimination of Cache Thrashing:\n   In high-throughput databases, full document sizes can be kilobytes while index keys are bytes.\n   Covered queries allow serving high-volume reporting and search workloads without loading heavy\n   documents into memory, preserving valuable cache space for active write transactions.\n\n3. The Essential Rule of '_id: 0':\n   MongoDB by default always returns the '_id' field unless explicitly suppressed with '{\"_id\": 0}'.\n   Because '_id' is stored in a separate index ('_id_'), any query that forgets '{\"_id\": 0}' is forced\n   into a 'FETCH' stage to retrieve '_id' from the collection, defeating coverage."
+}

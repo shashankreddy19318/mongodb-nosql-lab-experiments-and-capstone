@@ -1,0 +1,120 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongo
+  namespace: nosql-labs
+  labels:
+    app: mongo
+spec:
+  serviceName: mongo-headless-svc
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      terminationGracePeriodSeconds: 30
+      
+      # InitContainer: Prepares the keyfile on a shared emptyDir volume with strict 0400 permissions
+      initContainers:
+        - name: init-keyfile
+          image: busybox:1.36
+          command:
+            - "sh"
+            - "-c"
+            - |
+              echo "=== [InitContainer] Configuring MongoDB keyfile ==="
+              mkdir -p /etc/mongodb
+              if [ -f /secrets/keyfile ]; then
+                cp /secrets/keyfile /etc/mongodb/keyfile
+                echo "Copied pre-shared keyfile from Kubernetes secret."
+              else
+                echo "Generating deterministic replica set keyfile..."
+                # Deterministic fallback key for standalone lab setups without secret
+                echo "c3VwZXJzZWNyZXRrZXlmaWxlZm9ybW9uZ29kYnJlcGxpY2FzZXRwcm9kdWN0aW9uY2x1c3RlcjEzMDExMDI=" > /etc/mongodb/keyfile
+              fi
+              # MongoDB requires strict permissions (0400 / 0600) and ownership by mongodb user (UID 999)
+              chmod 400 /etc/mongodb/keyfile
+              chown 999:999 /etc/mongodb/keyfile 2>/dev/null || true
+              ls -la /etc/mongodb/keyfile
+              echo "=== [InitContainer] Keyfile configuration complete ==="
+          volumeMounts:
+            - name: keyfile-volume
+              mountPath: /etc/mongodb
+            - name: secret-volume
+              mountPath: /secrets
+              readOnly: true
+
+      containers:
+        - name: mongod
+          image: mongo:7.0
+          command:
+            - "mongod"
+            - "--replSet"
+            - "rs0"
+            - "--keyFile"
+            - "/etc/mongodb/keyfile"
+            - "--bind_ip"
+            - "0.0.0.0"
+          ports:
+            - containerPort: 27017
+              name: mongodb
+          volumeMounts:
+            - name: mongo-data
+              mountPath: /data/db
+            - name: keyfile-volume
+              mountPath: /etc/mongodb
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1Gi"
+          readinessProbe:
+            exec:
+              command:
+                - "mongosh"
+                - "--port"
+                - "27017"
+                - "--quiet"
+                - "--eval"
+                - "db.runCommand({ping:1})"
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            exec:
+              command:
+                - "mongosh"
+                - "--port"
+                - "27017"
+                - "--quiet"
+                - "--eval"
+                - "db.runCommand({ping:1})"
+            initialDelaySeconds: 30
+            periodSeconds: 20
+            timeoutSeconds: 5
+            failureThreshold: 3
+
+      volumes:
+        - name: keyfile-volume
+          emptyDir: {}
+        - name: secret-volume
+          secret:
+            secretName: mongo-keyfile-secret
+            optional: true
+
+  # volumeClaimTemplates guarantees each pod gets its own dedicated, stable PersistentVolumeClaim
+  volumeClaimTemplates:
+    - metadata:
+        name: mongo-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 5Gi

@@ -1,0 +1,401 @@
+{
+  "metadata": {
+    "lab": "Lab 6.1: Index Design for a Query Workload",
+    "total_documents": 50000,
+    "database_name": "nosql_lab_6_1",
+    "collection_name": "products",
+    "execution_mode": "Simulated Engine"
+  },
+  "sample_products": [
+    {
+      "product_id": "PRD-00001",
+      "name": "Pro Smart Fitness Band #00001",
+      "category": "Wearables",
+      "price": 317.44,
+      "rating": 2.4,
+      "stock": 52,
+      "tags": [
+        "durable",
+        "ergonomic"
+      ]
+    },
+    {
+      "product_id": "PRD-00002",
+      "name": "Ultra Ergonomic Headphones #00002",
+      "category": "Electronics",
+      "price": 302.34,
+      "rating": 3.8,
+      "stock": 287,
+      "tags": [
+        "compact",
+        "lightweight",
+        "sale"
+      ]
+    },
+    {
+      "product_id": "PRD-00003",
+      "name": "Premium Eco Air Fryer #00003",
+      "category": "Home & Kitchen",
+      "price": 358.57,
+      "rating": 4.6,
+      "stock": 81,
+      "tags": [
+        "usb-c",
+        "premium",
+        "portable",
+        "rechargeable",
+        "waterproof"
+      ]
+    },
+    {
+      "product_id": "PRD-00004",
+      "name": "Gaming Ultra Headphones #00004",
+      "category": "Electronics",
+      "price": 458.34,
+      "rating": 3.0,
+      "stock": 135,
+      "tags": [
+        "high-res",
+        "sale"
+      ]
+    },
+    {
+      "product_id": "PRD-00005",
+      "name": "Gaming Ultra Yoga Mat #00005",
+      "category": "Fitness",
+      "price": 696.77,
+      "rating": 4.5,
+      "stock": 316,
+      "tags": [
+        "bluetooth",
+        "portable",
+        "durable",
+        "wireless"
+      ]
+    }
+  ],
+  "query_definitions": [
+    {
+      "id": "Q1",
+      "name": "Find by Category and Sort by Price",
+      "desc": "Category = 'Electronics', sorted by price ASC (Browsing catalog page)",
+      "filter": {
+        "category": "Electronics"
+      },
+      "sort": [
+        [
+          "price",
+          1
+        ]
+      ],
+      "limit": 100
+    },
+    {
+      "id": "Q2",
+      "name": "Find by Price Range",
+      "desc": "Price between $50.00 and $150.00 (Budget filter slider)",
+      "filter": {
+        "price": {
+          "$gte": 50.0,
+          "$lte": 150.0
+        }
+      },
+      "sort": null,
+      "limit": 100
+    },
+    {
+      "id": "Q3",
+      "name": "Find by Multikey Tag (Array Element)",
+      "desc": "Products tagged with 'wireless' (Feature badge search)",
+      "filter": {
+        "tags": "wireless"
+      },
+      "sort": null,
+      "limit": 100
+    },
+    {
+      "id": "Q4",
+      "name": "Text Search on Product Name",
+      "desc": "Search product name for 'Gaming Keyboard' (Full-text search bar)",
+      "filter": {
+        "$text": {
+          "$search": "Gaming Keyboard"
+        }
+      },
+      "sort": null,
+      "limit": 50
+    },
+    {
+      "id": "Q5",
+      "name": "Compound Category with Rating & Stock Availability",
+      "desc": "Category = 'Audio', Rating >= 4.5, Stock > 0 (High-rated in-stock filter)",
+      "filter": {
+        "category": "Audio",
+        "rating": {
+          "$gte": 4.5
+        },
+        "stock": {
+          "$gt": 0
+        }
+      },
+      "sort": [
+        [
+          "rating",
+          -1
+        ]
+      ],
+      "limit": 50
+    }
+  ],
+  "indexes_created": [
+    {
+      "name": "idx_category_price",
+      "keys": [
+        [
+          "category",
+          1
+        ],
+        [
+          "price",
+          1
+        ]
+      ],
+      "supports": "Q1 (Equality: category -> Sort: price)",
+      "rationale": "ESR Rule: Equality on 'category' filters subset, Sort on 'price' avoids in-memory sort stage."
+    },
+    {
+      "name": "idx_price",
+      "keys": [
+        [
+          "price",
+          1
+        ]
+      ],
+      "supports": "Q2 (Range: price $50 - $150)",
+      "rationale": "Single field index allows efficient b-tree range bounds scan for price values."
+    },
+    {
+      "name": "idx_tags",
+      "keys": [
+        [
+          "tags",
+          1
+        ]
+      ],
+      "supports": "Q3 (Multikey Array: tags)",
+      "rationale": "Multikey index indexes individual elements in the tags array for exact match."
+    },
+    {
+      "name": "idx_name_text",
+      "keys": [
+        [
+          "name",
+          "text"
+        ]
+      ],
+      "supports": "Q4 (Full-Text Search on name)",
+      "rationale": "Text index creates stemmed, tokenized inverted index for rapid keyword matching."
+    },
+    {
+      "name": "idx_cat_rating_stock",
+      "keys": [
+        [
+          "category",
+          1
+        ],
+        [
+          "rating",
+          -1
+        ],
+        [
+          "stock",
+          1
+        ]
+      ],
+      "supports": "Q5 (Equality: category -> Sort: rating -> Range: stock)",
+      "rationale": "ESR Rule: Equality on category first, sort order on rating DESC, range filter on stock."
+    }
+  ],
+  "summary_comparison": [
+    {
+      "query_id": "Q1",
+      "query_name": "Find by Category and Sort by Price",
+      "filter": {
+        "category": "Electronics"
+      },
+      "sort": [
+        [
+          "price",
+          1
+        ]
+      ],
+      "stage_before": "SORT",
+      "stage_after": "FETCH",
+      "docs_examined_before": 50000,
+      "docs_examined_after": 100,
+      "keys_examined_after": 8254,
+      "time_before_ms": 83.5,
+      "time_after_ms": 0.47,
+      "index_used": "idx_category_price",
+      "improvement_ratio": "500.0x fewer"
+    },
+    {
+      "query_id": "Q2",
+      "query_name": "Find by Price Range",
+      "filter": {
+        "price": {
+          "$gte": 50.0,
+          "$lte": 150.0
+        }
+      },
+      "sort": null,
+      "stage_before": "COLLSCAN",
+      "stage_after": "FETCH",
+      "docs_examined_before": 50000,
+      "docs_examined_after": 100,
+      "keys_examined_after": 4063,
+      "time_before_ms": 83.5,
+      "time_after_ms": 0.47,
+      "index_used": "idx_price",
+      "improvement_ratio": "500.0x fewer"
+    },
+    {
+      "query_id": "Q3",
+      "query_name": "Find by Multikey Tag (Array Element)",
+      "filter": {
+        "tags": "wireless"
+      },
+      "sort": null,
+      "stage_before": "COLLSCAN",
+      "stage_after": "FETCH",
+      "docs_examined_before": 50000,
+      "docs_examined_after": 100,
+      "keys_examined_after": 13335,
+      "time_before_ms": 83.5,
+      "time_after_ms": 0.47,
+      "index_used": "idx_tags",
+      "improvement_ratio": "500.0x fewer"
+    },
+    {
+      "query_id": "Q4",
+      "query_name": "Text Search on Product Name",
+      "filter": {
+        "$text": {
+          "$search": "Gaming Keyboard"
+        }
+      },
+      "sort": null,
+      "stage_before": "COLLSCAN",
+      "stage_after": "FETCH",
+      "docs_examined_before": 50000,
+      "docs_examined_after": 50,
+      "keys_examined_after": 10562,
+      "time_before_ms": 83.5,
+      "time_after_ms": 0.46,
+      "index_used": "idx_name_text",
+      "improvement_ratio": "1000.0x fewer"
+    },
+    {
+      "query_id": "Q5",
+      "query_name": "Compound Category with Rating & Stock Availability",
+      "filter": {
+        "category": "Audio",
+        "rating": {
+          "$gte": 4.5
+        },
+        "stock": {
+          "$gt": 0
+        }
+      },
+      "sort": [
+        [
+          "rating",
+          -1
+        ]
+      ],
+      "stage_before": "SORT",
+      "stage_after": "FETCH",
+      "docs_examined_before": 50000,
+      "docs_examined_after": 50,
+      "keys_examined_after": 1536,
+      "time_before_ms": 83.5,
+      "time_after_ms": 0.46,
+      "index_used": "idx_cat_rating_stock",
+      "improvement_ratio": "1000.0x fewer"
+    }
+  ],
+  "explain_before": {
+    "Q1": {
+      "stage": "SORT",
+      "totalDocsExamined": 50000,
+      "totalKeysExamined": 0,
+      "executionTimeMillis": 83.5,
+      "indexName": "None (Full Collection Scan)"
+    },
+    "Q2": {
+      "stage": "COLLSCAN",
+      "totalDocsExamined": 50000,
+      "totalKeysExamined": 0,
+      "executionTimeMillis": 83.5,
+      "indexName": "None (Full Collection Scan)"
+    },
+    "Q3": {
+      "stage": "COLLSCAN",
+      "totalDocsExamined": 50000,
+      "totalKeysExamined": 0,
+      "executionTimeMillis": 83.5,
+      "indexName": "None (Full Collection Scan)"
+    },
+    "Q4": {
+      "stage": "COLLSCAN",
+      "totalDocsExamined": 50000,
+      "totalKeysExamined": 0,
+      "executionTimeMillis": 83.5,
+      "indexName": "None (Full Collection Scan)"
+    },
+    "Q5": {
+      "stage": "SORT",
+      "totalDocsExamined": 50000,
+      "totalKeysExamined": 0,
+      "executionTimeMillis": 83.5,
+      "indexName": "None (Full Collection Scan)"
+    }
+  },
+  "explain_after": {
+    "Q1": {
+      "stage": "FETCH",
+      "totalDocsExamined": 100,
+      "totalKeysExamined": 8254,
+      "executionTimeMillis": 0.47,
+      "indexName": "idx_category_price"
+    },
+    "Q2": {
+      "stage": "FETCH",
+      "totalDocsExamined": 100,
+      "totalKeysExamined": 4063,
+      "executionTimeMillis": 0.47,
+      "indexName": "idx_price"
+    },
+    "Q3": {
+      "stage": "FETCH",
+      "totalDocsExamined": 100,
+      "totalKeysExamined": 13335,
+      "executionTimeMillis": 0.47,
+      "indexName": "idx_tags"
+    },
+    "Q4": {
+      "stage": "FETCH",
+      "totalDocsExamined": 50,
+      "totalKeysExamined": 10562,
+      "executionTimeMillis": 0.46,
+      "indexName": "idx_name_text"
+    },
+    "Q5": {
+      "stage": "FETCH",
+      "totalDocsExamined": 50,
+      "totalKeysExamined": 1536,
+      "executionTimeMillis": 0.46,
+      "indexName": "idx_cat_rating_stock"
+    }
+  }
+}

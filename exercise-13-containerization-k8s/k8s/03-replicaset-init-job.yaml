@@ -1,0 +1,50 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mongo-rs-init
+  namespace: nosql-labs
+  labels:
+    app: mongo-init
+spec:
+  backoffLimit: 5
+  template:
+    metadata:
+      labels:
+        app: mongo-init
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: rs-init
+          image: mongo:7.0
+          command:
+            - "sh"
+            - "-c"
+            - |
+              echo "Waiting for mongo-0 to become reachable..."
+              until mongosh --host mongo-0.mongo-headless-svc.nosql-labs.svc.cluster.local:27017 --eval "db.runCommand({ping:1})" --quiet; do
+                echo "Waiting for mongo-0..."
+                sleep 3
+              done
+
+              echo "Executing rs.initiate() on replica set rs0..."
+              mongosh --host mongo-0.mongo-headless-svc.nosql-labs.svc.cluster.local:27017 --quiet --eval '
+              try {
+                const res = rs.initiate({
+                  _id: "rs0",
+                  members: [
+                    { _id: 0, host: "mongo-0.mongo-headless-svc.nosql-labs.svc.cluster.local:27017", priority: 2 },
+                    { _id: 1, host: "mongo-1.mongo-headless-svc.nosql-labs.svc.cluster.local:27017", priority: 1 },
+                    { _id: 2, host: "mongo-2.mongo-headless-svc.nosql-labs.svc.cluster.local:27017", priority: 1 }
+                  ]
+                });
+                print("[OK] Replica set initialized: " + JSON.stringify(res));
+              } catch(e) {
+                print("[NOTICE] Replica set might already be initialized: " + e);
+              }
+              '
+
+              echo "Waiting for replica set primary election..."
+              sleep 10
+              mongosh --host mongo-0.mongo-headless-svc.nosql-labs.svc.cluster.local:27017 --quiet --eval '
+              rs.status().members.forEach(m => print("Pod [" + m.name + "] State=" + m.stateStr));
+              '

@@ -1,0 +1,55 @@
+{
+  "report_id": "AASR-2026-000001",
+  "dataset_source": "https://github.com/jacobdjwilson/awesome-annual-security-reports",
+  "publisher": "CrowdStrike",
+  "report_title": "CrowdStrike Global Threat Report - Annual Threat Telemetry Case #1",
+  "edition_year": 2026,
+  "focal_topics": [
+    "eCrime",
+    "Adversary OverWatch",
+    "Breakout Time"
+  ],
+  "executive_summary": "Annual intelligence synthesis documenting adversary tradecraft, dwell times, and extortion trends observed by CrowdStrike during global incident response engagements in 2026. Telemetry reflects enterprise deployments across Fortune 500.",
+  "metrics_telemetry": {
+    "median_dwell_time_days": 18,
+    "ransom_demand_avg_usd": 3850000,
+    "initial_access_vector": "Exploit Public Application",
+    "multi_factor_bypass_rate": 0.324,
+    "samples": [
+      {
+        "sample_id": "SMPL-1-0",
+        "c2_domain": "auth-telemetry-node-842.defense-metrics.net",
+        "ip_address": "185.120.44.19",
+        "observed_hash_sha256": "4b971a81bc598a7281f629c48b0fae2467d02cb42903332467b6e92b8d4f40f0",
+        "beacon_interval_ms": 15000,
+        "threat_rating": "Critical",
+        "geo_asn": "AS48002 - US"
+      },
+      {
+        "sample_id": "SMPL-1-1",
+        "c2_domain": "auth-telemetry-node-219.defense-metrics.net",
+        "ip_address": "91.240.118.72",
+        "observed_hash_sha256": "7a29e41b99480ac0f04e4c449cfa745452f10b809831a29f8a48ef0e5cb15629",
+        "beacon_interval_ms": 30000,
+        "threat_rating": "High",
+        "geo_asn": "AS32091 - DE"
+      },
+      {
+        "sample_id": "SMPL-1-2",
+        "c2_domain": "auth-telemetry-node-531.defense-metrics.net",
+        "ip_address": "103.88.23.141",
+        "observed_hash_sha256": "9b3cf28a504b2cfbc5b81cf712bc962f9a0fecae80415d9a92a01d51c35b4412",
+        "beacon_interval_ms": 45000,
+        "threat_rating": "Critical",
+        "geo_asn": "AS55821 - SG"
+      }
+    ]
+  },
+  "mitre_attack_matrix": {
+    "tactic": "TA0001 Initial Access",
+    "technique_id": "T1190.001",
+    "detection_confidence": 0.96
+  },
+  "analyst_notes": "Archived security benchmark document for working set and cache residency analysis.",
+  "padding_buffer": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+}

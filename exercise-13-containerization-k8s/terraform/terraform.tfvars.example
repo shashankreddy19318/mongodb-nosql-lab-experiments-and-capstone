@@ -1,0 +1,10 @@
+# Copy this file to terraform.tfvars and fill in your MongoDB Atlas credentials
+atlas_public_key    = "YOUR_ATLAS_PUBLIC_KEY"
+atlas_private_key   = "YOUR_ATLAS_PRIVATE_KEY"
+atlas_org_id        = "YOUR_ATLAS_ORG_ID"
+atlas_user_password = "YourStrongPassword123!"
+atlas_region        = "AP_SOUTH_1"
+project_name        = "NoSQL Labs - Training"
+cluster_name        = "training-cluster"
+db_username         = "lab_user"
+allowed_cidr        = "0.0.0.0/0"

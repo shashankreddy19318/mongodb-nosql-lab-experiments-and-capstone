@@ -1,0 +1,165 @@
+[
+  {
+    "code": "CS101",
+    "title": "Introduction to Computer Science",
+    "credits": 3,
+    "instructor": "Dr. Adams",
+    "prerequisites": [],
+    "schedule": {
+      "days": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "time": "09:00 AM - 10:00 AM",
+      "room": "Hall 101"
+    },
+    "students": [
+      {
+        "name": "Alice Johnson",
+        "student_id": "S101",
+        "grade": "A"
+      },
+      {
+        "name": "Bob Williams",
+        "student_id": "S102",
+        "grade": "B+"
+      }
+    ],
+    "_id": {
+      "$oid": "6b031a864677458dce8e14ec"
+    }
+  },
+  {
+    "code": "CS201",
+    "title": "Data Structures and Algorithms",
+    "credits": 4,
+    "instructor": "Dr. Baker",
+    "prerequisites": [
+      "CS101"
+    ],
+    "schedule": {
+      "days": [
+        "Tuesday",
+        "Thursday"
+      ],
+      "time": "10:00 AM - 11:30 AM",
+      "room": "Hall 202"
+    },
+    "students": [
+      {
+        "name": "Charlie Davis",
+        "student_id": "S103",
+        "grade": "A-"
+      },
+      {
+        "name": "Diana Ross",
+        "student_id": "S104",
+        "grade": "B"
+      }
+    ],
+    "_id": {
+      "$oid": "6b031a864677458dce8e14ed"
+    }
+  },
+  {
+    "code": "CS301",
+    "title": "Algorithms and Complexity",
+    "credits": 4,
+    "instructor": "Dr. Chen",
+    "prerequisites": [
+      "CS101",
+      "CS201"
+    ],
+    "schedule": {
+      "days": [
+        "Monday",
+        "Wednesday"
+      ],
+      "time": "01:00 PM - 02:30 PM",
+      "room": "Hall 305"
+    },
+    "students": [
+      {
+        "name": "Evan Wright",
+        "student_id": "S105",
+        "grade": "A"
+      },
+      {
+        "name": "Frank Miller",
+        "student_id": "S106",
+        "grade": "B+"
+      }
+    ],
+    "_id": {
+      "$oid": "6b031a864677458dce8e14ee"
+    }
+  },
+  {
+    "code": "CS401",
+    "title": "Advanced Database Systems",
+    "credits": 3,
+    "instructor": "Dr. Smith",
+    "prerequisites": [
+      "CS201",
+      "CS301"
+    ],
+    "schedule": {
+      "days": [
+        "Tuesday",
+        "Thursday",
+        "Friday"
+      ],
+      "time": "02:00 PM - 03:30 PM",
+      "room": "Hall 410"
+    },
+    "students": [
+      {
+        "name": "Grace Hopper",
+        "student_id": "S107",
+        "grade": "A+"
+      },
+      {
+        "name": "Henry Ford",
+        "student_id": "S108",
+        "grade": "A-"
+      }
+    ],
+    "_id": {
+      "$oid": "6b031a864677458dce8e14ef"
+    }
+  },
+  {
+    "code": "CS502",
+    "title": "Deep Learning & Artificial Intelligence",
+    "credits": 4,
+    "instructor": "Dr. Patel",
+    "prerequisites": [
+      "CS301",
+      "CS401"
+    ],
+    "schedule": {
+      "days": [
+        "Monday",
+        "Wednesday"
+      ],
+      "time": "03:00 PM - 04:30 PM",
+      "room": "Lab 501"
+    },
+    "students": [
+      {
+        "name": "Alice Johnson",
+        "student_id": "S101",
+        "grade": "A"
+      },
+      {
+        "name": "Evan Wright",
+        "student_id": "S105",
+        "grade": "A-"
+      }
+    ],
+    "_id": {
+      "$oid": "6b031a864677458dce8e14f0"
+    }
+  }
+]

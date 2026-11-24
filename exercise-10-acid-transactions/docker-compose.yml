@@ -1,0 +1,104 @@
+services:
+  mongo-rs0-1:
+    image: mongo:7
+    container_name: mongo-rs0-1
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    ports:
+      - "27017:27017"
+    volumes:
+      - rs0_data1:/data/db
+    networks:
+      mongo-net:
+        aliases:
+          - mongo-rs0-1
+    healthcheck:
+      test: echo 'db.runCommand({ping:1})' | mongosh --quiet
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  mongo-rs0-2:
+    image: mongo:7
+    container_name: mongo-rs0-2
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27018"]
+    ports:
+      - "27018:27018"
+    volumes:
+      - rs0_data2:/data/db
+    networks:
+      mongo-net:
+        aliases:
+          - mongo-rs0-2
+
+  mongo-rs0-3:
+    image: mongo:7
+    container_name: mongo-rs0-3
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27019"]
+    ports:
+      - "27019:27019"
+    volumes:
+      - rs0_data3:/data/db
+    networks:
+      mongo-net:
+        aliases:
+          - mongo-rs0-3
+
+  mongo-init:
+    image: mongo:7
+    container_name: mongo-rs0-init
+    depends_on:
+      mongo-rs0-1:
+        condition: service_healthy
+    networks:
+      - mongo-net
+    restart: "no"
+    entrypoint: >
+      bash -c "
+      echo 'Waiting for replica set nodes to accept connections...';
+      sleep 2;
+      mongosh --host mongo-rs0-1:27017 --eval '
+        try {
+          var status = rs.status();
+          if (status.ok === 1) {
+            print(\"Replica set rs0 already initiated.\");
+          }
+        } catch (e) {
+          print(\"Initiating replica set rs0...\");
+          rs.initiate({
+            _id: \"rs0\",
+            members: [
+              { _id: 0, host: \"mongo-rs0-1:27017\", priority: 2 },
+              { _id: 1, host: \"mongo-rs0-2:27018\", priority: 1 },
+              { _id: 2, host: \"mongo-rs0-3:27019\", priority: 1 }
+            ]
+          });
+        }
+      '
+      "
+
+  lab10-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: chintan/mongodb-lab10:latest
+    container_name: mongodb-lab10-runner
+    depends_on:
+      - mongo-rs0-1
+      - mongo-rs0-2
+      - mongo-rs0-3
+      - mongo-init
+    environment:
+      - MONGO_URI=mongodb://mongo-rs0-1:27017,mongo-rs0-2:27018,mongo-rs0-3:27019/?replicaSet=rs0
+    networks:
+      - mongo-net
+    command: ["demo"]
+
+networks:
+  mongo-net:
+    name: mongo-net
+    external: false
+
+volumes:
+  rs0_data1:
+  rs0_data2:
+  rs0_data3:

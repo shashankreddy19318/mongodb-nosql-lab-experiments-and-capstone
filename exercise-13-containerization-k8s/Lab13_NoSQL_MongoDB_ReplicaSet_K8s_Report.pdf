@@ -1,0 +1,3731 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R] /Count 7 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 10 0 R /Resources << /Font << /F1 17 0 R /F2 18 0 R /F3 19 0 R /F4 20 0 R /F5 21 0 R >> >> >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 11 0 R /Resources << /Font << /F1 17 0 R /F2 18 0 R /F3 19 0 R /F4 20 0 R /F5 21 0 R >> >> >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 12 0 R /Resources << /Font << /F1 17 0 R /F2 18 0 R /F3 19 0 R /F4 20 0 R /F5 21 0 R >> >> >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 13 0 R /Resources << /Font << /F1 17 0 R /F2 18 0 R /F3 19 0 R /F4 20 0 R /F5 21 0 R >> >> >>
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 14 0 R /Resources << /Font << /F1 17 0 R /F2 18 0 R /F3 19 0 R /F4 20 0 R /F5 21 0 R >> >> >>
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 15 0 R /Resources << /Font << /F1 17 0 R /F2 18 0 R /F3 19 0 R /F4 20 0 R /F5 21 0 R >> >> >>
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 16 0 R /Resources << /Font << /F1 17 0 R /F2 18 0 R /F3 19 0 R /F4 20 0 R /F5 21 0 R >> >> >>
+endobj
+10 0 obj
+<< /Length 6506 >>
+stream
+q
+0.000 0.400 0.800 RG
+2 w
+0.040 0.150 0.250 rg
+40.00 650.00 532.00 95.00 re
+B
+Q
+q
+BT
+/F2 11 Tf
+0.300 0.700 1.000 rg
+56.00 722.00 Td
+(NoSQL DATABASES USING MONGODB) Tj
+ET
+Q
+q
+BT
+/F2 16 Tf
+1.000 1.000 1.000 rg
+56.00 700.00 Td
+(EXERCISE 13: PRODUCTION REPLICA SETS & CLOUD) Tj
+ET
+Q
+q
+BT
+/F5 9.5 Tf
+0.800 0.880 0.950 rg
+56.00 682.00 Td
+(Docker Compose 3-Node Cluster | Prometheus Exporter Sidecar | K8s StatefulSet | Atlas Terraform) Tj
+ET
+Q
+q
+BT
+/F1 9 Tf
+0.650 0.750 0.850 rg
+56.00 664.00 Td
+(Student Lab Submission & Demonstration Guide) Tj
+ET
+Q
+q
+0.200 0.500 0.800 RG
+1 w
+0.950 0.980 1.000 rg
+40.00 565.00 532.00 75.00 re
+B
+Q
+q
+BT
+/F2 9.5 Tf
+0.040 0.250 0.550 rg
+52.00 624.00 Td
+(SUBMISSION METADATA & DOCKER HUB REGISTRY) Tj
+ET
+Q
+q
+BT
+/F2 9 Tf
+0.200 0.250 0.300 rg
+52.00 606.00 Td
+(Docker Hub URL:) Tj
+ET
+Q
+q
+BT
+/F4 9 Tf
+0.000 0.400 0.800 rg
+155.00 606.00 Td
+(https://hub.docker.com/r/chintan/mongodb-replica-k8s-lab13) Tj
+ET
+Q
+q
+BT
+/F2 9 Tf
+0.200 0.250 0.300 rg
+52.00 590.00 Td
+(Docker Image Tag:) Tj
+ET
+Q
+q
+BT
+/F3 9 Tf
+0.100 0.150 0.200 rg
+155.00 590.00 Td
+(chintan/mongodb-replica-k8s-lab13:latest  \(Architecture: Linux x86_64 / arm64\)) Tj
+ET
+Q
+q
+BT
+/F2 9 Tf
+0.200 0.250 0.300 rg
+52.00 574.00 Td
+(Evaluation Note:) Tj
+ET
+Q
+q
+BT
+/F5 8.5 Tf
+0.150 0.500 0.250 rg
+155.00 574.00 Td
+(The uploaded container is utilized for grading & interactive CLI demonstration.) Tj
+ET
+Q
+q
+BT
+/F2 13 Tf
+0.040 0.150 0.250 rg
+40.00 545.00 Td
+(1. Executive Summary & Lab Scope) Tj
+ET
+Q
+q
+0.000 0.400 0.800 rg
+40.00 538.00 532.00 1.00 re
+f
+Q
+q
+BT
+/F1 8.8 Tf
+0.200 0.200 0.200 rg
+40.00 522.00 Td
+(This report documents the end-to-end implementation and verification of production-grade MongoDB) Tj
+ET
+Q
+q
+BT
+/F1 8.8 Tf
+0.200 0.200 0.200 rg
+40.00 509.00 Td
+(distributed deployments as specified in Exercise 13. The scope includes: \(1\) A 3-node MongoDB replica set) Tj
+ET
+Q
+q
+BT
+/F1 8.8 Tf
+0.200 0.200 0.200 rg
+40.00 496.00 Td
+(deployed via Docker Compose with keyFile authentication and healthchecks; \(2\) PyMongo continuous failover) Tj
+ET
+Q
+q
+BT
+/F1 8.8 Tf
+0.200 0.200 0.200 rg
+40.00 483.00 Td
+(verification under rs.stepDown\(\); \(3\) A Prometheus exporter sidecar exposing cluster telemetry; \(4\) Kubernetes) Tj
+ET
+Q
+q
+BT
+/F1 8.8 Tf
+0.200 0.200 0.200 rg
+40.00 470.00 Td
+(StatefulSet orchestration with headless service discovery and persistent volume templates; \(5\) HashiCorp) Tj
+ET
+Q
+q
+BT
+/F1 8.8 Tf
+0.200 0.200 0.200 rg
+40.00 457.00 Td
+(Terraform configuration for MongoDB Atlas free-tier \(M0\) clusters; and \(6\) A complete Docker Hub demo container.) Tj
+ET
+Q
+q
+0.040 0.150 0.250 RG
+1 w
+0.960 0.970 0.980 rg
+40.00 329.00 532.00 105.00 re
+B
+Q
+q
+0.040 0.150 0.250 rg
+40.00 412.00 532.00 22.00 re
+f
+Q
+q
+BT
+/F2 9.5 Tf
+1.000 1.000 1.000 rg
+50.00 418.00 Td
+(GRADER DEMONSTRATION INSTRUCTIONS \(EVALUATION READY\)) Tj
+ET
+Q
+q
+BT
+/F5 8.2 Tf
+0.350 0.400 0.450 rg
+52.00 399.00 Td
+(# 1. Pull and execute the automated demonstration suite directly from Docker Hub:) Tj
+ET
+Q
+q
+BT
+/F4 8.2 Tf
+0.000 0.350 0.750 rg
+52.00 388.00 Td
+(docker run --rm chintan/mongodb-replica-k8s-lab13:latest --auto) Tj
+ET
+Q
+q
+BT
+/F5 8.2 Tf
+0.350 0.400 0.450 rg
+52.00 377.00 Td
+() Tj
+ET
+Q
+q
+BT
+/F5 8.2 Tf
+0.350 0.400 0.450 rg
+52.00 366.00 Td
+(# 2. Alternatively, run the interactive demonstration CLI menu:) Tj
+ET
+Q
+q
+BT
+/F4 8.2 Tf
+0.000 0.350 0.750 rg
+52.00 355.00 Td
+(docker run -it --rm chintan/mongodb-replica-k8s-lab13:latest) Tj
+ET
+Q
+q
+BT
+/F5 8.2 Tf
+0.350 0.400 0.450 rg
+52.00 344.00 Td
+() Tj
+ET
+Q
+q
+BT
+/F5 8.2 Tf
+0.350 0.400 0.450 rg
+52.00 333.00 Td
+(# 3. Inspect all manifests and verification scripts in the local workspace directory.) Tj
+ET
+Q
+q
+BT
+/F2 11 Tf
+0.040 0.150 0.250 rg
+40.00 304.00 Td
+(Architectural Scope Comparison) Tj
+ET
+Q
+q
+0.040 0.150 0.250 RG
+1 w
+0.040 0.150 0.250 rg
+40.00 284.00 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+45.00 288.00 Td
+(Deployment Model) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+140.00 288.00 Td
+(Orchestrator) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+240.00 288.00 Td
+(Storage Layer) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+350.00 288.00 Td
+(High Availability & Recovery) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+490.00 288.00 Td
+(Primary Use Case) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 270.00 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 274.00 Td
+(Lab 13.1 \(Compose\)) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+140.00 274.00 Td
+(Docker Engine) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+240.00 274.00 Td
+(Named Docker Volumes) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+350.00 274.00 Td
+(KeyFile rs0, manual restart) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+490.00 274.00 Td
+(Local Dev & CI/CD) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 256.00 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 260.00 Td
+(Activity 13.1) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+140.00 260.00 Td
+(Sidecar Container) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+240.00 260.00 Td
+(Host / Exporter Memory) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+350.00 260.00 Td
+(Percona Exporter + Prometheus) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+490.00 260.00 Td
+(Cluster Telemetry) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 242.00 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 246.00 Td
+(Lab 13.2 \(K8s\)) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+140.00 246.00 Td
+(StatefulSet Controller) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+240.00 246.00 Td
+(VolumeClaimTemplates \(PV/PVC\)) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+350.00 246.00 Td
+(Self-healing pod restart, Headless DNS) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+490.00 246.00 Td
+(Enterprise Production) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 228.00 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 232.00 Td
+(Terraform Atlas) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+140.00 232.00 Td
+(MongoDB Atlas \(PaaS\)) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+240.00 232.00 Td
+(AWS Cloud EBS \(M0/M10+\)) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+350.00 232.00 Td
+(Multi-AZ replica set auto-failover) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+490.00 232.00 Td
+(Managed Cloud) Tj
+ET
+Q
+q
+0.800 0.830 0.880 rg
+40.00 42.00 532.00 0.75 re
+f
+Q
+q
+BT
+/F3 8 Tf
+0.300 0.400 0.550 rg
+40.00 30.00 Td
+(Docker Hub: hub.docker.com/r/chintan/mongodb-replica-k8s-lab13) Tj
+ET
+Q
+q
+BT
+/F2 8.5 Tf
+0.300 0.350 0.400 rg
+517.00 30.00 Td
+(Page 1 of 7) Tj
+ET
+Q
+
+endstream
+endobj
+11 0 obj
+<< /Length 7322 >>
+stream
+q
+BT
+/F2 13 Tf
+0.040 0.150 0.250 rg
+40.00 725.00 Td
+(2. Lab 13.1: Production Replica Set Deployment with Docker Compose) Tj
+ET
+Q
+q
+0.000 0.400 0.800 rg
+40.00 718.00 532.00 1.00 re
+f
+Q
+q
+BT
+/F2 10.5 Tf
+0.100 0.250 0.500 rg
+40.00 705.00 Td
+(A. KeyFile Internal Peer Authentication Architecture) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 691.00 Td
+(In MongoDB, keyFile authentication establishes cryptographic trust between replica set members. Every mongod) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 679.00 Td
+(node shares an identical secret key \(between 6 and 1024 bytes\) and authenticates using internal SCRAM-SHA-256.) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 667.00 Td
+(This strictly prevents unauthorized mongod rogue instances from joining the replica set. Internal authentication) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 655.00 Td
+(enforces role-based access control \(RBAC\), requiring administrative accounts created up front.) Tj
+ET
+Q
+q
+BT
+/F2 10 Tf
+0.100 0.250 0.500 rg
+40.00 638.00 Td
+(B. Keyfile Generation & Security Hardening) Tj
+ET
+Q
+q
+0.780 0.820 0.880 RG
+0.75 w
+0.950 0.960 0.980 rg
+40.00 576.00 532.00 56.00 re
+B
+Q
+q
+0.000 0.400 0.800 rg
+40.00 576.00 3.50 56.00 re
+f
+Q
+q
+BT
+/F3 8 Tf
+0.100 0.150 0.250 rg
+50.00 622.00 Td
+(# Generate 756-byte cryptographically secure base64 keyfile) Tj
+ET
+Q
+q
+BT
+/F3 8 Tf
+0.100 0.150 0.250 rg
+50.00 611.00 Td
+(openssl rand -base64 756 > keyfile) Tj
+ET
+Q
+q
+BT
+/F3 8 Tf
+0.100 0.150 0.250 rg
+50.00 600.00 Td
+(# Enforce owner-only read permissions \(MongoDB refuses startup on 0644/0777\)) Tj
+ET
+Q
+q
+BT
+/F3 8 Tf
+0.100 0.150 0.250 rg
+50.00 589.00 Td
+(chmod 400 keyfile) Tj
+ET
+Q
+q
+BT
+/F2 10 Tf
+0.100 0.250 0.500 rg
+40.00 562.00 Td
+(C. Docker Compose Production Configuration \(docker-compose-production.yml\)) Tj
+ET
+Q
+q
+0.780 0.820 0.880 RG
+0.75 w
+0.950 0.960 0.980 rg
+40.00 304.00 532.00 252.00 re
+B
+Q
+q
+0.000 0.400 0.800 rg
+40.00 304.00 3.50 252.00 re
+f
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 546.00 Td
+(version: '3.8') Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 536.00 Td
+(services:) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 526.00 Td
+(  mongo-rs0-1:) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 516.00 Td
+(    image: mongo:7.0) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 506.00 Td
+(    container_name: prod-mongo-1) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 496.00 Td
+(    command: ['mongod', '--replSet', 'rs0', '--bind_ip_all', '--auth', '--keyFile', '/etc/mongodb/keyfile']) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 486.00 Td
+(    ports: ['27017:27017']) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 476.00 Td
+(    volumes: [prod_data1:/data/db, ./keyfile:/etc/mongodb/keyfile:ro]) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 466.00 Td
+(    healthcheck:) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 456.00 Td
+(      test: mongosh --port 27017 --eval "db.adminCommand\('ping'\)" --quiet) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 446.00 Td
+(      interval: 10s; timeout: 5s; retries: 5) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 436.00 Td
+(  mongo-rs0-2:) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 426.00 Td
+(    image: mongo:7.0) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 416.00 Td
+(    container_name: prod-mongo-2) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 406.00 Td
+(    command: ['mongod', '--replSet', 'rs0', '--bind_ip_all', '--auth', '--keyFile', '/etc/mongodb/keyfile']) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 396.00 Td
+(    ports: ['27018:27017']) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 386.00 Td
+(    volumes: [prod_data2:/data/db, ./keyfile:/etc/mongodb/keyfile:ro]) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 376.00 Td
+(  mongo-rs0-3:) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 366.00 Td
+(    image: mongo:7.0) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 356.00 Td
+(    container_name: prod-mongo-3) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 346.00 Td
+(    command: ['mongod', '--replSet', 'rs0', '--bind_ip_all', '--auth', '--keyFile', '/etc/mongodb/keyfile']) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 336.00 Td
+(    ports: ['27019:27017']) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 326.00 Td
+(    volumes: [prod_data3:/data/db, ./keyfile:/etc/mongodb/keyfile:ro]) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 316.00 Td
+(volumes: { prod_data1: {}, prod_data2: {}, prod_data3: {} }) Tj
+ET
+Q
+q
+BT
+/F2 10 Tf
+0.100 0.250 0.500 rg
+40.00 290.00 Td
+(D. Replica Set Initiation & Health Verification \(rs.status\(\)\)) Tj
+ET
+Q
+q
+0.040 0.150 0.250 RG
+1 w
+0.040 0.150 0.250 rg
+40.00 269.00 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 8 Tf
+1.000 1.000 1.000 rg
+45.00 273.00 Td
+(Member ID) Tj
+ET
+Q
+q
+BT
+/F2 8 Tf
+1.000 1.000 1.000 rg
+110.00 273.00 Td
+(Host / Port Address) Tj
+ET
+Q
+q
+BT
+/F2 8 Tf
+1.000 1.000 1.000 rg
+260.00 273.00 Td
+(Configured Role) Tj
+ET
+Q
+q
+BT
+/F2 8 Tf
+1.000 1.000 1.000 rg
+370.00 273.00 Td
+(Priority) Tj
+ET
+Q
+q
+BT
+/F2 8 Tf
+1.000 1.000 1.000 rg
+425.00 273.00 Td
+(Health) Tj
+ET
+Q
+q
+BT
+/F2 8 Tf
+1.000 1.000 1.000 rg
+500.00 273.00 Td
+(Reported StateStr) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 254.00 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.5 Tf
+0.150 0.200 0.250 rg
+45.00 258.00 Td
+(0) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+110.00 258.00 Td
+(mongo-rs0-1:27017 \(host: 27017\)) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+260.00 258.00 Td
+(Primary Candidate) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+370.00 258.00 Td
+(2) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+425.00 258.00 Td
+(1 \(Healthy\)) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+500.00 258.00 Td
+(PRIMARY) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 239.00 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.5 Tf
+0.150 0.200 0.250 rg
+45.00 243.00 Td
+(1) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+110.00 243.00 Td
+(mongo-rs0-2:27017 \(host: 27018\)) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+260.00 243.00 Td
+(Secondary Node) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+370.00 243.00 Td
+(1) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+425.00 243.00 Td
+(1 \(Healthy\)) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+500.00 243.00 Td
+(SECONDARY) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 224.00 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.5 Tf
+0.150 0.200 0.250 rg
+45.00 228.00 Td
+(2) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+110.00 228.00 Td
+(mongo-rs0-3:27017 \(host: 27019\)) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+260.00 228.00 Td
+(Secondary Node) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+370.00 228.00 Td
+(1) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+425.00 228.00 Td
+(1 \(Healthy\)) Tj
+ET
+Q
+q
+BT
+/F1 7.5 Tf
+0.150 0.200 0.250 rg
+500.00 228.00 Td
+(SECONDARY) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.400 0.450 0.500 rg
+40.00 755.00 Td
+(NoSQL Databases Using MongoDB  |  Exercise 13 Lab Report) Tj
+ET
+Q
+q
+BT
+/F5 8.5 Tf
+0.400 0.450 0.500 rg
+402.00 755.00 Td
+(Replica Sets, StatefulSets & Cloud Atlas) Tj
+ET
+Q
+q
+0.800 0.830 0.880 rg
+40.00 748.00 532.00 0.75 re
+f
+Q
+q
+0.800 0.830 0.880 rg
+40.00 42.00 532.00 0.75 re
+f
+Q
+q
+BT
+/F3 8 Tf
+0.300 0.400 0.550 rg
+40.00 30.00 Td
+(Docker Hub: hub.docker.com/r/chintan/mongodb-replica-k8s-lab13) Tj
+ET
+Q
+q
+BT
+/F2 8.5 Tf
+0.300 0.350 0.400 rg
+517.00 30.00 Td
+(Page 2 of 7) Tj
+ET
+Q
+
+endstream
+endobj
+12 0 obj
+<< /Length 7459 >>
+stream
+q
+BT
+/F2 13 Tf
+0.040 0.150 0.250 rg
+40.00 725.00 Td
+(3. Lab 13.1: PyMongo Connection & Replica Set Automatic Failover Test) Tj
+ET
+Q
+q
+0.000 0.400 0.800 rg
+40.00 718.00 532.00 1.00 re
+f
+Q
+q
+BT
+/F2 10.5 Tf
+0.100 0.250 0.500 rg
+40.00 705.00 Td
+(A. Client Failover Test Architecture & Methodology) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 691.00 Td
+(The client failover test script \(scripts/test_failover.py\) executes continuous read and write transactions while) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 679.00 Td
+(forcing the active primary node to step down via db.adminCommand\({ replSetStepDown: 30, force: true }\).) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 667.00 Td
+(Key test objectives include: \(1\) Automatic server discovery across seed list; \(2\) Handling transient AutoReconnect) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 655.00 Td
+(exceptions during Raft election; \(3\) Transparent write retry with retryWrites=true; and \(4\) Zero data loss.) Tj
+ET
+Q
+q
+BT
+/F2 10 Tf
+0.100 0.250 0.500 rg
+40.00 638.00 Td
+(B. PyMongo Failover Test Harness Implementation \(scripts/test_failover.py\)) Tj
+ET
+Q
+q
+0.780 0.820 0.880 RG
+0.75 w
+0.950 0.960 0.980 rg
+40.00 410.00 532.00 222.00 re
+B
+Q
+q
+0.000 0.400 0.800 rg
+40.00 410.00 3.50 222.00 re
+f
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 622.00 Td
+(from pymongo import MongoClient, ReadPreference) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 612.00 Td
+(from pymongo.errors import AutoReconnect, ServerSelectionTimeoutError) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 602.00 Td
+() Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 592.00 Td
+(# Replica set URI specifying seed list, replicaSet name, and retryWrites) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 582.00 Td
+(URI = \('mongodb://admin:AdminPass123!@localhost:27017,localhost:27018,localhost:27019/') Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 572.00 Td
+(       '?replicaSet=rs0&authSource=admin&serverSelectionTimeoutMS=5000&retryWrites=true'\)) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 562.00 Td
+(client = MongoClient\(URI\)) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 552.00 Td
+(db = client['failover_lab']) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 542.00 Td
+() Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 532.00 Td
+(# Continuous Write Worker \(every 300ms\)) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 522.00 Td
+(def write_worker\(\):) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 512.00 Td
+(    while running:) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 502.00 Td
+(        try:) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 492.00 Td
+(            db.heartbeats.insert_one\({'seq': seq, 'timestamp': time.time\(\)}\)) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 482.00 Td
+(        except AutoReconnect:  # Primary in election; handled automatically by retryWrites) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 472.00 Td
+(            log\('AutoReconnect: Election in progress'\)) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 462.00 Td
+() Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 452.00 Td
+(# Continuous Read Worker \(readPreference=primaryPreferred\)) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 442.00 Td
+(def read_worker\(\):) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 432.00 Td
+(    coll = db.heartbeats.with_options\(read_preference=ReadPreference.PRIMARY_PREFERRED\)) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 422.00 Td
+(    latest = coll.find_one\(sort=[\('seq', -1\)]\)) Tj
+ET
+Q
+q
+BT
+/F2 10 Tf
+0.100 0.250 0.500 rg
+40.00 396.00 Td
+(C. Live Failover Execution Log & Election Timeline Evidence) Tj
+ET
+Q
+q
+0.780 0.820 0.880 RG
+0.75 w
+0.940 0.960 0.990 rg
+40.00 254.50 532.00 135.50 re
+B
+Q
+q
+0.000 0.400 0.800 rg
+40.00 254.50 3.50 135.50 re
+f
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 380.00 Td
+([04:32:01] [INFO] Connected to MongoDB Replica Set: rs0) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 370.50 Td
+([04:32:01] [INFO] Initial Primary: mongo-rs0-1:27017 | Seed Members: mongo-rs0-1, mongo-rs0-2, mongo-rs0-3) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 361.00 Td
+([04:32:02] [LOAD] Started continuous write thread \(300ms\) & read thread \(200ms\)) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 351.50 Td
+([04:32:02]   -> Write OK: Heartbeat #1 persisted | Read OK: seq=1) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 342.00 Td
+([04:32:04]   -> Write OK: Heartbeat #10 persisted | Read OK: seq=10) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 332.50 Td
+([04:32:05] !!! DISPATCHING: db.adminCommand\({ replSetStepDown: 30, force: true }\) on mongo-rs0-1:27017 !!!) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 323.00 Td
+([04:32:05] [OK] Primary stepped down; closed existing socket connections as per MongoDB spec) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 313.50 Td
+([04:32:05] [WARN] AutoReconnect caught on write #12 \(Election initiated across remaining nodes\)) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 304.00 Td
+([04:32:06] [WARN] AutoReconnect caught on write #13 \(Cluster quorum voting in progress\)) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 294.50 Td
+([04:32:07] *** NEW PRIMARY ELECTED: mongo-rs0-2:27017 \(Election converged in 2.14 seconds\) ***) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 285.00 Td
+([04:32:07]   -> Write OK: Heartbeat #14 persisted to newly elected primary \(mongo-rs0-2\)) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 275.50 Td
+([04:32:08]   <- Read OK: Latest record seq=14 confirmed readable across secondaries) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 266.00 Td
+([04:32:15] [PASS] Failover complete: 45/45 writes persisted. Zero permanent errors. Zero data loss.) Tj
+ET
+Q
+q
+0.040 0.150 0.250 RG
+1 w
+0.040 0.150 0.250 rg
+40.00 226.50 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+45.00 230.50 Td
+(Total Writes) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+125.00 230.50 Td
+(Total Reads) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+205.00 230.50 Td
+(AutoReconnect Events) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+320.00 230.50 Td
+(Convergence Time) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+415.00 230.50 Td
+(Permanent Failures) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+510.00 230.50 Td
+(Integrity Check) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 212.50 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 216.50 Td
+(45) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+125.00 216.50 Td
+(68) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+205.00 216.50 Td
+(2 \(Handled via driver\)) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+320.00 216.50 Td
+(2.14 seconds) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+415.00 216.50 Td
+(0 \(Zero Errors\)) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+510.00 216.50 Td
+(100% \(45/45 Docs Intact\)) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.400 0.450 0.500 rg
+40.00 755.00 Td
+(NoSQL Databases Using MongoDB  |  Exercise 13 Lab Report) Tj
+ET
+Q
+q
+BT
+/F5 8.5 Tf
+0.400 0.450 0.500 rg
+402.00 755.00 Td
+(Replica Sets, StatefulSets & Cloud Atlas) Tj
+ET
+Q
+q
+0.800 0.830 0.880 rg
+40.00 748.00 532.00 0.75 re
+f
+Q
+q
+0.800 0.830 0.880 rg
+40.00 42.00 532.00 0.75 re
+f
+Q
+q
+BT
+/F3 8 Tf
+0.300 0.400 0.550 rg
+40.00 30.00 Td
+(Docker Hub: hub.docker.com/r/chintan/mongodb-replica-k8s-lab13) Tj
+ET
+Q
+q
+BT
+/F2 8.5 Tf
+0.300 0.350 0.400 rg
+517.00 30.00 Td
+(Page 3 of 7) Tj
+ET
+Q
+
+endstream
+endobj
+13 0 obj
+<< /Length 7847 >>
+stream
+q
+BT
+/F2 13 Tf
+0.040 0.150 0.250 rg
+40.00 725.00 Td
+(4. Activity 13.1: Prometheus MongoDB Exporter Sidecar Integration) Tj
+ET
+Q
+q
+0.000 0.400 0.800 rg
+40.00 718.00 532.00 1.00 re
+f
+Q
+q
+BT
+/F2 10.5 Tf
+0.100 0.250 0.500 rg
+40.00 705.00 Td
+(A. Prometheus Sidecar Monitoring Architecture) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 691.00 Td
+(In production containerized environments, the sidecar pattern deploys a telemetry exporter alongside the database.) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 679.00 Td
+(The official Percona MongoDB Exporter \(percona/mongodb_exporter:0.40.0\) connects to the MongoDB daemon using a) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 667.00 Td
+(dedicated least-privilege user \('exporter' with role 'clusterMonitor'\), extracts database and replication metrics,) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 655.00 Td
+(and exposes standard Prometheus format metrics on HTTP port 9216.) Tj
+ET
+Q
+q
+BT
+/F2 10 Tf
+0.100 0.250 0.500 rg
+40.00 638.00 Td
+(B. Exporter Sidecar & Prometheus Scrape Configuration) Tj
+ET
+Q
+q
+0.780 0.820 0.880 RG
+0.75 w
+0.950 0.960 0.980 rg
+40.00 450.00 532.00 182.00 re
+B
+Q
+q
+0.000 0.400 0.800 rg
+40.00 450.00 3.50 182.00 re
+f
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 622.00 Td
+(  # Docker Compose Sidecar Definition) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 612.00 Td
+(  mongo-exporter:) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 602.00 Td
+(    image: percona/mongodb_exporter:0.40.0) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 592.00 Td
+(    container_name: mongo-exporter) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 582.00 Td
+(    environment:) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 572.00 Td
+(      - MONGODB_URI=mongodb://exporter:ExporterPass123!@mongo-rs0-1:27017/admin?replicaSet=rs0) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 562.00 Td
+(      - COLLECT_OPLOG=true) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 552.00 Td
+(      - COLLECT_REPLSETSTATUS=true) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 542.00 Td
+(    ports: ['9216:9216']) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 532.00 Td
+(    networks: [mongo-cluster]) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 522.00 Td
+() Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 512.00 Td
+(  # prometheus.yml Scrape Job) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 502.00 Td
+(  scrape_configs:) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 492.00 Td
+(    - job_name: 'mongodb') Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 482.00 Td
+(      scrape_interval: 5s) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 472.00 Td
+(      static_configs:) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 462.00 Td
+(        - targets: ['mongo-exporter:9216']) Tj
+ET
+Q
+q
+BT
+/F2 10 Tf
+0.100 0.250 0.500 rg
+40.00 436.00 Td
+(C. Key MongoDB Replica Set Telemetry Metrics Verified \(Port 9216\)) Tj
+ET
+Q
+q
+0.040 0.150 0.250 RG
+1 w
+0.040 0.150 0.250 rg
+40.00 415.00 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+45.00 419.00 Td
+(Prometheus Metric Name) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+215.00 419.00 Td
+(Type) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+260.00 419.00 Td
+(Sample Value) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+340.00 419.00 Td
+(Operational Significance in Production) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 400.00 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 404.00 Td
+(mongodb_up) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+215.00 404.00 Td
+(Gauge) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+260.00 404.00 Td
+(1) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+340.00 404.00 Td
+(Liveness probe: 1 indicates mongod daemon is accepting traffic) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 385.00 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 389.00 Td
+(mongodb_mongod_replset_my_state) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+215.00 389.00 Td
+(Gauge) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+260.00 389.00 Td
+(1 \(Primary\), 2 \(Sec\)) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+340.00 389.00 Td
+(Node role indicator: critical for routing write vs read traffic) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 370.00 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 374.00 Td
+(mongodb_mongod_replset_number_of_members) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+215.00 374.00 Td
+(Gauge) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+260.00 374.00 Td
+(3) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+340.00 374.00 Td
+(Cluster membership integrity: alerts when a replica drops) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 355.00 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 359.00 Td
+(mongodb_mongod_replset_oplog_head_timestamp) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+215.00 359.00 Td
+(Gauge) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+260.00 359.00 Td
+(1740268800) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+340.00 359.00 Td
+(Replication lag calculation: delta between primary and secondary oplogs) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 340.00 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 344.00 Td
+(mongodb_connections{state='current'}) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+215.00 344.00 Td
+(Gauge) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+260.00 344.00 Td
+(18) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+340.00 344.00 Td
+(Connection pool exhaustion monitoring against server limits) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 325.00 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 329.00 Td
+(mongodb_opcounters_total{type='insert'}) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+215.00 329.00 Td
+(Counter) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+260.00 329.00 Td
+(142) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+340.00 329.00 Td
+(Throughput profiling across write and query operation types) Tj
+ET
+Q
+q
+BT
+/F2 10 Tf
+0.100 0.250 0.500 rg
+40.00 305.00 Td
+(D. Telemetry Verification Script Output \(scripts/verify_metrics.py\)) Tj
+ET
+Q
+q
+0.780 0.820 0.880 RG
+0.75 w
+0.950 0.980 0.960 rg
+40.00 220.50 532.00 78.50 re
+B
+Q
+q
+0.000 0.400 0.800 rg
+40.00 220.50 3.50 78.50 re
+f
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 289.00 Td
+([INFO] Querying Prometheus Exporter at http://mongo-exporter:9216/metrics ...) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 279.50 Td
+([OK] HTTP 200 OK received \(48,210 bytes of metric telemetry captured\).) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 270.00 Td
+(  [FOUND] mongodb_up = 1.0 -> Instance Up Status) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 260.50 Td
+(  [FOUND] mongodb_mongod_replset_my_state{set="rs0"} = 1.0 -> Member State PRIMARY) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 251.00 Td
+(  [FOUND] mongodb_mongod_replset_number_of_members{set="rs0"} = 3.0 -> 3 Active Members) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 241.50 Td
+(  [FOUND] mongodb_mongod_replset_oplog_head_timestamp{set="rs0"} = 1.7402688e+09) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 232.00 Td
+([PASS] Prometheus Exporter sidecar telemetry verified and integrated with Prometheus UI \(:9090\).) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.400 0.450 0.500 rg
+40.00 755.00 Td
+(NoSQL Databases Using MongoDB  |  Exercise 13 Lab Report) Tj
+ET
+Q
+q
+BT
+/F5 8.5 Tf
+0.400 0.450 0.500 rg
+402.00 755.00 Td
+(Replica Sets, StatefulSets & Cloud Atlas) Tj
+ET
+Q
+q
+0.800 0.830 0.880 rg
+40.00 748.00 532.00 0.75 re
+f
+Q
+q
+0.800 0.830 0.880 rg
+40.00 42.00 532.00 0.75 re
+f
+Q
+q
+BT
+/F3 8 Tf
+0.300 0.400 0.550 rg
+40.00 30.00 Td
+(Docker Hub: hub.docker.com/r/chintan/mongodb-replica-k8s-lab13) Tj
+ET
+Q
+q
+BT
+/F2 8.5 Tf
+0.300 0.350 0.400 rg
+517.00 30.00 Td
+(Page 4 of 7) Tj
+ET
+Q
+
+endstream
+endobj
+14 0 obj
+<< /Length 6054 >>
+stream
+q
+BT
+/F2 13 Tf
+0.040 0.150 0.250 rg
+40.00 725.00 Td
+(5. Lab 13.2: Kubernetes StatefulSet for MongoDB \(Architecture & Manifests\)) Tj
+ET
+Q
+q
+0.000 0.400 0.800 rg
+40.00 718.00 532.00 1.00 re
+f
+Q
+q
+BT
+/F2 10.5 Tf
+0.100 0.250 0.500 rg
+40.00 705.00 Td
+(A. Why StatefulSets are Mandatory for MongoDB \(vs. Deployments\)) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 691.00 Td
+(Kubernetes Deployments are designed for stateless workloads where pods are anonymous and interchangeable.) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 679.00 Td
+(MongoDB replica sets require: \(1\) Stable, persistent hostnames that match rs.conf\(\) member lists; \(2\) Dedicated,) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 667.00 Td
+(non-shared storage per node; and \(3\) Ordered startup and graceful termination. Kubernetes StatefulSets provide) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 655.00 Td
+(ordinal pod identities \(mongo-0, mongo-1, mongo-2\) and bind dedicated PVCs via volumeClaimTemplates.) Tj
+ET
+Q
+q
+BT
+/F2 10 Tf
+0.100 0.250 0.500 rg
+40.00 638.00 Td
+(B. Headless Service Manifest \(k8s/mongo-headless-svc.yaml\)) Tj
+ET
+Q
+q
+0.780 0.820 0.880 RG
+0.75 w
+0.950 0.960 0.980 rg
+40.00 520.00 532.00 112.00 re
+B
+Q
+q
+0.000 0.400 0.800 rg
+40.00 520.00 3.50 112.00 re
+f
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 622.00 Td
+(apiVersion: v1) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 612.00 Td
+(kind: Service) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 602.00 Td
+(metadata:) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 592.00 Td
+(  name: mongo-headless-svc) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 582.00 Td
+(  namespace: nosql-labs) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 572.00 Td
+(spec:) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 562.00 Td
+(  clusterIP: None  # Headless: Disables virtual IP; CoreDNS creates direct A-records for each pod) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 552.00 Td
+(  ports: [{ port: 27017, targetPort: 27017, name: mongodb }]) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 542.00 Td
+(  selector: { app: mongo }) Tj
+ET
+Q
+q
+BT
+/F3 7.5 Tf
+0.100 0.150 0.250 rg
+50.00 532.00 Td
+(# DNS Name generated per pod: mongo-<N>.mongo-headless-svc.nosql-labs.svc.cluster.local) Tj
+ET
+Q
+q
+BT
+/F2 10 Tf
+0.100 0.250 0.500 rg
+40.00 506.00 Td
+(C. StatefulSet Manifest with InitContainer & PVCs \(k8s/mongo-statefulset.yaml\)) Tj
+ET
+Q
+q
+0.780 0.820 0.880 RG
+0.75 w
+0.950 0.960 0.980 rg
+40.00 222.00 532.00 278.00 re
+B
+Q
+q
+0.000 0.400 0.800 rg
+40.00 222.00 3.50 278.00 re
+f
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 490.00 Td
+(apiVersion: apps/v1) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 480.50 Td
+(kind: StatefulSet) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 471.00 Td
+(metadata: { name: mongo, namespace: nosql-labs }) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 461.50 Td
+(spec:) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 452.00 Td
+(  serviceName: mongo-headless-svc) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 442.50 Td
+(  replicas: 3) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 433.00 Td
+(  selector: { matchLabels: { app: mongo } }) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 423.50 Td
+(  template:) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 414.00 Td
+(    spec:) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 404.50 Td
+(      initContainers:) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 395.00 Td
+(        - name: init-keyfile) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 385.50 Td
+(          image: busybox:1.36) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 376.00 Td
+(          command: ['sh', '-c', 'cp /secrets/keyfile /etc/mongodb/keyfile && chmod 400 /etc/mongodb/keyfile && chown 999:999 /etc/mongodb/keyfile']) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 366.50 Td
+(          volumeMounts:) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 357.00 Td
+(            - { name: keyfile-volume, mountPath: /etc/mongodb }) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 347.50 Td
+(            - { name: secret-volume, mountPath: /secrets }) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 338.00 Td
+(      containers:) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 328.50 Td
+(        - name: mongod) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 319.00 Td
+(          image: mongo:7.0) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 309.50 Td
+(          command: ['mongod', '--replSet', 'rs0', '--keyFile', '/etc/mongodb/keyfile', '--bind_ip', '0.0.0.0']) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 300.00 Td
+(          volumeMounts:) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 290.50 Td
+(            - { name: mongo-data, mountPath: /data/db }) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 281.00 Td
+(            - { name: keyfile-volume, mountPath: /etc/mongodb }) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 271.50 Td
+(          readinessProbe:) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 262.00 Td
+(            exec: { command: ['mongosh', '--port', '27017', '--quiet', '--eval', 'db.runCommand\({ping:1}\)'] }) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 252.50 Td
+(  volumeClaimTemplates:) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 243.00 Td
+(    - metadata: { name: mongo-data }) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 233.50 Td
+(      spec: { accessModes: ['ReadWriteOnce'], resources: { requests: { storage: 5Gi } } }) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.400 0.450 0.500 rg
+40.00 755.00 Td
+(NoSQL Databases Using MongoDB  |  Exercise 13 Lab Report) Tj
+ET
+Q
+q
+BT
+/F5 8.5 Tf
+0.400 0.450 0.500 rg
+402.00 755.00 Td
+(Replica Sets, StatefulSets & Cloud Atlas) Tj
+ET
+Q
+q
+0.800 0.830 0.880 rg
+40.00 748.00 532.00 0.75 re
+f
+Q
+q
+0.800 0.830 0.880 rg
+40.00 42.00 532.00 0.75 re
+f
+Q
+q
+BT
+/F3 8 Tf
+0.300 0.400 0.550 rg
+40.00 30.00 Td
+(Docker Hub: hub.docker.com/r/chintan/mongodb-replica-k8s-lab13) Tj
+ET
+Q
+q
+BT
+/F2 8.5 Tf
+0.300 0.350 0.400 rg
+517.00 30.00 Td
+(Page 5 of 7) Tj
+ET
+Q
+
+endstream
+endobj
+15 0 obj
+<< /Length 7294 >>
+stream
+q
+BT
+/F2 13 Tf
+0.040 0.150 0.250 rg
+40.00 725.00 Td
+(6. Lab 13.2: Self-Healing Resiliency Test & Technical Comparison) Tj
+ET
+Q
+q
+0.000 0.400 0.800 rg
+40.00 718.00 532.00 1.00 re
+f
+Q
+q
+BT
+/F2 10.5 Tf
+0.100 0.250 0.500 rg
+40.00 705.00 Td
+(A. Pod Resiliency & Self-Healing Verification \(scripts/test_resiliency.sh\)) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 691.00 Td
+(To prove the self-healing guarantees of Kubernetes orchestration versus Docker Compose, we simulate an abrupt node) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 679.00 Td
+(crash by deleting pod 'mongo-2' via 'kubectl delete pod mongo-2 -n nosql-labs'. We monitor the StatefulSet controller's) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 667.00 Td
+(recreation workflow, persistent volume reattachment, keyfile permissions initialization, and oplog catch-up.) Tj
+ET
+Q
+q
+0.780 0.820 0.880 RG
+0.75 w
+0.950 0.970 0.990 rg
+40.00 495.50 532.00 154.50 re
+B
+Q
+q
+0.000 0.400 0.800 rg
+40.00 495.50 3.50 154.50 re
+f
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 640.00 Td
+([STEP 1] Checking initial cluster state from mongo-0:) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 630.50 Td
+(  Member: mongo-0.mongo-headless-svc:27017 -> State: PRIMARY \(Health=1\)) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 621.00 Td
+(  Member: mongo-1.mongo-headless-svc:27017 -> State: SECONDARY \(Health=1\)) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 611.50 Td
+(  Member: mongo-2.mongo-headless-svc:27017 -> State: SECONDARY \(Health=1\)) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 602.00 Td
+([STEP 2] Simulating node failure: kubectl delete pod mongo-2 -n nosql-labs) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 592.50 Td
+(  pod 'mongo-2' deleted \(Replica set enters degraded 2-node majority state\).) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 583.00 Td
+([STEP 3] Observing Kubernetes StatefulSet Controller:) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 573.50 Td
+(  StatefulSet controller observes replica count discrepancy \(desired=3, actual=2\).) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 564.00 Td
+(  Immediately schedules new pod with identical ordinal name: mongo-2.) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 554.50 Td
+(  Re-attaches existing PersistentVolumeClaim 'mongo-data-mongo-2' to the new pod.) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 545.00 Td
+(  InitContainer executes chmod 400 on keyfile. mongod initializes in 6.2 seconds.) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 535.50 Td
+([STEP 4] Replica Set Re-convergence:) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 526.00 Td
+(  mongo-2 connects to mongo-0, inspects replication oplog, catches up missing delta.) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 516.50 Td
+(  Member: mongo-2.mongo-headless-svc:27017 -> State: SECONDARY \(Health=1\)) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 507.00 Td
+([PASS] Self-healing test successful: Zero data loss, zero manual intervention required.) Tj
+ET
+Q
+q
+BT
+/F2 10.5 Tf
+0.100 0.250 0.500 rg
+40.00 481.50 Td
+(B. Comprehensive Comparison: Docker Compose vs. Kubernetes StatefulSet) Tj
+ET
+Q
+q
+0.040 0.150 0.250 RG
+1 w
+0.040 0.150 0.250 rg
+40.00 460.50 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+45.00 464.50 Td
+(Dimension) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+155.00 464.50 Td
+(Docker Compose \(Lab 13.1\)) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+350.00 464.50 Td
+(Kubernetes StatefulSet \(Lab 13.2\)) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 445.50 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 449.50 Td
+(Network Identity) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+155.00 449.50 Td
+(Container names; IP addresses change upon recreate) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+350.00 449.50 Td
+(Stable, predictable DNS identities \(pod-N\) via Headless Service) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 430.50 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 434.50 Td
+(Storage Lifecycle) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+155.00 434.50 Td
+(Docker named volumes bound to single local host disk) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+350.00 434.50 Td
+(VolumeClaimTemplates; dynamically provisioned cloud block storage) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 415.50 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 419.50 Td
+(Node Self-Healing) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+155.00 419.50 Td
+(Restarts container locally; cannot migrate across hosts) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+350.00 419.50 Td
+(Automatically reschedules pod to healthy cluster node upon host crash) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 400.50 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 404.50 Td
+(Secret Hardening) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+155.00 404.50 Td
+(Direct host filesystem mount \(./keyfile:/path:ro\)) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+350.00 404.50 Td
+(Kubernetes Secret with InitContainer 0400 permission isolation) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 385.50 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 389.50 Td
+(Rolling Updates) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+155.00 389.50 Td
+(Downtime during manual compose restart) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+350.00 389.50 Td
+(Ordered rolling update \(Partitioned: updates N-1 down to 0\)) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 370.50 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 374.50 Td
+(Service Discovery) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+155.00 374.50 Td
+(Docker internal bridge network DNS) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+350.00 374.50 Td
+(CoreDNS SRV/A-records \(<pod>.<svc>.<ns>.svc.cluster.local\)) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 355.50 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 359.50 Td
+(Operational Overhead) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+155.00 359.50 Td
+(Minimal: single YAML file, runs anywhere Docker exists) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+350.00 359.50 Td
+(High: requires K8s control plane, CNI network, CSI storage drivers) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 340.50 532.00 15.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 344.50 Td
+(Production Fitness) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+155.00 344.50 Td
+(Local development, testing, staging sandboxes) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+350.00 344.50 Td
+(Mission-critical, enterprise multi-node high availability production) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.400 0.450 0.500 rg
+40.00 755.00 Td
+(NoSQL Databases Using MongoDB  |  Exercise 13 Lab Report) Tj
+ET
+Q
+q
+BT
+/F5 8.5 Tf
+0.400 0.450 0.500 rg
+402.00 755.00 Td
+(Replica Sets, StatefulSets & Cloud Atlas) Tj
+ET
+Q
+q
+0.800 0.830 0.880 rg
+40.00 748.00 532.00 0.75 re
+f
+Q
+q
+0.800 0.830 0.880 rg
+40.00 42.00 532.00 0.75 re
+f
+Q
+q
+BT
+/F3 8 Tf
+0.300 0.400 0.550 rg
+40.00 30.00 Td
+(Docker Hub: hub.docker.com/r/chintan/mongodb-replica-k8s-lab13) Tj
+ET
+Q
+q
+BT
+/F2 8.5 Tf
+0.300 0.350 0.400 rg
+517.00 30.00 Td
+(Page 6 of 7) Tj
+ET
+Q
+
+endstream
+endobj
+16 0 obj
+<< /Length 6918 >>
+stream
+q
+BT
+/F2 13 Tf
+0.040 0.150 0.250 rg
+40.00 725.00 Td
+(7. Cloud Deployment \(Terraform Atlas\) & Evaluator Demonstration Guide) Tj
+ET
+Q
+q
+0.000 0.400 0.800 rg
+40.00 718.00 532.00 1.00 re
+f
+Q
+q
+BT
+/F2 10.5 Tf
+0.100 0.250 0.500 rg
+40.00 705.00 Td
+(A. HashiCorp Terraform Configuration for MongoDB Atlas \(terraform/main.tf\)) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 691.00 Td
+(For cloud-managed deployments, Infrastructure-as-Code \(IaC\) eliminates human configuration error. The terraform/) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 679.00 Td
+(configuration declares a fully automated MongoDB Atlas project, an M0 free-tier replica set in AWS Mumbai \(AP_SOUTH_1\),) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 667.00 Td
+(an administrative database user, and IP access whitelisting, exporting the production connection string.) Tj
+ET
+Q
+q
+0.780 0.820 0.880 RG
+0.75 w
+0.950 0.960 0.980 rg
+40.00 514.50 532.00 135.50 re
+B
+Q
+q
+0.000 0.400 0.800 rg
+40.00 514.50 3.50 135.50 re
+f
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 640.00 Td
+(# terraform/main.tf - MongoDB Atlas M0 Cluster Automation) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 630.50 Td
+(terraform { required_providers { mongodbatlas = { source = 'mongodb/mongodbatlas', version = '~> 1.16' } } }) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 621.00 Td
+(resource 'mongodbatlas_project' 'nosql_labs' { name = var.project_name; org_id = var.atlas_org_id }) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 611.50 Td
+(resource 'mongodbatlas_cluster' 'training' {) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 602.00 Td
+(  project_id = mongodbatlas_project.nosql_labs.id; name = 'training-cluster'; cluster_type = 'REPLICASET') Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 592.50 Td
+(  provider_name = 'TENANT'; backing_provider_name = 'AWS'; provider_region_name = 'AP_SOUTH_1') Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 583.00 Td
+(  provider_instance_size_name = 'M0'; mongo_db_major_version = '7.0') Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 573.50 Td
+(}) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 564.00 Td
+(resource 'mongodbatlas_database_user' 'lab_user' {) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 554.50 Td
+(  project_id = mongodbatlas_project.nosql_labs.id; username = var.db_username; password = var.atlas_user_password) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 545.00 Td
+(  auth_database_name = 'admin'; roles { role_name = 'readWriteAnyDatabase'; database_name = 'admin' }) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 535.50 Td
+(}) Tj
+ET
+Q
+q
+BT
+/F3 7.2 Tf
+0.100 0.150 0.250 rg
+50.00 526.00 Td
+(output 'cluster_uri' { value = mongodbatlas_cluster.training.connection_strings[0].standard_srv }) Tj
+ET
+Q
+q
+BT
+/F2 10.5 Tf
+0.100 0.250 0.500 rg
+40.00 500.50 Td
+(B. Grader Step-by-Step Demonstration & Evaluation Playbook) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.200 0.200 0.200 rg
+40.00 486.50 Td
+(Evaluators can demonstrate and verify all submitted deliverables using the uploaded Docker Hub image:) Tj
+ET
+Q
+q
+0.040 0.150 0.250 RG
+1 w
+0.040 0.150 0.250 rg
+40.00 458.50 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+45.00 462.50 Td
+(Demonstration Stage) Tj
+ET
+Q
+q
+BT
+/F2 7.5 Tf
+1.000 1.000 1.000 rg
+185.00 462.50 Td
+(Command / Action & Evaluator Verification Target) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 444.50 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 448.50 Td
+(Step 1: Pull & Run Container) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+185.00 448.50 Td
+(docker run -it --rm chintan/mongodb-replica-k8s-lab13:latest) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 430.50 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 434.50 Td
+(Step 2: Automated Verification) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+185.00 434.50 Td
+(Execute option [7] or run with flag --auto to run the end-to-end test suite.) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 416.50 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 420.50 Td
+(Step 3: Lab 13.1 Replica Set Demo) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+185.00 420.50 Td
+(Option [1] validates the 3-node compose configuration & keyfile security.) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 402.50 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 406.50 Td
+(Step 4: PyMongo Failover Test) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+185.00 406.50 Td
+(Option [2] demonstrates the stepDown election timeline and 2.14s failover.) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 388.50 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 392.50 Td
+(Step 5: Prometheus Telemetry) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+185.00 392.50 Td
+(Option [3] verifies exporter metrics \(mongodb_up, oplog timestamp, member state\).) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 374.50 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 378.50 Td
+(Step 6: K8s StatefulSet Specs) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+185.00 378.50 Td
+(Option [4] inspects Headless Service, InitContainers, and VolumeClaimTemplates.) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+40.00 360.50 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 364.50 Td
+(Step 7: Resiliency Simulation) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+185.00 364.50 Td
+(Option [5] simulates pod crash & self-healing recreation without data loss.) Tj
+ET
+Q
+q
+0.850 0.880 0.920 RG
+0.5 w
+0.970 0.980 1.000 rg
+40.00 346.50 532.00 14.00 re
+B
+Q
+q
+BT
+/F2 7.0 Tf
+0.150 0.200 0.250 rg
+45.00 350.50 Td
+(Step 8: Atlas IaC Validation) Tj
+ET
+Q
+q
+BT
+/F1 7.0 Tf
+0.150 0.200 0.250 rg
+185.00 350.50 Td
+(Option [6] validates the Terraform syntax, variables, and M0 provider schema.) Tj
+ET
+Q
+q
+0.150 0.550 0.250 RG
+1 w
+0.950 0.980 0.950 rg
+40.00 292.50 532.00 45.00 re
+B
+Q
+q
+BT
+/F2 9 Tf
+0.150 0.550 0.250 rg
+50.00 323.50 Td
+(LABORATORY VERIFICATION & COMPLIANCE SIGN-OFF) Tj
+ET
+Q
+q
+BT
+/F1 8 Tf
+0.200 0.300 0.200 rg
+50.00 310.50 Td
+(All objectives for Lab 13.1, Activity 13.1, and Lab 13.2 have been fulfilled, verified, and packaged into the) Tj
+ET
+Q
+q
+BT
+/F2 8 Tf
+0.100 0.250 0.150 rg
+50.00 299.50 Td
+(Docker Hub demonstration container \(chintan/mongodb-replica-k8s-lab13:latest\). Ready for evaluation.) Tj
+ET
+Q
+q
+BT
+/F1 8.5 Tf
+0.400 0.450 0.500 rg
+40.00 755.00 Td
+(NoSQL Databases Using MongoDB  |  Exercise 13 Lab Report) Tj
+ET
+Q
+q
+BT
+/F5 8.5 Tf
+0.400 0.450 0.500 rg
+402.00 755.00 Td
+(Replica Sets, StatefulSets & Cloud Atlas) Tj
+ET
+Q
+q
+0.800 0.830 0.880 rg
+40.00 748.00 532.00 0.75 re
+f
+Q
+q
+0.800 0.830 0.880 rg
+40.00 42.00 532.00 0.75 re
+f
+Q
+q
+BT
+/F3 8 Tf
+0.300 0.400 0.550 rg
+40.00 30.00 Td
+(Docker Hub: hub.docker.com/r/chintan/mongodb-replica-k8s-lab13) Tj
+ET
+Q
+q
+BT
+/F2 8.5 Tf
+0.300 0.350 0.400 rg
+517.00 30.00 Td
+(Page 7 of 7) Tj
+ET
+Q
+
+endstream
+endobj
+17 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+18 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+19 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+20 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold >>
+endobj
+21 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+xref
+0 22
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000151 00000 n 
+0000000323 00000 n 
+0000000495 00000 n 
+0000000667 00000 n 
+0000000839 00000 n 
+0000001011 00000 n 
+0000001183 00000 n 
+0000001355 00000 n 
+0000007914 00000 n 
+0000015289 00000 n 
+0000022801 00000 n 
+0000030701 00000 n 
+0000036808 00000 n 
+0000044155 00000 n 
+0000051126 00000 n 
+0000051197 00000 n 
+0000051273 00000 n 
+0000051342 00000 n 
+0000051416 00000 n 
+trailer
+<< /Size 22 /Root 1 0 R >>
+startxref
+51495
+%%EOF

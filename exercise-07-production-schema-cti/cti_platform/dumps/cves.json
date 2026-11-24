@@ -1,0 +1,42 @@
+[
+  {
+    "cve_id": "CVE-2026-3021",
+    "cvss_score": 9.8,
+    "epss_score": 0.892,
+    "description": "Pre-authentication buffer overflow in Enterprise VPN Gateway allowing arbitrary code execution.",
+    "status": "Actively Exploited in the Wild",
+    "_id": {
+      "$oid": "6b03363060872151ccfaa62b"
+    }
+  },
+  {
+    "cve_id": "CVE-2026-1184",
+    "cvss_score": 8.8,
+    "epss_score": 0.745,
+    "description": "Privilege escalation vulnerability in Linux Kernel eBPF subsystem.",
+    "status": "Public Exploit Available",
+    "_id": {
+      "$oid": "6b03363060872151ccfaa62c"
+    }
+  },
+  {
+    "cve_id": "CVE-2026-4409",
+    "cvss_score": 9.1,
+    "epss_score": 0.912,
+    "description": "SQL Injection in Apache ActiveMQ web console resulting in remote shell invocation.",
+    "status": "Actively Exploited in the Wild",
+    "_id": {
+      "$oid": "6b03363060872151ccfaa62d"
+    }
+  },
+  {
+    "cve_id": "CVE-2025-21298",
+    "cvss_score": 7.5,
+    "epss_score": 0.43,
+    "description": "Microsoft Outlook Remote Code Execution Vulnerability.",
+    "status": "Patch Available",
+    "_id": {
+      "$oid": "6b03363060872151ccfaa62e"
+    }
+  }
+]

@@ -1,0 +1,32 @@
+services:
+  mongo1:
+    image: mongo:7
+    container_name: mongo1-failover
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    ports:
+      - "27017:27017"
+    volumes:
+      - rs0_fo_data1:/data/db
+
+  mongo2:
+    image: mongo:7
+    container_name: mongo2-failover
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27018"]
+    ports:
+      - "27018:27018"
+    volumes:
+      - rs0_fo_data2:/data/db
+
+  mongo3:
+    image: mongo:7
+    container_name: mongo3-failover
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27019"]
+    ports:
+      - "27019:27019"
+    volumes:
+      - rs0_fo_data3:/data/db
+
+volumes:
+  rs0_fo_data1:
+  rs0_fo_data2:
+  rs0_fo_data3:

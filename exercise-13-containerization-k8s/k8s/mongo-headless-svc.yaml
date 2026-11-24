@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-headless-svc
+  namespace: nosql-labs
+  labels:
+    app: mongo
+spec:
+  clusterIP: None  # Headless Service: disables cluster load-balancing to provide stable DNS A-records per pod
+  ports:
+    - port: 27017
+      targetPort: 27017
+      name: mongodb
+  selector:
+    app: mongo

@@ -1,0 +1,23 @@
+# Core Web & API Framework
+fastapi>=0.100.0
+uvicorn[standard]>=0.20.0
+pydantic>=2.0.0
+requests>=2.28.0
+python-dotenv>=1.0.0
+python-multipart>=0.0.6
+
+# Database & Polyglot Engines
+pymongo>=4.3.0
+mongomock>=4.1.0
+
+# LLM, Vector Search & RAG
+numpy>=1.24.0
+
+# Optional Streamlit UI
+streamlit>=1.30.0
+
+# CLI & Reporting
+rich>=13.0.0
+reportlab>=3.6.0
+pypdf>=3.0.0
+matplotlib>=3.7.0

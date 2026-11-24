@@ -1,0 +1,100 @@
+[
+  {
+    "actor_id": "ACT-001",
+    "name": "APT29 (Cozy Bear / Nobelium)",
+    "origin": "Russian Federation",
+    "motivation": "Cyber Espionage & Diplomatic Intelligence",
+    "targeted_sectors": [
+      "Government",
+      "Defense",
+      "Think Tanks",
+      "Cloud Providers"
+    ],
+    "known_malware": [
+      "Sunburst",
+      "WellMess",
+      "EnvyScout"
+    ],
+    "_id": {
+      "$oid": "6b03363060872151ccfaa626"
+    }
+  },
+  {
+    "actor_id": "ACT-002",
+    "name": "LockBit Ransomware Gang",
+    "origin": "Eastern Europe",
+    "motivation": "Financial Extortion",
+    "targeted_sectors": [
+      "Healthcare",
+      "Manufacturing",
+      "Finance",
+      "Critical Infrastructure"
+    ],
+    "known_malware": [
+      "LockBit 3.0",
+      "LockBit 4.0 Green",
+      "StealBit"
+    ],
+    "_id": {
+      "$oid": "6b03363060872151ccfaa627"
+    }
+  },
+  {
+    "actor_id": "ACT-003",
+    "name": "Lazarus Group (Hidden Cobra)",
+    "origin": "DPRK (North Korea)",
+    "motivation": "Cryptocurrency Theft & Defense Espionage",
+    "targeted_sectors": [
+      "Crypto Exchanges",
+      "Defense Contractors",
+      "Banks"
+    ],
+    "known_malware": [
+      "AppleJeus",
+      "BLINDINGCAN",
+      "FastCash"
+    ],
+    "_id": {
+      "$oid": "6b03363060872151ccfaa628"
+    }
+  },
+  {
+    "actor_id": "ACT-004",
+    "name": "Volt Typhoon",
+    "origin": "People's Republic of China",
+    "motivation": "Pre-positioning & Critical Infrastructure Sabotage",
+    "targeted_sectors": [
+      "Electric Grid",
+      "Water Treatment",
+      "Telecommunications",
+      "Ports"
+    ],
+    "known_malware": [
+      "Living-off-the-Land (LotL)",
+      "KV-botnet"
+    ],
+    "_id": {
+      "$oid": "6b03363060872151ccfaa629"
+    }
+  },
+  {
+    "actor_id": "ACT-005",
+    "name": "Scattered Spider (UNC3944)",
+    "origin": "Transnational / Western Teens",
+    "motivation": "Financial Theft & SIM Swapping",
+    "targeted_sectors": [
+      "Hospitality",
+      "Gaming",
+      "Telecom",
+      "Retail"
+    ],
+    "known_malware": [
+      "MimiKatz",
+      "AnyDesk",
+      "Ngrok"
+    ],
+    "_id": {
+      "$oid": "6b03363060872151ccfaa62a"
+    }
+  }
+]

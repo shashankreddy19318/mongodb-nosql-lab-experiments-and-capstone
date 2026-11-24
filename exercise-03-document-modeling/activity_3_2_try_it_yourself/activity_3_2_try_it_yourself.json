@@ -1,0 +1,221 @@
+{
+  "post_subset_pattern": {
+    "_id": {
+      "$oid": "660000000000000000000001"
+    },
+    "title": "Architecting Scalable MongoDB Systems for Viral Comments",
+    "author": "Dr. Sarah Connor",
+    "content": "Designing document schemas requires analyzing cardinality and access patterns...",
+    "tags": [
+      "mongodb",
+      "scalability",
+      "schema-design",
+      "big-data"
+    ],
+    "total_comments_count": 10000,
+    "latest_comments_preview": [
+      {
+        "comment_id": {
+          "$oid": "6b031a8bfc8135118f077acb"
+        },
+        "author": "User_030",
+        "comment_text": "Insightful analysis on MongoDB schema patterns #30!",
+        "created_at": {
+          "$date": "2026-02-01T11:30:00Z"
+        }
+      },
+      {
+        "comment_id": {
+          "$oid": "6b031a8bfc8135118f077aca"
+        },
+        "author": "User_029",
+        "comment_text": "Insightful analysis on MongoDB schema patterns #29!",
+        "created_at": {
+          "$date": "2026-02-01T11:27:00Z"
+        }
+      },
+      {
+        "comment_id": {
+          "$oid": "6b031a8bfc8135118f077ac9"
+        },
+        "author": "User_028",
+        "comment_text": "Insightful analysis on MongoDB schema patterns #28!",
+        "created_at": {
+          "$date": "2026-02-01T11:24:00Z"
+        }
+      }
+    ],
+    "published_at": {
+      "$date": "2026-02-01T10:00:00Z"
+    }
+  },
+  "referenced_comments_sample": [
+    {
+      "_id": {
+        "$oid": "6b031a8bfc8135118f077aae"
+      },
+      "post_id": {
+        "$oid": "660000000000000000000001"
+      },
+      "comment_index": 1,
+      "author": "User_001",
+      "comment_text": "Insightful analysis on MongoDB schema patterns #1!",
+      "created_at": {
+        "$date": "2026-02-01T10:03:00Z"
+      },
+      "upvotes": 11
+    },
+    {
+      "_id": {
+        "$oid": "6b031a8bfc8135118f077aaf"
+      },
+      "post_id": {
+        "$oid": "660000000000000000000001"
+      },
+      "comment_index": 2,
+      "author": "User_002",
+      "comment_text": "Insightful analysis on MongoDB schema patterns #2!",
+      "created_at": {
+        "$date": "2026-02-01T10:06:00Z"
+      },
+      "upvotes": 22
+    },
+    {
+      "_id": {
+        "$oid": "6b031a8bfc8135118f077ab0"
+      },
+      "post_id": {
+        "$oid": "660000000000000000000001"
+      },
+      "comment_index": 3,
+      "author": "User_003",
+      "comment_text": "Insightful analysis on MongoDB schema patterns #3!",
+      "created_at": {
+        "$date": "2026-02-01T10:09:00Z"
+      },
+      "upvotes": 33
+    },
+    {
+      "_id": {
+        "$oid": "6b031a8bfc8135118f077ab1"
+      },
+      "post_id": {
+        "$oid": "660000000000000000000001"
+      },
+      "comment_index": 4,
+      "author": "User_004",
+      "comment_text": "Insightful analysis on MongoDB schema patterns #4!",
+      "created_at": {
+        "$date": "2026-02-01T10:12:00Z"
+      },
+      "upvotes": 44
+    },
+    {
+      "_id": {
+        "$oid": "6b031a8bfc8135118f077ab2"
+      },
+      "post_id": {
+        "$oid": "660000000000000000000001"
+      },
+      "comment_index": 5,
+      "author": "User_005",
+      "comment_text": "Insightful analysis on MongoDB schema patterns #5!",
+      "created_at": {
+        "$date": "2026-02-01T10:15:00Z"
+      },
+      "upvotes": 10
+    },
+    {
+      "_id": {
+        "$oid": "6b031a8bfc8135118f077ab3"
+      },
+      "post_id": {
+        "$oid": "660000000000000000000001"
+      },
+      "comment_index": 6,
+      "author": "User_006",
+      "comment_text": "Insightful analysis on MongoDB schema patterns #6!",
+      "created_at": {
+        "$date": "2026-02-01T10:18:00Z"
+      },
+      "upvotes": 21
+    },
+    {
+      "_id": {
+        "$oid": "6b031a8bfc8135118f077ab4"
+      },
+      "post_id": {
+        "$oid": "660000000000000000000001"
+      },
+      "comment_index": 7,
+      "author": "User_007",
+      "comment_text": "Insightful analysis on MongoDB schema patterns #7!",
+      "created_at": {
+        "$date": "2026-02-01T10:21:00Z"
+      },
+      "upvotes": 32
+    },
+    {
+      "_id": {
+        "$oid": "6b031a8bfc8135118f077ab5"
+      },
+      "post_id": {
+        "$oid": "660000000000000000000001"
+      },
+      "comment_index": 8,
+      "author": "User_008",
+      "comment_text": "Insightful analysis on MongoDB schema patterns #8!",
+      "created_at": {
+        "$date": "2026-02-01T10:24:00Z"
+      },
+      "upvotes": 43
+    },
+    {
+      "_id": {
+        "$oid": "6b031a8bfc8135118f077ab6"
+      },
+      "post_id": {
+        "$oid": "660000000000000000000001"
+      },
+      "comment_index": 9,
+      "author": "User_009",
+      "comment_text": "Insightful analysis on MongoDB schema patterns #9!",
+      "created_at": {
+        "$date": "2026-02-01T10:27:00Z"
+      },
+      "upvotes": 9
+    },
+    {
+      "_id": {
+        "$oid": "6b031a8bfc8135118f077ab7"
+      },
+      "post_id": {
+        "$oid": "660000000000000000000001"
+      },
+      "comment_index": 10,
+      "author": "User_010",
+      "comment_text": "Insightful analysis on MongoDB schema patterns #10!",
+      "created_at": {
+        "$date": "2026-02-01T10:30:00Z"
+      },
+      "upvotes": 20
+    }
+  ],
+  "technical_analysis": {
+    "scenario": "Post receiving 10,000 comments",
+    "why_embedding_fails": [
+      "Exceeds MongoDB 16MB BSON document limit (10,000 x 1.5KB = ~15-20MB)",
+      "Massive network bandwidth waste transferring megabytes of unused comments",
+      "Working set RAM pollution evicting critical database cache",
+      "Document resizing causing WiredTiger storage fragmentation",
+      "High concurrency write lock contention on a single document"
+    ],
+    "recommended_solution": "Hybrid Subset Pattern combined with Indexed Referenced Collection",
+    "key_benefits": [
+      "Post document remains lightweight (<2KB)",
+      "Instant first-page render without joins or secondary round-trips",
+      "Infinite comment scalability via compound index (post_id, created_at)",
+      "Zero risk of hitting 16MB limit"
+    ]
+  }
+}

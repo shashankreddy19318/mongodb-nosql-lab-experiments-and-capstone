@@ -1,0 +1,114 @@
+[
+  {
+    "source_id": "SRC-001",
+    "name": "CISA Automated Indicator Sharing (AIS)",
+    "source_type": "Government CERT",
+    "url": "https://www.cisa.gov/ais",
+    "reliability_score": 0.98,
+    "is_verified_threat": false,
+    "is_attacker_source": false,
+    "classification": "Trusted Intelligence Feed",
+    "threats_count": 5,
+    "_id": {
+      "$oid": "6b03363060872151ccfaa61e"
+    }
+  },
+  {
+    "source_id": "SRC-002",
+    "name": "Mandiant Threat Intelligence",
+    "source_type": "Commercial Vendor",
+    "url": "https://mandiant.com/threat-intel",
+    "reliability_score": 0.95,
+    "is_verified_threat": false,
+    "is_attacker_source": false,
+    "classification": "Trusted Intelligence Feed",
+    "threats_count": 10,
+    "_id": {
+      "$oid": "6b03363060872151ccfaa61f"
+    }
+  },
+  {
+    "source_id": "SRC-003",
+    "name": "CrowdStrike Falcon Intelligence",
+    "source_type": "Commercial Vendor",
+    "url": "https://crowdstrike.com/falcon-intel",
+    "reliability_score": 0.96,
+    "is_verified_threat": false,
+    "is_attacker_source": false,
+    "classification": "Trusted Intelligence Feed",
+    "threats_count": 10,
+    "_id": {
+      "$oid": "6b03363060872151ccfaa620"
+    }
+  },
+  {
+    "source_id": "SRC-004",
+    "name": "DarkWeb Forum 'BreachForums v4'",
+    "source_type": "DarkWeb OSINT",
+    "url": "http://breach4x...onion",
+    "reliability_score": 0.45,
+    "is_verified_threat": true,
+    "is_attacker_source": true,
+    "classification": "Malicious Infrastructure / Adversary Source",
+    "threats_count": 0,
+    "_id": {
+      "$oid": "6b03363060872151ccfaa621"
+    }
+  },
+  {
+    "source_id": "SRC-005",
+    "name": "Cisco Talos Threat Feed",
+    "source_type": "Commercial Vendor",
+    "url": "https://talosintelligence.com",
+    "reliability_score": 0.94,
+    "is_verified_threat": false,
+    "is_attacker_source": false,
+    "classification": "Trusted Intelligence Feed",
+    "threats_count": 10,
+    "_id": {
+      "$oid": "6b03363060872151ccfaa622"
+    }
+  },
+  {
+    "source_id": "SRC-006",
+    "name": "Bulletproof Hosting Cluster 'AS99120'",
+    "source_type": "Rogue Autonomous System",
+    "url": "http://185.220.101.5",
+    "reliability_score": 0.15,
+    "is_verified_threat": true,
+    "is_attacker_source": true,
+    "classification": "Direct Threat Origin (C2 Hosting)",
+    "threats_count": 10,
+    "_id": {
+      "$oid": "6b03363060872151ccfaa623"
+    }
+  },
+  {
+    "source_id": "SRC-007",
+    "name": "Telegram Malware Distribution Channel 'RedlineVIP'",
+    "source_type": "Social OSINT",
+    "url": "https://t.me/redline_vip_dumps",
+    "reliability_score": 0.3,
+    "is_verified_threat": true,
+    "is_attacker_source": true,
+    "classification": "Direct Threat Origin (Payload Distribution)",
+    "threats_count": 5,
+    "_id": {
+      "$oid": "6b03363060872151ccfaa624"
+    }
+  },
+  {
+    "source_id": "SRC-008",
+    "name": "CERT-EU Cyber Advisories",
+    "source_type": "Government CERT",
+    "url": "https://cert.europa.eu",
+    "reliability_score": 0.97,
+    "is_verified_threat": false,
+    "is_attacker_source": false,
+    "classification": "Trusted Intelligence Feed",
+    "threats_count": 0,
+    "_id": {
+      "$oid": "6b03363060872151ccfaa625"
+    }
+  }
+]

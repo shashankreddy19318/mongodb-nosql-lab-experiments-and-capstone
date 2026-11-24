@@ -1,0 +1,176 @@
+2026-11-23 04:52:40,939 | INFO    | METRICS_SNAPSHOT_CYCLE_1
++----------------------------+-----------------+
+| Metric Name                | Current Value   |
++============================+=================+
+| MongoDB Version            | 7.0.48          |
++----------------------------+-----------------+
+| Uptime                     | 179.0s (2.0m)   |
++----------------------------+-----------------+
+| Connections (Current)      | 2               |
++----------------------------+-----------------+
+| Connections (Available)    | 99,377          |
++----------------------------+-----------------+
+| Connection Pool Usage      | 0.0%            |
++----------------------------+-----------------+
+| Opcounters: Insert         | 2               |
++----------------------------+-----------------+
+| Opcounters: Query          | 18              |
++----------------------------+-----------------+
+| Opcounters: Update         | 0               |
++----------------------------+-----------------+
+| Opcounters: Delete         | 0               |
++----------------------------+-----------------+
+| Opcounters: Command        | 75              |
++----------------------------+-----------------+
+| WiredTiger Cache In Use    | 0.19 MB (0.01%) |
++----------------------------+-----------------+
+| WiredTiger Cache Max       | 3370.0 MB       |
++----------------------------+-----------------+
+| WiredTiger Dirty Bytes     | 0.01 MB (6.3%)  |
++----------------------------+-----------------+
+| Pages Requested from Cache | 1,929           |
++----------------------------+-----------------+
+| Pages Read into Cache      | 0               |
++----------------------------+-----------------+
+| WiredTiger Cache Hit Ratio | 100.0%          |
++----------------------------+-----------------+
+| Replica Set Mode           | rs0             |
++----------------------------+-----------------+
+| Replica Member State       | PRIMARY         |
++----------------------------+-----------------+
+| Max Replication Lag        | 0.00s           |
++----------------------------+-----------------+
+2026-11-23 04:52:40,940 | INFO    | JSON_METRICS: {"timestamp": "2026-11-23 04:52:40", "version": "7.0.48", "uptime_sec": 179.0, "connections": {"current": 2, "available": 99377, "totalCreated": 27, "active": 2, "usage_pct": 0.0}, "opcounters": {"insert": 2, "query": 18, "update": 0, "delete": 0, "getmore": 0, "command": 75}, "cache": {"bytes_in_cache": 203248, "bytes_in_cache_mb": 0.19, "max_bytes": 3533701120, "max_bytes_mb": 3370.0, "dirty_bytes": 12812, "dirty_bytes_mb": 0.01, "bytes_read_into_cache": 0, "bytes_written_from_cache": 366860, "pages_requested": 1929, "pages_read": 0, "hit_ratio": 1.0, "hit_ratio_pct": 100.0, "usage_pct": 0.01, "dirty_pct": 6.3}, "memory_resident_mb": 166, "replica_set": {"is_replica_set": true, "set_name": "rs0", "my_state": "PRIMARY", "primary_member": "127.0.0.1:27017", "max_replication_lag_sec": 0.0, "secondaries": []}}
+2026-11-23 04:52:40,940 | WARNING | THRESHOLD_BREACH: WiredTiger Cache Hit Ratio = 74.5% (Threshold: < 80.0%) - Cache hit ratio dropped to 74.5% (below 80% threshold). Potential disk I/O pressure!
+2026-11-23 04:55:34,109 | INFO    | METRICS_SNAPSHOT_CYCLE_1
++----------------------------+--------------------+
+| Metric Name                | Current Value      |
++============================+====================+
+| MongoDB Version            | 7.0.48             |
++----------------------------+--------------------+
+| Uptime                     | 353.0s (5.0m)      |
++----------------------------+--------------------+
+| Connections (Current)      | 3                  |
++----------------------------+--------------------+
+| Connections (Available)    | 99,376             |
++----------------------------+--------------------+
+| Connection Pool Usage      | 0.0%               |
++----------------------------+--------------------+
+| Opcounters: Insert         | 226,002            |
++----------------------------+--------------------+
+| Opcounters: Query          | 45                 |
++----------------------------+--------------------+
+| Opcounters: Update         | 17                 |
++----------------------------+--------------------+
+| Opcounters: Delete         | 8                  |
++----------------------------+--------------------+
+| Opcounters: Command        | 284                |
++----------------------------+--------------------+
+| WiredTiger Cache In Use    | 432.51 MB (12.83%) |
++----------------------------+--------------------+
+| WiredTiger Cache Max       | 3370.0 MB          |
++----------------------------+--------------------+
+| WiredTiger Dirty Bytes     | 78.15 MB (18.07%)  |
++----------------------------+--------------------+
+| Pages Requested from Cache | 716,295            |
++----------------------------+--------------------+
+| Pages Read into Cache      | 5                  |
++----------------------------+--------------------+
+| WiredTiger Cache Hit Ratio | 100.0%             |
++----------------------------+--------------------+
+| Replica Set Mode           | rs0                |
++----------------------------+--------------------+
+| Replica Member State       | PRIMARY            |
++----------------------------+--------------------+
+| Max Replication Lag        | 0.00s              |
++----------------------------+--------------------+
+2026-11-23 04:55:34,109 | INFO    | JSON_METRICS: {"timestamp": "2026-11-23 04:55:34", "version": "7.0.48", "uptime_sec": 353.0, "connections": {"current": 3, "available": 99376, "totalCreated": 76, "active": 2, "usage_pct": 0.0}, "opcounters": {"insert": 226002, "query": 45, "update": 17, "delete": 8, "getmore": 34, "command": 284}, "cache": {"bytes_in_cache": 453516733, "bytes_in_cache_mb": 432.51, "max_bytes": 3533701120, "max_bytes_mb": 3370.0, "dirty_bytes": 81951143, "dirty_bytes_mb": 78.15, "bytes_read_into_cache": 482086, "bytes_written_from_cache": 400561232, "pages_requested": 716295, "pages_read": 5, "hit_ratio": 0.9999930196357646, "hit_ratio_pct": 100.0, "usage_pct": 12.83, "dirty_pct": 18.07}, "memory_resident_mb": 722, "replica_set": {"is_replica_set": true, "set_name": "rs0", "my_state": "PRIMARY", "primary_member": "127.0.0.1:27017", "max_replication_lag_sec": 0.0, "secondaries": []}}
+2026-11-23 04:55:34,109 | WARNING | THRESHOLD_BREACH: WiredTiger Cache Hit Ratio = 74.5% (Threshold: < 80.0%) - Cache hit ratio dropped to 74.5% (below 80% threshold). Potential disk I/O pressure!
+2026-11-23 05:01:37,664 | INFO    | METRICS_SNAPSHOT_CYCLE_1
++----------------------------+--------------------+
+| Metric Name                | Current Value      |
++============================+====================+
+| MongoDB Version            | 7.0.48             |
++----------------------------+--------------------+
+| Uptime                     | 716.0s (11.0m)     |
++----------------------------+--------------------+
+| Connections (Current)      | 2                  |
++----------------------------+--------------------+
+| Connections (Available)    | 99,377             |
++----------------------------+--------------------+
+| Connection Pool Usage      | 0.0%               |
++----------------------------+--------------------+
+| Opcounters: Insert         | 231,002            |
++----------------------------+--------------------+
+| Opcounters: Query          | 63                 |
++----------------------------+--------------------+
+| Opcounters: Update         | 25                 |
++----------------------------+--------------------+
+| Opcounters: Delete         | 18                 |
++----------------------------+--------------------+
+| Opcounters: Command        | 405                |
++----------------------------+--------------------+
+| WiredTiger Cache In Use    | 346.49 MB (10.28%) |
++----------------------------+--------------------+
+| WiredTiger Cache Max       | 3370.0 MB          |
++----------------------------+--------------------+
+| WiredTiger Dirty Bytes     | 8.75 MB (2.53%)    |
++----------------------------+--------------------+
+| Pages Requested from Cache | 746,692            |
++----------------------------+--------------------+
+| Pages Read into Cache      | 8                  |
++----------------------------+--------------------+
+| WiredTiger Cache Hit Ratio | 100.0%             |
++----------------------------+--------------------+
+| Replica Set Mode           | rs0                |
++----------------------------+--------------------+
+| Replica Member State       | PRIMARY            |
++----------------------------+--------------------+
+| Max Replication Lag        | 0.00s              |
++----------------------------+--------------------+
+2026-11-23 05:01:37,664 | INFO    | JSON_METRICS: {"timestamp": "2026-11-23 05:01:37", "version": "7.0.48", "uptime_sec": 716.0, "connections": {"current": 2, "available": 99377, "totalCreated": 105, "active": 2, "usage_pct": 0.0}, "opcounters": {"insert": 231002, "query": 63, "update": 25, "delete": 18, "getmore": 46, "command": 405}, "cache": {"bytes_in_cache": 363319250, "bytes_in_cache_mb": 346.49, "max_bytes": 3533701120, "max_bytes_mb": 3370.0, "dirty_bytes": 9179221, "dirty_bytes_mb": 8.75, "bytes_read_into_cache": 843453, "bytes_written_from_cache": 481885983, "pages_requested": 746692, "pages_read": 8, "hit_ratio": 0.9999892860777938, "hit_ratio_pct": 100.0, "usage_pct": 10.28, "dirty_pct": 2.53}, "memory_resident_mb": 723, "replica_set": {"is_replica_set": true, "set_name": "rs0", "my_state": "PRIMARY", "primary_member": "127.0.0.1:27017", "max_replication_lag_sec": 0.0, "secondaries": []}}
+2026-11-23 05:01:37,664 | WARNING | THRESHOLD_BREACH: WiredTiger Cache Hit Ratio = 74.5% (Threshold: < 80.0%) - Cache hit ratio dropped to 74.5% (below 80% threshold). Potential disk I/O pressure!
+2026-11-23 05:03:55,374 | INFO    | METRICS_SNAPSHOT_CYCLE_1
++----------------------------+-------------------+
+| Metric Name                | Current Value     |
++============================+===================+
+| MongoDB Version            | 7.0.48            |
++----------------------------+-------------------+
+| Uptime                     | 854.0s (14.0m)    |
++----------------------------+-------------------+
+| Connections (Current)      | 3                 |
++----------------------------+-------------------+
+| Connections (Available)    | 99,376            |
++----------------------------+-------------------+
+| Connection Pool Usage      | 0.0%              |
++----------------------------+-------------------+
+| Opcounters: Insert         | 240,002           |
++----------------------------+-------------------+
+| Opcounters: Query          | 96                |
++----------------------------+-------------------+
+| Opcounters: Update         | 30                |
++----------------------------+-------------------+
+| Opcounters: Delete         | 18                |
++----------------------------+-------------------+
+| Opcounters: Command        | 621               |
++----------------------------+-------------------+
+| WiredTiger Cache In Use    | 350.58 MB (10.4%) |
++----------------------------+-------------------+
+| WiredTiger Cache Max       | 3370.0 MB         |
++----------------------------+-------------------+
+| WiredTiger Dirty Bytes     | 9.25 MB (2.64%)   |
++----------------------------+-------------------+
+| Pages Requested from Cache | 802,881           |
++----------------------------+-------------------+
+| Pages Read into Cache      | 8                 |
++----------------------------+-------------------+
+| WiredTiger Cache Hit Ratio | 100.0%            |
++----------------------------+-------------------+
+| Replica Set Mode           | rs0               |
++----------------------------+-------------------+
+| Replica Member State       | PRIMARY           |
++----------------------------+-------------------+
+| Max Replication Lag        | 0.00s             |
++----------------------------+-------------------+
+2026-11-23 05:03:55,374 | INFO    | JSON_METRICS: {"timestamp": "2026-11-23 05:03:55", "version": "7.0.48", "uptime_sec": 854.0, "connections": {"current": 3, "available": 99376, "totalCreated": 163, "active": 2, "usage_pct": 0.0}, "opcounters": {"insert": 240002, "query": 96, "update": 30, "delete": 18, "getmore": 69, "command": 621}, "cache": {"bytes_in_cache": 367606696, "bytes_in_cache_mb": 350.58, "max_bytes": 3533701120, "max_bytes_mb": 3370.0, "dirty_bytes": 9697857, "dirty_bytes_mb": 9.25, "bytes_read_into_cache": 843453, "bytes_written_from_cache": 496782651, "pages_requested": 802881, "pages_read": 8, "hit_ratio": 0.9999900358832754, "hit_ratio_pct": 100.0, "usage_pct": 10.4, "dirty_pct": 2.64}, "memory_resident_mb": 722, "replica_set": {"is_replica_set": true, "set_name": "rs0", "my_state": "PRIMARY", "primary_member": "127.0.0.1:27017", "max_replication_lag_sec": 0.0, "secondaries": []}}
+2026-11-23 05:03:55,374 | WARNING | THRESHOLD_BREACH: WiredTiger Cache Hit Ratio = 74.5% (Threshold: < 80.0%) - Cache hit ratio dropped to 74.5% (below 80% threshold). Potential disk I/O pressure!

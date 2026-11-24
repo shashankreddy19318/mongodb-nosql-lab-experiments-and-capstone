@@ -1,0 +1,16 @@
+services:
+  mongodb-lab17:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: shashankreddy30/mongodb-lab17:latest
+    container_name: mongodb_lab17_demo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./logs:/workspace/logs
+    environment:
+      - MONGO_URI=mongodb://127.0.0.1:27017/?directConnection=true
+    restart: unless-stopped
+    stdin_open: true
+    tty: true

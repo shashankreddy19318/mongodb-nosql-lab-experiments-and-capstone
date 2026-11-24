@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  nosql-lab16:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: shashankreddy30/mongodb-lab16:latest
+    container_name: mongodb_lab16_demo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_URI=mongodb://127.0.0.1:27017/?directConnection=true
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./logs:/workspace/logs
+      - ./reports:/workspace/reports
+    stdin_open: true
+    tty: true
+    restart: unless-stopped

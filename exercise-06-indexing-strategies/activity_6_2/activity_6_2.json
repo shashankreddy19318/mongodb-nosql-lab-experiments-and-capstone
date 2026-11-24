@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "lab": "Lab 6.2: Compare Index Strategies",
+    "database_name": "nosql_lab_6_2",
+    "batch_size_inserts": 10000
+  },
+  "write_performance_benchmark": {
+    "baseline_0_indexes": {
+      "elapsed_seconds": 0.0107,
+      "docs_per_second": 934439.71,
+      "total_docs_inserted": 10000
+    },
+    "overhead_5_indexes": {
+      "elapsed_seconds": 0.0293,
+      "docs_per_second": 341274.8,
+      "total_docs_inserted": 10000
+    },
+    "metrics": {
+      "percentage_slowdown": 173.81,
+      "throughput_reduction_percentage": 63.48
+    }
+  },
+  "query_performance_with_single_critical_index": [
+    {
+      "query_id": "Q1",
+      "query_name": "Find by Category + Sort by Price",
+      "index_status": "idx_category_price (RETAINED)",
+      "execution_stage": "FETCH",
+      "docs_examined": 1643
+    },
+    {
+      "query_id": "Q2",
+      "query_name": "Find by Price Range ($50-$150)",
+      "index_status": "idx_price (DROPPED)",
+      "execution_stage": "COLLSCAN",
+      "docs_examined": 10000
+    },
+    {
+      "query_id": "Q3",
+      "query_name": "Find by Tag ('wireless')",
+      "index_status": "idx_tags (DROPPED / NOT PRESENT)",
+      "execution_stage": "COLLSCAN",
+      "docs_examined": 10000
+    },
+    {
+      "query_id": "Q4",
+      "query_name": "Text Search on Name",
+      "index_status": "idx_name_text (DROPPED / NOT PRESENT)",
+      "execution_stage": "COLLSCAN",
+      "docs_examined": 10000
+    },
+    {
+      "query_id": "Q5",
+      "query_name": "Category + Rating + Stock",
+      "index_status": "idx_cat_rating_stock (DROPPED)",
+      "execution_stage": "FETCH",
+      "docs_examined": 362
+    }
+  ],
+  "retained_critical_index": "idx_category_price",
+  "dropped_indexes": [
+    "idx_category",
+    "idx_price",
+    "idx_rating",
+    "idx_stock"
+  ],
+  "analysis": "==========================================================================================\nSTEP 4: TECHNICAL ANALYSIS - TRADE-OFF BETWEEN QUERY PERFORMANCE AND WRITE THROUGHPUT\n==========================================================================================\n\n1. THE WRITE COST OF SECONDARY INDEXES:\n   - In MongoDB's WiredTiger storage engine, documents are stored in collection data files.\n   - For every secondary index created, MongoDB maintains a distinct B-tree data structure.\n   - On every insert, update (affecting indexed keys), or delete:\n     a) MongoDB must write the document itself into the collection storage.\n     b) It must traverse and synchronously update every single secondary B-tree index.\n     c) If a B-tree page overflows, page splits occur, creating disk I/O and latch contention.\n   - In our empirical benchmark:\n     Adding 5 secondary indexes introduced an insertion slowdown of +173.81% (throughput dropped from\n     934,440 docs/sec to 341,275 docs/sec). Write throughput dropped significantly.\n\n2. THE READ BENEFIT OF SECONDARY INDEXES:\n   - Without indexes, every read query requires a full collection scan (COLLSCAN), inspecting all\n     N documents in disk/cache with O(N) complexity.\n   - With an appropriate compound or single index, search complexity drops to O(log N).\n   - In Step 3, when we dropped the 4 secondary indexes:\n     - Query Q1 (Find by Category + Sort by Price) maintained optimal performance (FETCH / IXSCAN,\n       examining only matching index entries) because its index 'idx_category_price' was preserved.\n     - Queries Q2 through Q5 immediately reverted to COLLSCAN, reading every single document in the collection!\n\n3. ENGINEERING RECOMMENDATIONS FOR PRODUCTION WORKLOADS:\n   - High-Write Systems (IoT sensor telemetry, audit logs, ingest pipelines):\n     Minimize secondary indexes. Use TTL indexes for automatic pruning or shard on _id.\n   - High-Read Systems (E-commerce catalogs, user search dashboards):\n     Invest in compound indexes following the ESR rule (Equality, Sort, Range).\n   - Index Governance:\n     Regularly audit with $indexStats. Any index with zero hits in production generates pure write\n     degradation without offering read benefits and should be dropped immediately.\n=========================================================================================="
+}

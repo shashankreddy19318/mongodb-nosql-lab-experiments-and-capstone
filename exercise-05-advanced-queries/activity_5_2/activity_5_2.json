@@ -1,0 +1,368 @@
+{
+  "metadata": {
+    "lab": "Lab 5.2: Join Data with $lookup",
+    "products_count": 10,
+    "orders_count": 15,
+    "total_computed_revenue": 3275.0,
+    "never_ordered_count": 3
+  },
+  "products_catalog": [
+    {
+      "product_id": "P-101",
+      "name": "Ultra 4K Monitor 27-inch",
+      "category": "Electronics",
+      "base_price": 350.0
+    },
+    {
+      "product_id": "P-102",
+      "name": "Wireless Mechanical Keyboard",
+      "category": "Electronics",
+      "base_price": 95.0
+    },
+    {
+      "product_id": "P-103",
+      "name": "Ergonomic Vertical Mouse",
+      "category": "Accessories",
+      "base_price": 45.0
+    },
+    {
+      "product_id": "P-104",
+      "name": "Active Noise-Cancelling Headphones",
+      "category": "Audio",
+      "base_price": 210.0
+    },
+    {
+      "product_id": "P-105",
+      "name": "Aluminum USB-C Dock 10-in-1",
+      "category": "Accessories",
+      "base_price": 65.0
+    },
+    {
+      "product_id": "P-106",
+      "name": "High-Speed NVMe 2TB SSD",
+      "category": "Storage",
+      "base_price": 160.0
+    },
+    {
+      "product_id": "P-107",
+      "name": "FHD Auto-Focus Webcam",
+      "category": "Video",
+      "base_price": 75.0
+    },
+    {
+      "product_id": "P-108",
+      "name": "Smart Motorized Standing Desk",
+      "category": "Furniture",
+      "base_price": 480.0
+    },
+    {
+      "product_id": "P-109",
+      "name": "Ergonomic Mesh Executive Chair",
+      "category": "Furniture",
+      "base_price": 290.0
+    },
+    {
+      "product_id": "P-110",
+      "name": "Studio Condenser Broadcast Mic",
+      "category": "Audio",
+      "base_price": 140.0
+    }
+  ],
+  "raw_orders": [
+    {
+      "order_id": "ORD-501",
+      "customer_name": "Aarav Sharma",
+      "product_id": "P-101",
+      "quantity": 1,
+      "order_date": "2024-02-01",
+      "status": "completed"
+    },
+    {
+      "order_id": "ORD-502",
+      "customer_name": "Priya Patel",
+      "product_id": "P-102",
+      "quantity": 2,
+      "order_date": "2024-02-03",
+      "status": "completed"
+    },
+    {
+      "order_id": "ORD-503",
+      "customer_name": "Rohan Mehta",
+      "product_id": "P-103",
+      "quantity": 1,
+      "order_date": "2024-02-07",
+      "status": "completed"
+    },
+    {
+      "order_id": "ORD-504",
+      "customer_name": "Ananya Iyer",
+      "product_id": "P-104",
+      "quantity": 1,
+      "order_date": "2024-02-12",
+      "status": "shipped"
+    },
+    {
+      "order_id": "ORD-505",
+      "customer_name": "Vikram Singh",
+      "product_id": "P-105",
+      "quantity": 3,
+      "order_date": "2024-02-15",
+      "status": "completed"
+    },
+    {
+      "order_id": "ORD-506",
+      "customer_name": "Aarav Sharma",
+      "product_id": "P-106",
+      "quantity": 2,
+      "order_date": "2024-02-20",
+      "status": "completed"
+    },
+    {
+      "order_id": "ORD-507",
+      "customer_name": "Neha Verma",
+      "product_id": "P-107",
+      "quantity": 1,
+      "order_date": "2024-02-25",
+      "status": "completed"
+    },
+    {
+      "order_id": "ORD-508",
+      "customer_name": "Siddharth Rao",
+      "product_id": "P-101",
+      "quantity": 2,
+      "order_date": "2024-03-02",
+      "status": "completed"
+    },
+    {
+      "order_id": "ORD-509",
+      "customer_name": "Priya Patel",
+      "product_id": "P-105",
+      "quantity": 1,
+      "order_date": "2024-03-06",
+      "status": "pending"
+    },
+    {
+      "order_id": "ORD-510",
+      "customer_name": "Rohan Mehta",
+      "product_id": "P-102",
+      "quantity": 1,
+      "order_date": "2024-03-10",
+      "status": "completed"
+    },
+    {
+      "order_id": "ORD-511",
+      "customer_name": "Ananya Iyer",
+      "product_id": "P-104",
+      "quantity": 2,
+      "order_date": "2024-03-15",
+      "status": "completed"
+    },
+    {
+      "order_id": "ORD-512",
+      "customer_name": "Vikram Singh",
+      "product_id": "P-106",
+      "quantity": 1,
+      "order_date": "2024-03-19",
+      "status": "completed"
+    },
+    {
+      "order_id": "ORD-513",
+      "customer_name": "Neha Verma",
+      "product_id": "P-103",
+      "quantity": 2,
+      "order_date": "2024-03-24",
+      "status": "cancelled"
+    },
+    {
+      "order_id": "ORD-514",
+      "customer_name": "Aarav Sharma",
+      "product_id": "P-107",
+      "quantity": 1,
+      "order_date": "2024-03-28",
+      "status": "completed"
+    },
+    {
+      "order_id": "ORD-515",
+      "customer_name": "Siddharth Rao",
+      "product_id": "P-102",
+      "quantity": 3,
+      "order_date": "2024-04-02",
+      "status": "completed"
+    }
+  ],
+  "pipeline_1_joined_orders": [
+    {
+      "order_id": "ORD-501",
+      "customer_name": "Aarav Sharma",
+      "quantity": 1,
+      "order_date": "2024-02-01",
+      "product_name": "Ultra 4K Monitor 27-inch",
+      "category": "Electronics",
+      "base_price": 350.0,
+      "computed_total": 350.0
+    },
+    {
+      "order_id": "ORD-502",
+      "customer_name": "Priya Patel",
+      "quantity": 2,
+      "order_date": "2024-02-03",
+      "product_name": "Wireless Mechanical Keyboard",
+      "category": "Electronics",
+      "base_price": 95.0,
+      "computed_total": 190.0
+    },
+    {
+      "order_id": "ORD-503",
+      "customer_name": "Rohan Mehta",
+      "quantity": 1,
+      "order_date": "2024-02-07",
+      "product_name": "Ergonomic Vertical Mouse",
+      "category": "Accessories",
+      "base_price": 45.0,
+      "computed_total": 45.0
+    },
+    {
+      "order_id": "ORD-504",
+      "customer_name": "Ananya Iyer",
+      "quantity": 1,
+      "order_date": "2024-02-12",
+      "product_name": "Active Noise-Cancelling Headphones",
+      "category": "Audio",
+      "base_price": 210.0,
+      "computed_total": 210.0
+    },
+    {
+      "order_id": "ORD-505",
+      "customer_name": "Vikram Singh",
+      "quantity": 3,
+      "order_date": "2024-02-15",
+      "product_name": "Aluminum USB-C Dock 10-in-1",
+      "category": "Accessories",
+      "base_price": 65.0,
+      "computed_total": 195.0
+    },
+    {
+      "order_id": "ORD-506",
+      "customer_name": "Aarav Sharma",
+      "quantity": 2,
+      "order_date": "2024-02-20",
+      "product_name": "High-Speed NVMe 2TB SSD",
+      "category": "Storage",
+      "base_price": 160.0,
+      "computed_total": 320.0
+    },
+    {
+      "order_id": "ORD-507",
+      "customer_name": "Neha Verma",
+      "quantity": 1,
+      "order_date": "2024-02-25",
+      "product_name": "FHD Auto-Focus Webcam",
+      "category": "Video",
+      "base_price": 75.0,
+      "computed_total": 75.0
+    },
+    {
+      "order_id": "ORD-508",
+      "customer_name": "Siddharth Rao",
+      "quantity": 2,
+      "order_date": "2024-03-02",
+      "product_name": "Ultra 4K Monitor 27-inch",
+      "category": "Electronics",
+      "base_price": 350.0,
+      "computed_total": 700.0
+    },
+    {
+      "order_id": "ORD-509",
+      "customer_name": "Priya Patel",
+      "quantity": 1,
+      "order_date": "2024-03-06",
+      "product_name": "Aluminum USB-C Dock 10-in-1",
+      "category": "Accessories",
+      "base_price": 65.0,
+      "computed_total": 65.0
+    },
+    {
+      "order_id": "ORD-510",
+      "customer_name": "Rohan Mehta",
+      "quantity": 1,
+      "order_date": "2024-03-10",
+      "product_name": "Wireless Mechanical Keyboard",
+      "category": "Electronics",
+      "base_price": 95.0,
+      "computed_total": 95.0
+    },
+    {
+      "order_id": "ORD-511",
+      "customer_name": "Ananya Iyer",
+      "quantity": 2,
+      "order_date": "2024-03-15",
+      "product_name": "Active Noise-Cancelling Headphones",
+      "category": "Audio",
+      "base_price": 210.0,
+      "computed_total": 420.0
+    },
+    {
+      "order_id": "ORD-512",
+      "customer_name": "Vikram Singh",
+      "quantity": 1,
+      "order_date": "2024-03-19",
+      "product_name": "High-Speed NVMe 2TB SSD",
+      "category": "Storage",
+      "base_price": 160.0,
+      "computed_total": 160.0
+    },
+    {
+      "order_id": "ORD-513",
+      "customer_name": "Neha Verma",
+      "quantity": 2,
+      "order_date": "2024-03-24",
+      "product_name": "Ergonomic Vertical Mouse",
+      "category": "Accessories",
+      "base_price": 45.0,
+      "computed_total": 90.0
+    },
+    {
+      "order_id": "ORD-514",
+      "customer_name": "Aarav Sharma",
+      "quantity": 1,
+      "order_date": "2024-03-28",
+      "product_name": "FHD Auto-Focus Webcam",
+      "category": "Video",
+      "base_price": 75.0,
+      "computed_total": 75.0
+    },
+    {
+      "order_id": "ORD-515",
+      "customer_name": "Siddharth Rao",
+      "quantity": 3,
+      "order_date": "2024-04-02",
+      "product_name": "Wireless Mechanical Keyboard",
+      "category": "Electronics",
+      "base_price": 95.0,
+      "computed_total": 285.0
+    }
+  ],
+  "pipeline_2_never_ordered_products": [
+    {
+      "product_id": "P-108",
+      "name": "Smart Motorized Standing Desk",
+      "category": "Furniture",
+      "base_price": 480.0,
+      "orders_count": 0
+    },
+    {
+      "product_id": "P-109",
+      "name": "Ergonomic Mesh Executive Chair",
+      "category": "Furniture",
+      "base_price": 290.0,
+      "orders_count": 0
+    },
+    {
+      "product_id": "P-110",
+      "name": "Studio Condenser Broadcast Mic",
+      "category": "Audio",
+      "base_price": 140.0,
+      "orders_count": 0
+    }
+  ]
+}

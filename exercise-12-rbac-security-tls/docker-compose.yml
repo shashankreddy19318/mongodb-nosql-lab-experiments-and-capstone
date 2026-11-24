@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mongodb-security-lab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nosql-lab12:latest
+    container_name: mongodb-security-demonstration
+    ports:
+      - "27017:27017"
+      - "27100:27100"
+    volumes:
+      - mongo_data:/data/db
+      - mongo_tls_data:/data/db_tls
+    stdin_open: true
+    tty: true
+
+volumes:
+  mongo_data:
+  mongo_tls_data:

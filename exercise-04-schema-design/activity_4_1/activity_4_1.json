@@ -1,0 +1,733 @@
+{
+  "metadata": {
+    "lab": "Lab 4.1: Build a Product Query API",
+    "total_products_count": 12,
+    "schema_validation_applied": true,
+    "validation_rules": {
+      "bsonType": "object",
+      "required": [
+        "name",
+        "price",
+        "stock",
+        "tags"
+      ],
+      "properties": {
+        "name": {
+          "bsonType": "string",
+          "description": "Product name - must be a string and is required"
+        },
+        "price": {
+          "bsonType": [
+            "double",
+            "int",
+            "decimal"
+          ],
+          "minimum": 0.01,
+          "description": "Price - must be a positive number and is required"
+        },
+        "stock": {
+          "bsonType": "int",
+          "minimum": 0,
+          "description": "Stock units - must be a non-negative integer and is required"
+        },
+        "tags": {
+          "bsonType": "array",
+          "description": "Tags - must be an array of strings and is required",
+          "items": {
+            "bsonType": "string",
+            "description": "Tag item - must be a string"
+          }
+        },
+        "sku": {
+          "bsonType": "string",
+          "description": "Stock Keeping Unit identifier"
+        },
+        "is_active": {
+          "bsonType": "bool",
+          "description": "Product active flag"
+        }
+      }
+    }
+  },
+  "all_products": [
+    {
+      "sku": "PROD-101",
+      "name": "Noise-Cancelling Wireless Headphones",
+      "price": 149.99,
+      "stock": 25,
+      "tags": [
+        "electronics",
+        "wireless",
+        "audio",
+        "premium"
+      ],
+      "is_active": true,
+      "_id": {
+        "$oid": "6b031f2540695fc57c0e0e51"
+      }
+    },
+    {
+      "sku": "PROD-102",
+      "name": "Ultra-Slim Wireless Mouse",
+      "price": 29.99,
+      "stock": 45,
+      "tags": [
+        "electronics",
+        "wireless",
+        "accessories"
+      ],
+      "is_active": true,
+      "_id": {
+        "$oid": "6b031f2540695fc57c0e0e52"
+      }
+    },
+    {
+      "sku": "PROD-103",
+      "name": "Mechanical Gaming Keyboard RGB",
+      "price": 89.99,
+      "stock": 15,
+      "tags": [
+        "electronics",
+        "gaming",
+        "peripherals"
+      ],
+      "is_active": true,
+      "_id": {
+        "$oid": "6b031f2540695fc57c0e0e53"
+      }
+    },
+    {
+      "sku": "PROD-104",
+      "name": "Braided USB-C Fast Charging Cable (2m)",
+      "price": 14.5,
+      "stock": 120,
+      "tags": [
+        "accessories",
+        "cables"
+      ],
+      "is_active": true,
+      "_id": {
+        "$oid": "6b031f2540695fc57c0e0e54"
+      }
+    },
+    {
+      "sku": "PROD-105",
+      "name": "4K Ultra HD Gaming Monitor 27-inch",
+      "price": 349.99,
+      "stock": 8,
+      "tags": [
+        "electronics",
+        "gaming",
+        "displays",
+        "premium"
+      ],
+      "is_active": true,
+      "_id": {
+        "$oid": "6b031f2540695fc57c0e0e55"
+      }
+    },
+    {
+      "sku": "PROD-106",
+      "name": "Ergonomic Memory Foam Mousepad",
+      "price": 24.99,
+      "stock": 0,
+      "tags": [
+        "accessories",
+        "office"
+      ],
+      "is_active": false,
+      "_id": {
+        "$oid": "6b031f2540695fc57c0e0e56"
+      }
+    },
+    {
+      "sku": "PROD-107",
+      "name": "Portable Bluetooth Speaker Waterproof",
+      "price": 45.0,
+      "stock": 30,
+      "tags": [
+        "electronics",
+        "wireless",
+        "audio"
+      ],
+      "is_active": true,
+      "_id": {
+        "$oid": "6b031f2540695fc57c0e0e57"
+      }
+    },
+    {
+      "sku": "PROD-108",
+      "name": "Smart Fitness Tracker Band",
+      "price": 49.99,
+      "stock": 0,
+      "tags": [
+        "wearables",
+        "fitness"
+      ],
+      "is_active": false,
+      "_id": {
+        "$oid": "6b031f2540695fc57c0e0e58"
+      }
+    },
+    {
+      "sku": "PROD-109",
+      "name": "Vintage Leather Laptop Sleeve",
+      "price": 39.5,
+      "stock": 18,
+      "tags": [
+        "accessories",
+        "leather"
+      ],
+      "is_active": true,
+      "_id": {
+        "$oid": "6b031f2540695fc57c0e0e59"
+      }
+    },
+    {
+      "sku": "PROD-110",
+      "name": "Professional Studio Condenser Microphone",
+      "price": 129.99,
+      "stock": 12,
+      "tags": [
+        "audio",
+        "recording",
+        "premium"
+      ],
+      "is_active": true,
+      "_id": {
+        "$oid": "6b031f2540695fc57c0e0e5a"
+      }
+    },
+    {
+      "sku": "PROD-111",
+      "name": "Compact True Wireless Earbuds",
+      "price": 79.99,
+      "stock": 0,
+      "tags": [
+        "electronics",
+        "wireless",
+        "audio"
+      ],
+      "is_active": false,
+      "_id": {
+        "$oid": "6b031f2540695fc57c0e0e5b"
+      }
+    },
+    {
+      "sku": "PROD-112",
+      "name": "High-Speed Dual-Band Wi-Fi 6 Router",
+      "price": 119.99,
+      "stock": 20,
+      "tags": [
+        "electronics",
+        "networking",
+        "wireless",
+        "premium"
+      ],
+      "is_active": true,
+      "_id": {
+        "$oid": "6b031f2540695fc57c0e0e5c"
+      }
+    }
+  ],
+  "query_results": {
+    "comparison_price_20_to_50": [
+      {
+        "sku": "PROD-106",
+        "name": "Ergonomic Memory Foam Mousepad",
+        "price": 24.99,
+        "stock": 0,
+        "tags": [
+          "accessories",
+          "office"
+        ],
+        "is_active": false,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e56"
+        }
+      },
+      {
+        "sku": "PROD-102",
+        "name": "Ultra-Slim Wireless Mouse",
+        "price": 29.99,
+        "stock": 45,
+        "tags": [
+          "electronics",
+          "wireless",
+          "accessories"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e52"
+        }
+      },
+      {
+        "sku": "PROD-109",
+        "name": "Vintage Leather Laptop Sleeve",
+        "price": 39.5,
+        "stock": 18,
+        "tags": [
+          "accessories",
+          "leather"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e59"
+        }
+      },
+      {
+        "sku": "PROD-107",
+        "name": "Portable Bluetooth Speaker Waterproof",
+        "price": 45.0,
+        "stock": 30,
+        "tags": [
+          "electronics",
+          "wireless",
+          "audio"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e57"
+        }
+      },
+      {
+        "sku": "PROD-108",
+        "name": "Smart Fitness Tracker Band",
+        "price": 49.99,
+        "stock": 0,
+        "tags": [
+          "wearables",
+          "fitness"
+        ],
+        "is_active": false,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e58"
+        }
+      }
+    ],
+    "comparison_stock_zero": [
+      {
+        "sku": "PROD-111",
+        "name": "Compact True Wireless Earbuds",
+        "price": 79.99,
+        "stock": 0,
+        "tags": [
+          "electronics",
+          "wireless",
+          "audio"
+        ],
+        "is_active": false,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e5b"
+        }
+      },
+      {
+        "sku": "PROD-106",
+        "name": "Ergonomic Memory Foam Mousepad",
+        "price": 24.99,
+        "stock": 0,
+        "tags": [
+          "accessories",
+          "office"
+        ],
+        "is_active": false,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e56"
+        }
+      },
+      {
+        "sku": "PROD-108",
+        "name": "Smart Fitness Tracker Band",
+        "price": 49.99,
+        "stock": 0,
+        "tags": [
+          "wearables",
+          "fitness"
+        ],
+        "is_active": false,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e58"
+        }
+      }
+    ],
+    "logical_out_of_stock_or_price_above_100": [
+      {
+        "sku": "PROD-106",
+        "name": "Ergonomic Memory Foam Mousepad",
+        "price": 24.99,
+        "stock": 0,
+        "tags": [
+          "accessories",
+          "office"
+        ],
+        "is_active": false,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e56"
+        }
+      },
+      {
+        "sku": "PROD-108",
+        "name": "Smart Fitness Tracker Band",
+        "price": 49.99,
+        "stock": 0,
+        "tags": [
+          "wearables",
+          "fitness"
+        ],
+        "is_active": false,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e58"
+        }
+      },
+      {
+        "sku": "PROD-111",
+        "name": "Compact True Wireless Earbuds",
+        "price": 79.99,
+        "stock": 0,
+        "tags": [
+          "electronics",
+          "wireless",
+          "audio"
+        ],
+        "is_active": false,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e5b"
+        }
+      },
+      {
+        "sku": "PROD-112",
+        "name": "High-Speed Dual-Band Wi-Fi 6 Router",
+        "price": 119.99,
+        "stock": 20,
+        "tags": [
+          "electronics",
+          "networking",
+          "wireless",
+          "premium"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e5c"
+        }
+      },
+      {
+        "sku": "PROD-110",
+        "name": "Professional Studio Condenser Microphone",
+        "price": 129.99,
+        "stock": 12,
+        "tags": [
+          "audio",
+          "recording",
+          "premium"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e5a"
+        }
+      },
+      {
+        "sku": "PROD-101",
+        "name": "Noise-Cancelling Wireless Headphones",
+        "price": 149.99,
+        "stock": 25,
+        "tags": [
+          "electronics",
+          "wireless",
+          "audio",
+          "premium"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e51"
+        }
+      },
+      {
+        "sku": "PROD-105",
+        "name": "4K Ultra HD Gaming Monitor 27-inch",
+        "price": 349.99,
+        "stock": 8,
+        "tags": [
+          "electronics",
+          "gaming",
+          "displays",
+          "premium"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e55"
+        }
+      }
+    ],
+    "logical_in_stock_and_premium": [
+      {
+        "sku": "PROD-112",
+        "name": "High-Speed Dual-Band Wi-Fi 6 Router",
+        "price": 119.99,
+        "stock": 20,
+        "tags": [
+          "electronics",
+          "networking",
+          "wireless",
+          "premium"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e5c"
+        }
+      },
+      {
+        "sku": "PROD-110",
+        "name": "Professional Studio Condenser Microphone",
+        "price": 129.99,
+        "stock": 12,
+        "tags": [
+          "audio",
+          "recording",
+          "premium"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e5a"
+        }
+      },
+      {
+        "sku": "PROD-101",
+        "name": "Noise-Cancelling Wireless Headphones",
+        "price": 149.99,
+        "stock": 25,
+        "tags": [
+          "electronics",
+          "wireless",
+          "audio",
+          "premium"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e51"
+        }
+      },
+      {
+        "sku": "PROD-105",
+        "name": "4K Ultra HD Gaming Monitor 27-inch",
+        "price": 349.99,
+        "stock": 8,
+        "tags": [
+          "electronics",
+          "gaming",
+          "displays",
+          "premium"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e55"
+        }
+      }
+    ],
+    "array_both_electronics_and_wireless": [
+      {
+        "sku": "PROD-111",
+        "name": "Compact True Wireless Earbuds",
+        "price": 79.99,
+        "stock": 0,
+        "tags": [
+          "electronics",
+          "wireless",
+          "audio"
+        ],
+        "is_active": false,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e5b"
+        }
+      },
+      {
+        "sku": "PROD-112",
+        "name": "High-Speed Dual-Band Wi-Fi 6 Router",
+        "price": 119.99,
+        "stock": 20,
+        "tags": [
+          "electronics",
+          "networking",
+          "wireless",
+          "premium"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e5c"
+        }
+      },
+      {
+        "sku": "PROD-101",
+        "name": "Noise-Cancelling Wireless Headphones",
+        "price": 149.99,
+        "stock": 25,
+        "tags": [
+          "electronics",
+          "wireless",
+          "audio",
+          "premium"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e51"
+        }
+      },
+      {
+        "sku": "PROD-107",
+        "name": "Portable Bluetooth Speaker Waterproof",
+        "price": 45.0,
+        "stock": 30,
+        "tags": [
+          "electronics",
+          "wireless",
+          "audio"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e57"
+        }
+      },
+      {
+        "sku": "PROD-102",
+        "name": "Ultra-Slim Wireless Mouse",
+        "price": 29.99,
+        "stock": 45,
+        "tags": [
+          "electronics",
+          "wireless",
+          "accessories"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e52"
+        }
+      }
+    ],
+    "array_exactly_2_tags": [
+      {
+        "sku": "PROD-104",
+        "name": "Braided USB-C Fast Charging Cable (2m)",
+        "price": 14.5,
+        "stock": 120,
+        "tags": [
+          "accessories",
+          "cables"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e54"
+        }
+      },
+      {
+        "sku": "PROD-106",
+        "name": "Ergonomic Memory Foam Mousepad",
+        "price": 24.99,
+        "stock": 0,
+        "tags": [
+          "accessories",
+          "office"
+        ],
+        "is_active": false,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e56"
+        }
+      },
+      {
+        "sku": "PROD-108",
+        "name": "Smart Fitness Tracker Band",
+        "price": 49.99,
+        "stock": 0,
+        "tags": [
+          "wearables",
+          "fitness"
+        ],
+        "is_active": false,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e58"
+        }
+      },
+      {
+        "sku": "PROD-109",
+        "name": "Vintage Leather Laptop Sleeve",
+        "price": 39.5,
+        "stock": 18,
+        "tags": [
+          "accessories",
+          "leather"
+        ],
+        "is_active": true,
+        "_id": {
+          "$oid": "6b031f2540695fc57c0e0e59"
+        }
+      }
+    ],
+    "paginated_page_1_sample": {
+      "page": 1,
+      "page_size": 4,
+      "total_items": 12,
+      "total_pages": 3,
+      "has_next": true,
+      "has_prev": false,
+      "items": [
+        {
+          "sku": "PROD-105",
+          "name": "4K Ultra HD Gaming Monitor 27-inch",
+          "price": 349.99,
+          "stock": 8,
+          "tags": [
+            "electronics",
+            "gaming",
+            "displays",
+            "premium"
+          ],
+          "is_active": true,
+          "_id": {
+            "$oid": "6b031f2540695fc57c0e0e55"
+          }
+        },
+        {
+          "sku": "PROD-104",
+          "name": "Braided USB-C Fast Charging Cable (2m)",
+          "price": 14.5,
+          "stock": 120,
+          "tags": [
+            "accessories",
+            "cables"
+          ],
+          "is_active": true,
+          "_id": {
+            "$oid": "6b031f2540695fc57c0e0e54"
+          }
+        },
+        {
+          "sku": "PROD-111",
+          "name": "Compact True Wireless Earbuds",
+          "price": 79.99,
+          "stock": 0,
+          "tags": [
+            "electronics",
+            "wireless",
+            "audio"
+          ],
+          "is_active": false,
+          "_id": {
+            "$oid": "6b031f2540695fc57c0e0e5b"
+          }
+        },
+        {
+          "sku": "PROD-106",
+          "name": "Ergonomic Memory Foam Mousepad",
+          "price": 24.99,
+          "stock": 0,
+          "tags": [
+            "accessories",
+            "office"
+          ],
+          "is_active": false,
+          "_id": {
+            "$oid": "6b031f2540695fc57c0e0e56"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTI Digest | Cyber Threat Intelligence Platform & NoSQL Lab 7</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Chart.js for real-time cache and BSON telemetry -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo-badge">
+        <span class="logo-icon">🛡️</span>
+        <div class="logo-text">
+          <span class="logo-title">CTI DIGEST <span class="badge-env">PRODUCTION</span></span>
+          <span class="logo-sub">Cyber Threat Intelligence Platform & NoSQL Schema Studio</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="nav-btn active" data-tab="tab-threats">
+        <span class="tab-icon">🎯</span> Threat Intelligence Hub
+      </button>
+      <button class="nav-btn" data-tab="tab-lab71">
+        <span class="tab-icon">🧬</span> Lab 7.1: Schema Studio & $bsonSize
+      </button>
+      <button class="nav-btn" data-tab="tab-lab72">
+        <span class="tab-icon">⚡</span> Lab 7.2: Working Set & WiredTiger
+      </button>
+    </nav>
+
+    <div class="header-right">
+      <div class="cache-ticker-chip" title="Live WiredTiger Cache Hit Ratio">
+        <span class="pulse-dot"></span>
+        <span class="ticker-label">CACHE HIT RATIO:</span>
+        <span class="ticker-val" id="top-cache-hit-ratio">--%</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="app-container">
+
+    <!-- ================================================================= -->
+    <!-- TAB 1: THREAT INTELLIGENCE HUB (Search & Classification)         -->
+    <!-- ================================================================= -->
+    <section id="tab-threats" class="tab-content active">
+      <!-- Overview Metric Cards -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="card-icon red">⚠️</div>
+          <div class="card-data">
+            <span class="metric-num" id="stat-total-threats">--</span>
+            <span class="metric-title">Total Ingested Threats</span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="card-icon crimson">🔥</div>
+          <div class="card-data">
+            <span class="metric-num" id="stat-critical-threats">--</span>
+            <span class="metric-title">Critical Severity</span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="card-icon cyan">🎯</div>
+          <div class="card-data">
+            <span class="metric-num" id="stat-actual-threats">--</span>
+            <span class="metric-title">Verified "Actual Threats"</span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="card-icon purple">📡</div>
+          <div class="card-data">
+            <span class="metric-num" id="stat-sources-count">--</span>
+            <span class="metric-title">Active Feeds & Sources</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search & Classification Filter Toolbar -->
+      <div class="toolbar-box">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="threat-search-input" placeholder="Search threats by CVE, IOC (IP, domain, hash), APT actor, keyword..." autocomplete="off">
+          <button id="btn-clear-search" class="btn-icon" title="Clear Search">✕</button>
+        </div>
+
+        <div class="filter-group">
+          <select id="filter-type" class="custom-select">
+            <option value="">All Threat Types</option>
+            <option value="Ransomware">Ransomware</option>
+            <option value="APT">APT (Nation-State)</option>
+            <option value="Zero-Day">Zero-Day Exploit</option>
+            <option value="Phishing">Phishing Campaign</option>
+            <option value="Infostealer">Infostealer</option>
+            <option value="Botnet">Botnet</option>
+          </select>
+
+          <select id="filter-severity" class="custom-select">
+            <option value="">All Severities</option>
+            <option value="Critical">Critical</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+
+          <select id="filter-verdict" class="custom-select">
+            <option value="">All Verdicts</option>
+            <option value="Actual Threat">Actual Threat</option>
+            <option value="False Positive">False Positive / Benign</option>
+          </select>
+
+          <button id="btn-refresh-threats" class="btn btn-secondary">
+            <span>↻</span> Refresh
+          </button>
+        </div>
+      </div>
+
+      <!-- Two-column Layout: Threat List & Classification Inspector -->
+      <div class="threats-layout">
+        <!-- Threat Reports Stream -->
+        <div class="threat-list-panel">
+          <div class="panel-header">
+            <h3>Threat Intelligence Stream</h3>
+            <span class="stream-counter" id="stream-count-label">Showing 0 threats</span>
+          </div>
+          <div class="threat-cards-container" id="threat-cards-container">
+            <div class="loading-spinner">Loading threat telemetry...</div>
+          </div>
+        </div>
+
+        <!-- Threat Detail & Classification Workbench -->
+        <div class="classification-panel">
+          <div class="panel-header">
+            <h3>Threat Classification & Attribution</h3>
+            <span class="chip-badge cyan" id="active-doc-size-badge">BSON: ~-- B</span>
+          </div>
+
+          <div id="inspector-placeholder" class="empty-state">
+            <span class="empty-icon">👈</span>
+            <p>Select any threat card from the stream to inspect indicators, calculate $bsonSize, or update classification verdict.</p>
+          </div>
+
+          <div id="inspector-content" class="inspector-body" style="display: none;">
+            <div class="inspector-card-header">
+              <span class="threat-id-tag" id="inspect-threat-id">CTI-2026-XXXX</span>
+              <h4 id="inspect-title" class="inspect-title">Threat Title</h4>
+              <p id="inspect-desc" class="inspect-desc"></p>
+            </div>
+
+            <!-- Classification Actions Form -->
+            <div class="classification-form-box">
+              <h5 class="form-title">⚡ Analyst Classification & Verdict</h5>
+              <div class="form-row">
+                <div class="form-field">
+                  <label>Threat Verdict</label>
+                  <select id="form-verdict" class="custom-select form-control">
+                    <option value="Actual Threat">Actual Threat (Actionable)</option>
+                    <option value="False Positive">False Positive (Benign)</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label>Severity Level</label>
+                  <select id="form-severity" class="custom-select form-control">
+                    <option value="Critical">Critical</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button id="btn-save-classification" class="btn btn-primary">
+                  <span>✓</span> Save Classification
+                </button>
+              </div>
+            </div>
+
+            <!-- Embedded Indicators (IOCs) -->
+            <div class="detail-section">
+              <h5>Embedded Indicators of Compromise (IOCs)</h5>
+              <div class="iocs-list" id="inspect-iocs-list"></div>
+            </div>
+
+            <!-- Referenced Entities (Source & Actor) -->
+            <div class="detail-section">
+              <h5>Referenced Architecture Entities</h5>
+              <div class="ref-entities-grid">
+                <div class="ref-box">
+                  <span class="ref-label">REFERENCED SOURCE</span>
+                  <span class="ref-val" id="inspect-source-ref">SRC-001</span>
+                </div>
+                <div class="ref-box">
+                  <span class="ref-label">REFERENCED ACTOR</span>
+                  <span class="ref-val" id="inspect-actor-ref">ACT-001</span>
+                </div>
+                <div class="ref-box">
+                  <span class="ref-label">REFERENCED CVEs</span>
+                  <span class="ref-val" id="inspect-cve-ref">CVE-2026-3021</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Raw BSON / JSON Viewer -->
+            <div class="detail-section">
+              <div class="section-flex-header">
+                <h5>Raw Document Structure ($$ROOT)</h5>
+                <span class="text-muted" id="inspect-exact-bytes">-- bytes</span>
+              </div>
+              <pre class="code-preview" id="inspect-raw-json"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- TAB 2: LAB 7.1 - SCHEMA STUDIO & $bsonSize                       -->
+    <!-- ================================================================= -->
+    <section id="tab-lab71" class="tab-content">
+      <div class="section-hero">
+        <h2>Lab 7.1: Analyze a Production Schema</h2>
+        <p>Production Schema Analysis based on <strong>CTI Digest (https://ctidigest.com)</strong>. Deep dive into Embedding vs Referencing, $bsonSize limits, and Activity 7.1 Redesign.</p>
+      </div>
+
+      <!-- BSON Size Calculator Cards (Instruction 3) -->
+      <div class="lab-card-group">
+        <div class="sub-header">
+          <h3>Instruction 3: Document Size & 16 MB Limit Verification ($bsonSize)</h3>
+          <span class="badge-pill">Aggregation Pipeline: $bsonSize: "$$ROOT"</span>
+        </div>
+
+        <div class="bson-stats-row">
+          <div class="bson-stat-tile">
+            <span class="tile-label">AVERAGE DOCUMENT SIZE</span>
+            <span class="tile-value cyan" id="bson-avg-size">-- KB</span>
+            <span class="tile-sub" id="bson-avg-bytes">-- bytes</span>
+          </div>
+          <div class="bson-stat-tile">
+            <span class="tile-label">MAXIMUM DOCUMENT SIZE</span>
+            <span class="tile-value purple" id="bson-max-size">-- KB</span>
+            <span class="tile-sub" id="bson-max-bytes">-- bytes</span>
+          </div>
+          <div class="bson-stat-tile">
+            <span class="tile-label">MONGODB HARD LIMIT</span>
+            <span class="tile-value">16.00 MB</span>
+            <span class="tile-sub">16,777,216 bytes</span>
+          </div>
+          <div class="bson-stat-tile">
+            <span class="tile-label">SAFETY HEADROOM REMAINING</span>
+            <span class="tile-value green" id="bson-headroom">15.99 MB</span>
+            <span class="tile-sub">Distance from 16 MB limit</span>
+          </div>
+        </div>
+
+        <!-- 16 MB Safety Progress Bar -->
+        <div class="headroom-container">
+          <div class="headroom-header">
+            <span>Document Size Consumption vs 16 MB Limit</span>
+            <span id="headroom-pct-label">0.012% of 16 MB</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-bar green" id="headroom-progress-bar" style="width: 1%;"></div>
+          </div>
+          <div class="verdict-banner green">
+            <span class="icon">🛡️</span>
+            <span><strong>VERIFIED SAFE:</strong> No production documents approach the 16 MB boundary. Maximum document size utilizes less than 0.05% of available capacity.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Embedding vs Referencing Identification (Instructions 1 & 2) -->
+      <div class="lab-card-group">
+        <div class="sub-header">
+          <h3>Instructions 1 & 2: Embedding vs Referencing Architectural Decisions</h3>
+        </div>
+        <div class="relationships-grid" id="relationships-container">
+          <!-- Dynamically populated via lab7_1.js -->
+        </div>
+      </div>
+
+      <!-- Activity 7.1 Try It Yourself: Embedded Redesign Workbench -->
+      <div class="lab-card-group highlight-box">
+        <div class="sub-header">
+          <div class="title-with-badge">
+            <h3>Activity for 7.1: Try It Yourself</h3>
+            <span class="badge-pill yellow">Redesign: Deciding Which Source is an Actual Threat</span>
+          </div>
+          <button id="btn-run-activity71" class="btn btn-primary">
+            <span>⚡</span> Run Comparative Latency Benchmark
+          </button>
+        </div>
+
+        <p class="activity-desc">
+          We redesigned the referencing relationship between <strong>Sources</strong> and <strong>Threats</strong> into an <strong>Embedded Schema</strong> (in <code>sources_embedded_threats</code> collection).
+          Instead of performing an expensive <code>$lookup</code> join across collections, threats and verdicts are embedded directly inside each intelligence feed document.
+        </p>
+
+        <!-- Benchmark Comparison Metrics -->
+        <div class="benchmark-grid">
+          <div class="bench-card">
+            <div class="bench-header">
+              <span class="pattern-badge red">REFERENCED DESIGN</span>
+              <h4>$lookup Join Query</h4>
+            </div>
+            <div class="bench-metric">
+              <span class="bench-time" id="bench-ref-time">-- ms</span>
+              <span class="bench-sub">Multi-collection Pipeline Join</span>
+            </div>
+            <pre class="code-box">
+db.sources.aggregate([
+  { $lookup: {
+      from: "threat_reports",
+      localField: "source_id",
+      foreignField: "source_id",
+      as: "reports"
+  }},
+  { $project: {
+      name: 1,
+      actual_threats: { $filter: { ... } }
+  }}
+])</pre>
+          </div>
+
+          <div class="bench-card winner">
+            <div class="bench-header">
+              <span class="pattern-badge green">EMBEDDED REDESIGN</span>
+              <h4>Single Document Seek</h4>
+            </div>
+            <div class="bench-metric">
+              <span class="bench-time green" id="bench-emb-time">-- ms</span>
+              <span class="bench-sub" id="bench-speedup-label">Faster Execution</span>
+            </div>
+            <pre class="code-box">
+db.sources_embedded_threats.find(
+  { is_actual_threat_source: true },
+  { name: 1, threat_summary: 1 }
+)</pre>
+          </div>
+        </div>
+
+        <!-- Trade-off Analysis: What becomes faster vs What becomes harder -->
+        <div class="tradeoff-analysis-grid">
+          <div class="tradeoff-card faster">
+            <h4>🚀 What Queries Become Faster?</h4>
+            <ul id="tradeoff-faster-list">
+              <li><strong>Source Threat Classification:</strong> Determining if a source represents an active adversary is instant (O(1) single-document seek).</li>
+              <li><strong>Zero Joins:</strong> Eliminates CPU-heavy <code>$lookup</code> pipeline executions across millions of records.</li>
+              <li><strong>Atomic Feed Dossier:</strong> Retrieving an intelligence source alongside its top telemetry indicators happens in a single disk read.</li>
+            </ul>
+          </div>
+
+          <div class="tradeoff-card harder">
+            <h4>⚠️ What Queries / Operations Become Harder?</h4>
+            <ul id="tradeoff-harder-list">
+              <li><strong>16 MB Unbounded Growth:</strong> If an active feed ingests 50,000+ alerts, the embedded source document will quickly hit the 16 MB BSON ceiling.</li>
+              <li><strong>Write Locking & Contention:</strong> Parallel ingestion crawlers concurrently modifying the same source document encounter document-level lock queues.</li>
+              <li><strong>Cross-Source Correlation:</strong> Querying if a specific IP hash appears across multiple sources requires complex <code>$unwind</code> pipelines.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- TAB 3: LAB 7.2 - WORKING SET & WIREDTIGER CACHE                  -->
+    <!-- ================================================================= -->
+    <section id="tab-lab72" class="tab-content">
+      <div class="section-hero">
+        <h2>Lab 7.2: Working Set Analysis & Cache Fit</h2>
+        <p>Working set estimation based on <strong>Awesome Annual Security Reports (https://github.com/jacobdjwilson/awesome-annual-security-reports)</strong>. Evaluates WiredTiger cache sizing, random reads churn, and 10-second real-time telemetry.</p>
+      </div>
+
+      <!-- Working Set & Cache Fit Metrics (Instructions 1 & 2) -->
+      <div class="lab-card-group">
+        <div class="sub-header">
+          <h3>Instructions 1 & 2: Working Set Sizing & WiredTiger Cache Fit</h3>
+          <button id="btn-insert-100k" class="btn btn-primary">
+            <span>📥</span> Insert 100,000 Security Documents (~2 KB Each)
+          </button>
+        </div>
+
+        <div class="working-set-grid">
+          <div class="wt-card">
+            <span class="wt-label">TOTAL DOCUMENTS</span>
+            <span class="wt-val cyan" id="wt-total-docs">100,000</span>
+            <span class="wt-sub">Dataset: Annual Security Reports</span>
+          </div>
+          <div class="wt-card">
+            <span class="wt-label">AVG DOC SIZE</span>
+            <span class="wt-val" id="wt-avg-size">~2.05 KB</span>
+            <span class="wt-sub">Target: ~2 KB per document</span>
+          </div>
+          <div class="wt-card">
+            <span class="wt-label">TOTAL WORKING SET</span>
+            <span class="wt-val purple" id="wt-working-set-mb">~235.8 MB</span>
+            <span class="wt-sub">Data + Index Overhead (15%)</span>
+          </div>
+          <div class="wt-card">
+            <span class="wt-label">WIREDTIGER CACHE ALLOCATION</span>
+            <span class="wt-val green" id="wt-cache-size-mb">512.0 MB</span>
+            <span class="wt-sub">RAM Dedicated to Cache</span>
+          </div>
+        </div>
+
+        <!-- WiredTiger Cache Telemetry Tiles -->
+        <div class="wt-cache-meters">
+          <div class="meter-tile">
+            <span class="meter-name">CACHE FIT RATIO</span>
+            <span class="meter-val green" id="wt-cache-fit-pct">100.0%</span>
+            <span class="meter-status" id="wt-cache-fit-status">Working set comfortably fits in RAM cache</span>
+          </div>
+          <div class="meter-tile">
+            <span class="meter-name">BYTES IN CACHE</span>
+            <span class="meter-val" id="wt-bytes-in-cache">-- MB</span>
+            <span class="meter-status" id="wt-pct-in-cache">--% resident in cache</span>
+          </div>
+          <div class="meter-tile">
+            <span class="meter-name">TRACKED DIRTY BYTES</span>
+            <span class="meter-val yellow" id="wt-dirty-bytes">-- MB</span>
+            <span class="meter-status">Pending writeback checkpoints</span>
+          </div>
+          <div class="meter-tile">
+            <span class="meter-name">CACHE HIT RATIO</span>
+            <span class="meter-val cyan" id="wt-live-hit-ratio">98.4%</span>
+            <span class="meter-status">Formula: (Req - Read) / Req * 100</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Random Reads Workload & Cache Hit Ratio Evolution (Instruction 3) -->
+      <div class="lab-card-group">
+        <div class="sub-header">
+          <div class="title-with-badge">
+            <h3>Instruction 3: Random Reads Workload & Cache Hit Ratio Evolution</h3>
+            <span class="badge-pill">Collection: working_set_reports</span>
+          </div>
+          <button id="btn-run-random-reads" class="btn btn-secondary">
+            <span>⚡</span> Execute 2,500 Random Reads
+          </button>
+        </div>
+
+        <p class="activity-desc">
+          Simulates random access across the 100,000 security reports collection. Observe how the WiredTiger cache transitions from cold cache misses (disk reads) to high cache hit ratios as working set pages reside in RAM.
+        </p>
+
+        <!-- Chart.js Graph -->
+        <div class="chart-container-box">
+          <canvas id="random-reads-chart" height="90"></canvas>
+        </div>
+      </div>
+
+      <!-- Activity 7.2 Try It Yourself: 10-Second Monitoring & Crawler Feed -->
+      <div class="lab-card-group highlight-box">
+        <div class="sub-header">
+          <div class="title-with-badge">
+            <h3>Activity for 7.2: Try It Yourself</h3>
+            <span class="badge-pill green">Live 10-Second Monitoring & Threat Discovery Crawler</span>
+          </div>
+          <div class="monitor-pulse-badge">
+            <span class="pulse-indicator"></span>
+            <span>AUTO-REPORTING EVERY 10 SECONDS</span>
+          </div>
+        </div>
+
+        <p class="activity-desc">
+          Automated monitoring engine executing in the background: Researches <code>db.serverStatus().wiredTiger.cache</code> metrics, calculates the Cache Hit Ratio every 10 seconds, and simultaneously crawls external feeds for newer threat reports not available in the database.
+        </p>
+
+        <div class="monitor-dual-grid">
+          <!-- Real-Time Metrics Log Stream -->
+          <div class="monitor-panel">
+            <h4>Live WiredTiger Telemetry Stream</h4>
+            <div class="telemetry-table-wrapper">
+              <table class="telemetry-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Cache Hit Ratio</th>
+                    <th>In Cache</th>
+                    <th>Dirty Bytes</th>
+                    <th>RAM Hits</th>
+                    <th>Disk Reads</th>
+                  </tr>
+                </thead>
+                <tbody id="telemetry-log-tbody">
+                  <tr><td colspan="6" class="text-center">Awaiting next 10-second ticker pulse...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Real-Time Threat Discovery Crawler Stream -->
+          <div class="crawler-panel">
+            <h4>Newly Discovered Threat Reports Ingested</h4>
+            <div class="crawler-cards-list" id="crawler-discoveries-list">
+              <div class="empty-crawler">Discovery crawler searching for new threat reports...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Application Scripts -->
+  <script src="js/threats.js"></script>
+  <script src="js/lab7_1.js"></script>
+  <script src="js/lab7_2.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

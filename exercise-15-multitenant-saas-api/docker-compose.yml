@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  tasktracker-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: shashankreddy30/mongodb-lab15:latest
+    container_name: mongodb-lab15-demo
+    ports:
+      - "8000:8000"
+      - "27017:27017"
+    environment:
+      - MONGO_URI=mongodb://127.0.0.1:27017/saas_app?directConnection=true
+      - MONGO_DB=saas_app
+      - JWT_SECRET=super-secret-key-for-lab15-multitenant-saas
+    volumes:
+      - ./logs:/workspace/logs
+    stdin_open: true
+    tty: true
+    restart: unless-stopped

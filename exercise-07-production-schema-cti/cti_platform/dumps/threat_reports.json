@@ -1,0 +1,4002 @@
+[
+  {
+    "threat_id": "CTI-2026-1000",
+    "title": "LockBit 4.0 Exploiting Edge Firewalls with New Anti-Analysis Modules [Variant #1]",
+    "threat_type": "Ransomware",
+    "severity": "Critical",
+    "cvss_score": 9.8,
+    "confidence": 87,
+    "description": "Detailed tactical intelligence report on Ransomware activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-12T18:36:32.351829+00:00",
+    "source_id": "SRC-003",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-74697",
+        "type": "url",
+        "value": "https://cdn-evil-57.net/payload_8890.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.351932+00:00"
+      },
+      {
+        "ioc_id": "IOC-62791",
+        "type": "sha256",
+        "value": "e9adab20bbcf85169f20aef352e11bbfd40513c02a655ef1f4bb976ec9914acc",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 78,
+        "first_seen": "2026-11-22T18:36:32.351992+00:00"
+      },
+      {
+        "ioc_id": "IOC-42857",
+        "type": "sha256",
+        "value": "05336b58b5b527a010778eb052260a4d91df56e6ab348064559ebfc3748fd3ab",
+        "reputation": "suspicious",
+        "confidence_score": 82,
+        "first_seen": "2026-11-22T18:36:32.352032+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Impact / Encryption",
+      "mitre_techniques": [
+        "T1486 - Data Encrypted for Impact",
+        "T1055 - Process Injection"
+      ]
+    },
+    "tags": [
+      "ransomware",
+      "critical",
+      "act-002",
+      "feed-src-003"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 4386,
+      "is_zero_day": true,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa62f"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1001",
+    "title": "Volt Typhoon LotL Stealth Infiltration into Water SCADA Systems [Variant #2]",
+    "threat_type": "APT",
+    "severity": "Critical",
+    "cvss_score": 9.6,
+    "confidence": 96,
+    "description": "Detailed tactical intelligence report on APT activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-08T18:36:32.351829+00:00",
+    "source_id": "SRC-001",
+    "actor_id": "ACT-004",
+    "cve_ids": [
+      "CVE-2026-1184"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-46187",
+        "type": "sha256",
+        "value": "f8d5b35d560d9cfa45b735b2dcaad883f7d8bc6053eb1bd9ec519bd5a1846b17",
+        "reputation": "high_risk",
+        "confidence_score": 81,
+        "first_seen": "2026-11-22T18:36:32.352150+00:00"
+      },
+      {
+        "ioc_id": "IOC-24549",
+        "type": "ipv4",
+        "value": "119.117.131.181",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.352170+00:00"
+      },
+      {
+        "ioc_id": "IOC-58627",
+        "type": "domain",
+        "value": "c2-gateway-395.org",
+        "reputation": "high_risk",
+        "confidence_score": 77,
+        "first_seen": "2026-11-22T18:36:32.352186+00:00"
+      },
+      {
+        "ioc_id": "IOC-80955",
+        "type": "domain",
+        "value": "c2-auth-858.org",
+        "reputation": "suspicious",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.352201+00:00"
+      },
+      {
+        "ioc_id": "IOC-93458",
+        "type": "url",
+        "value": "https://cdn-evil-14.net/payload_3699.bin",
+        "reputation": "high_risk",
+        "confidence_score": 99,
+        "first_seen": "2026-11-22T18:36:32.352216+00:00"
+      },
+      {
+        "ioc_id": "IOC-60606",
+        "type": "ipv4",
+        "value": "191.210.211.69",
+        "reputation": "suspicious",
+        "confidence_score": 86,
+        "first_seen": "2026-11-22T18:36:32.352232+00:00"
+      },
+      {
+        "ioc_id": "IOC-58365",
+        "type": "ipv4",
+        "value": "80.39.21.214",
+        "reputation": "suspicious",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.352249+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Initial Access",
+      "mitre_techniques": [
+        "T1041 - Exfiltration Over C2 Channel",
+        "T1078 - Valid Accounts"
+      ]
+    },
+    "tags": [
+      "apt",
+      "critical",
+      "act-004",
+      "feed-src-001"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 3312,
+      "is_zero_day": true,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa630"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1002",
+    "title": "RedLine Infostealer New Variant Bypassing Windows Defender via DLL Sideloading [Variant #3]",
+    "threat_type": "Infostealer",
+    "severity": "High",
+    "cvss_score": 8.4,
+    "confidence": 83,
+    "description": "Detailed tactical intelligence report on Infostealer activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-08T18:36:32.351829+00:00",
+    "source_id": "SRC-007",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-19761",
+        "type": "ipv4",
+        "value": "67.175.92.53",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 83,
+        "first_seen": "2026-11-22T18:36:32.352309+00:00"
+      },
+      {
+        "ioc_id": "IOC-53434",
+        "type": "url",
+        "value": "https://cdn-evil-11.net/payload_3402.bin",
+        "reputation": "suspicious",
+        "confidence_score": 78,
+        "first_seen": "2026-11-22T18:36:32.352323+00:00"
+      },
+      {
+        "ioc_id": "IOC-74593",
+        "type": "sha256",
+        "value": "f8e9357d21b7e6088c409cc014122887c9b9f1889b5b9298bf2bdec516ce1ef6",
+        "reputation": "high_risk",
+        "confidence_score": 75,
+        "first_seen": "2026-11-22T18:36:32.352354+00:00"
+      },
+      {
+        "ioc_id": "IOC-34816",
+        "type": "domain",
+        "value": "c2-update-556.org",
+        "reputation": "high_risk",
+        "confidence_score": 87,
+        "first_seen": "2026-11-22T18:36:32.352368+00:00"
+      },
+      {
+        "ioc_id": "IOC-33590",
+        "type": "sha256",
+        "value": "733067a1701708cbf18aff7f3ecf9f6eca326ee8f57ad021d14f84f32b74a4da",
+        "reputation": "suspicious",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.352396+00:00"
+      },
+      {
+        "ioc_id": "IOC-28714",
+        "type": "ipv4",
+        "value": "102.87.142.115",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.352412+00:00"
+      },
+      {
+        "ioc_id": "IOC-93095",
+        "type": "url",
+        "value": "https://cdn-evil-81.net/payload_3003.bin",
+        "reputation": "high_risk",
+        "confidence_score": 89,
+        "first_seen": "2026-11-22T18:36:32.352428+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Command & Control",
+      "mitre_techniques": [
+        "T1055 - Process Injection",
+        "T1041 - Exfiltration Over C2 Channel"
+      ]
+    },
+    "tags": [
+      "infostealer",
+      "high",
+      "act-005",
+      "feed-src-007"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 4449,
+      "is_zero_day": false,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa631"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1003",
+    "title": "Lazarus Targeting Web3 Developers via Weaponized NPM Dependency Confusion [Variant #4]",
+    "threat_type": "Phishing",
+    "severity": "High",
+    "cvss_score": 8.9,
+    "confidence": 95,
+    "description": "Detailed tactical intelligence report on Phishing activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-21T18:36:32.351829+00:00",
+    "source_id": "SRC-002",
+    "actor_id": "ACT-003",
+    "cve_ids": [
+      "CVE-2026-4409"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-52941",
+        "type": "domain",
+        "value": "c2-update-780.org",
+        "reputation": "high_risk",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.352478+00:00"
+      },
+      {
+        "ioc_id": "IOC-78123",
+        "type": "sha256",
+        "value": "ed57bcfb15f6d75810addff838cc43b8a7b8e13ab4b1649a32a762efd472a171",
+        "reputation": "suspicious",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.352509+00:00"
+      },
+      {
+        "ioc_id": "IOC-95749",
+        "type": "domain",
+        "value": "c2-update-606.org",
+        "reputation": "high_risk",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.352523+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Impact / Encryption",
+      "mitre_techniques": [
+        "T1041 - Exfiltration Over C2 Channel",
+        "T1566.001 - Spearphishing Attachment"
+      ]
+    },
+    "tags": [
+      "phishing",
+      "high",
+      "act-003",
+      "feed-src-002"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 1300,
+      "is_zero_day": false,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa632"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1004",
+    "title": "APT29 Spearphishing Campaign Impersonating Diplomatic Attache Invitations [Variant #5]",
+    "threat_type": "APT",
+    "severity": "High",
+    "cvss_score": 8.7,
+    "confidence": 96,
+    "description": "Detailed tactical intelligence report on APT activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-15T18:36:32.351829+00:00",
+    "source_id": "SRC-002",
+    "actor_id": "ACT-001",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-90343",
+        "type": "url",
+        "value": "https://cdn-evil-44.net/payload_6649.bin",
+        "reputation": "suspicious",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.352566+00:00"
+      },
+      {
+        "ioc_id": "IOC-70115",
+        "type": "url",
+        "value": "https://cdn-evil-41.net/payload_7212.bin",
+        "reputation": "high_risk",
+        "confidence_score": 86,
+        "first_seen": "2026-11-22T18:36:32.352581+00:00"
+      },
+      {
+        "ioc_id": "IOC-94467",
+        "type": "url",
+        "value": "https://cdn-evil-23.net/payload_8502.bin",
+        "reputation": "suspicious",
+        "confidence_score": 83,
+        "first_seen": "2026-11-22T18:36:32.352595+00:00"
+      },
+      {
+        "ioc_id": "IOC-83434",
+        "type": "sha256",
+        "value": "63590c1416d7b1e44cd11126423d14b46625a54c238cfc818615bc0dd2bb561e",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.352632+00:00"
+      },
+      {
+        "ioc_id": "IOC-40316",
+        "type": "domain",
+        "value": "c2-telemetry-217.org",
+        "reputation": "suspicious",
+        "confidence_score": 83,
+        "first_seen": "2026-11-22T18:36:32.352648+00:00"
+      },
+      {
+        "ioc_id": "IOC-82655",
+        "type": "sha256",
+        "value": "502cb9dbae27a54362612140f4ec81e0e1ff22638f5a9d61d390dd1b6b09fc36",
+        "reputation": "suspicious",
+        "confidence_score": 77,
+        "first_seen": "2026-11-22T18:36:32.352678+00:00"
+      },
+      {
+        "ioc_id": "IOC-86141",
+        "type": "url",
+        "value": "https://cdn-evil-49.net/payload_6637.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 92,
+        "first_seen": "2026-11-22T18:36:32.352693+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "False Positive",
+      "status": "Benign / Whitelisted",
+      "kill_chain_stage": "Impact / Encryption",
+      "mitre_techniques": [
+        "T1059.001 - PowerShell Execution",
+        "T1055 - Process Injection"
+      ]
+    },
+    "tags": [
+      "apt",
+      "high",
+      "act-001",
+      "feed-src-002"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 1844,
+      "is_zero_day": false,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa633"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1005",
+    "title": "Mirai-Variant Botnet 'DarkStorm' Exploiting Zero-Day in IoT Routers [Variant #6]",
+    "threat_type": "Botnet",
+    "severity": "Medium",
+    "cvss_score": 7.2,
+    "confidence": 82,
+    "description": "Detailed tactical intelligence report on Botnet activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-09T18:36:32.351829+00:00",
+    "source_id": "SRC-006",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-59670",
+        "type": "ipv4",
+        "value": "67.114.57.162",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.352749+00:00"
+      },
+      {
+        "ioc_id": "IOC-62518",
+        "type": "sha256",
+        "value": "c41d2ef9ce55aa5e2f61dbb9fa5535fbbf92b2b865e58ab348d651b1f3b1838f",
+        "reputation": "high_risk",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.352780+00:00"
+      },
+      {
+        "ioc_id": "IOC-82126",
+        "type": "domain",
+        "value": "c2-gateway-275.org",
+        "reputation": "suspicious",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.352795+00:00"
+      },
+      {
+        "ioc_id": "IOC-59859",
+        "type": "ipv4",
+        "value": "76.249.141.97",
+        "reputation": "high_risk",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.352810+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Initial Access",
+      "mitre_techniques": [
+        "T1486 - Data Encrypted for Impact",
+        "T1059.001 - PowerShell Execution"
+      ]
+    },
+    "tags": [
+      "botnet",
+      "medium",
+      "act-005",
+      "feed-src-006"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 4833,
+      "is_zero_day": false,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa634"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1006",
+    "title": "Scattered Spider Multi-Factor Authentication Fatigue Campaign against Okta Tenants [Variant #7]",
+    "threat_type": "Phishing",
+    "severity": "High",
+    "cvss_score": 8.5,
+    "confidence": 97,
+    "description": "Detailed tactical intelligence report on Phishing activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-27T18:36:32.351829+00:00",
+    "source_id": "SRC-003",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2026-1184"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-76286",
+        "type": "url",
+        "value": "https://cdn-evil-41.net/payload_6134.bin",
+        "reputation": "high_risk",
+        "confidence_score": 82,
+        "first_seen": "2026-11-22T18:36:32.352851+00:00"
+      },
+      {
+        "ioc_id": "IOC-97727",
+        "type": "url",
+        "value": "https://cdn-evil-28.net/payload_5196.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 90,
+        "first_seen": "2026-11-22T18:36:32.352867+00:00"
+      },
+      {
+        "ioc_id": "IOC-72635",
+        "type": "url",
+        "value": "https://cdn-evil-52.net/payload_9350.bin",
+        "reputation": "high_risk",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.352881+00:00"
+      },
+      {
+        "ioc_id": "IOC-35061",
+        "type": "sha256",
+        "value": "ce067dcba9ff9b2d0636e5c51cd37913062ce1320865038f5b523b84fad375d6",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 89,
+        "first_seen": "2026-11-22T18:36:32.352913+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Impact / Encryption",
+      "mitre_techniques": [
+        "T1190 - Exploit Public-Facing Application",
+        "T1041 - Exfiltration Over C2 Channel"
+      ]
+    },
+    "tags": [
+      "phishing",
+      "high",
+      "act-005",
+      "feed-src-003"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 3588,
+      "is_zero_day": false,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa635"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1007",
+    "title": "BlackCat/ALPHV Successor Group Deploying Rust-based Cross-Platform Encryptor [Variant #8]",
+    "threat_type": "Ransomware",
+    "severity": "Critical",
+    "cvss_score": 9.7,
+    "confidence": 83,
+    "description": "Detailed tactical intelligence report on Ransomware activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-13T18:36:32.351829+00:00",
+    "source_id": "SRC-005",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-4409"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-66533",
+        "type": "domain",
+        "value": "c2-gateway-401.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.352959+00:00"
+      },
+      {
+        "ioc_id": "IOC-42357",
+        "type": "url",
+        "value": "https://cdn-evil-91.net/payload_2403.bin",
+        "reputation": "high_risk",
+        "confidence_score": 98,
+        "first_seen": "2026-11-22T18:36:32.352973+00:00"
+      },
+      {
+        "ioc_id": "IOC-35224",
+        "type": "ipv4",
+        "value": "118.233.5.219",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 76,
+        "first_seen": "2026-11-22T18:36:32.352992+00:00"
+      },
+      {
+        "ioc_id": "IOC-88105",
+        "type": "domain",
+        "value": "c2-update-824.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 82,
+        "first_seen": "2026-11-22T18:36:32.353030+00:00"
+      },
+      {
+        "ioc_id": "IOC-18256",
+        "type": "url",
+        "value": "https://cdn-evil-42.net/payload_9652.bin",
+        "reputation": "suspicious",
+        "confidence_score": 85,
+        "first_seen": "2026-11-22T18:36:32.353044+00:00"
+      },
+      {
+        "ioc_id": "IOC-64254",
+        "type": "ipv4",
+        "value": "195.235.209.29",
+        "reputation": "high_risk",
+        "confidence_score": 91,
+        "first_seen": "2026-11-22T18:36:32.353062+00:00"
+      },
+      {
+        "ioc_id": "IOC-96235",
+        "type": "sha256",
+        "value": "bebcbbad917ed824bdfd6834d1ad020ef46264720e47829701c325ca5c22b8e6",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 86,
+        "first_seen": "2026-11-22T18:36:32.353099+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Impact / Encryption",
+      "mitre_techniques": [
+        "T1055 - Process Injection",
+        "T1059.001 - PowerShell Execution"
+      ]
+    },
+    "tags": [
+      "ransomware",
+      "critical",
+      "act-002",
+      "feed-src-005"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 3409,
+      "is_zero_day": true,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa636"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1008",
+    "title": "Qakbot Successor 'Pikabot' Re-emerging with Modular Proxy Payloads [Variant #9]",
+    "threat_type": "Trojan",
+    "severity": "Medium",
+    "cvss_score": 7.6,
+    "confidence": 98,
+    "description": "Detailed tactical intelligence report on Trojan activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-18T18:36:32.351829+00:00",
+    "source_id": "SRC-005",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-50185",
+        "type": "sha256",
+        "value": "ae3a9892a13ebe0797fbff967e0b98fd632e0b2450daa23014cc45c0b222dc22",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.353165+00:00"
+      },
+      {
+        "ioc_id": "IOC-37210",
+        "type": "url",
+        "value": "https://cdn-evil-33.net/payload_5754.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.353180+00:00"
+      },
+      {
+        "ioc_id": "IOC-56044",
+        "type": "ipv4",
+        "value": "88.242.179.186",
+        "reputation": "suspicious",
+        "confidence_score": 81,
+        "first_seen": "2026-11-22T18:36:32.353197+00:00"
+      },
+      {
+        "ioc_id": "IOC-11918",
+        "type": "sha256",
+        "value": "a2abfef2ebb690be7f885890da1f766724240834748d679cc9ac3a2da5c1fc9e",
+        "reputation": "high_risk",
+        "confidence_score": 83,
+        "first_seen": "2026-11-22T18:36:32.353231+00:00"
+      },
+      {
+        "ioc_id": "IOC-44982",
+        "type": "sha256",
+        "value": "0e318caadd2635d99e62695441af9be88fbdfcf82b2d1f471a878bc67cd10cd7",
+        "reputation": "high_risk",
+        "confidence_score": 81,
+        "first_seen": "2026-11-22T18:36:32.353264+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Credential Access",
+      "mitre_techniques": [
+        "T1041 - Exfiltration Over C2 Channel",
+        "T1486 - Data Encrypted for Impact"
+      ]
+    },
+    "tags": [
+      "trojan",
+      "medium",
+      "act-005",
+      "feed-src-005"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 3280,
+      "is_zero_day": false,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa637"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1009",
+    "title": "Rogue AS99120 Hosting Malicious Cobalt Strike Beacons for Eastern Cybercartels [Variant #10]",
+    "threat_type": "Command and Control",
+    "severity": "High",
+    "cvss_score": 8.8,
+    "confidence": 80,
+    "description": "Detailed tactical intelligence report on Command and Control activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-26T18:36:32.351829+00:00",
+    "source_id": "SRC-006",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-53317",
+        "type": "domain",
+        "value": "c2-auth-295.org",
+        "reputation": "high_risk",
+        "confidence_score": 100,
+        "first_seen": "2026-11-22T18:36:32.353306+00:00"
+      },
+      {
+        "ioc_id": "IOC-71381",
+        "type": "domain",
+        "value": "c2-gateway-784.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 78,
+        "first_seen": "2026-11-22T18:36:32.353320+00:00"
+      },
+      {
+        "ioc_id": "IOC-29233",
+        "type": "domain",
+        "value": "c2-auth-189.org",
+        "reputation": "suspicious",
+        "confidence_score": 80,
+        "first_seen": "2026-11-22T18:36:32.353334+00:00"
+      },
+      {
+        "ioc_id": "IOC-71046",
+        "type": "url",
+        "value": "https://cdn-evil-27.net/payload_4249.bin",
+        "reputation": "suspicious",
+        "confidence_score": 87,
+        "first_seen": "2026-11-22T18:36:32.353348+00:00"
+      },
+      {
+        "ioc_id": "IOC-88263",
+        "type": "url",
+        "value": "https://cdn-evil-40.net/payload_8442.bin",
+        "reputation": "high_risk",
+        "confidence_score": 78,
+        "first_seen": "2026-11-22T18:36:32.353363+00:00"
+      },
+      {
+        "ioc_id": "IOC-85531",
+        "type": "domain",
+        "value": "c2-telemetry-314.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 88,
+        "first_seen": "2026-11-22T18:36:32.353377+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Initial Access",
+      "mitre_techniques": [
+        "T1071.001 - Web Protocols Command and Control",
+        "T1486 - Data Encrypted for Impact"
+      ]
+    },
+    "tags": [
+      "command and control",
+      "high",
+      "act-002",
+      "feed-src-006"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 783,
+      "is_zero_day": false,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa638"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1010",
+    "title": "LockBit 4.0 Exploiting Edge Firewalls with New Anti-Analysis Modules [Variant #11]",
+    "threat_type": "Ransomware",
+    "severity": "Critical",
+    "cvss_score": 9.8,
+    "confidence": 85,
+    "description": "Detailed tactical intelligence report on Ransomware activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-22T18:36:32.351829+00:00",
+    "source_id": "SRC-003",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-69214",
+        "type": "sha256",
+        "value": "bf0c3491557acf2e0b736ade9775e16fe22629b959c29a79fbd698618ab65e7e",
+        "reputation": "suspicious",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.353438+00:00"
+      },
+      {
+        "ioc_id": "IOC-61938",
+        "type": "url",
+        "value": "https://cdn-evil-32.net/payload_2507.bin",
+        "reputation": "suspicious",
+        "confidence_score": 99,
+        "first_seen": "2026-11-22T18:36:32.353453+00:00"
+      },
+      {
+        "ioc_id": "IOC-26978",
+        "type": "url",
+        "value": "https://cdn-evil-73.net/payload_5289.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 81,
+        "first_seen": "2026-11-22T18:36:32.353467+00:00"
+      },
+      {
+        "ioc_id": "IOC-86616",
+        "type": "domain",
+        "value": "c2-gateway-380.org",
+        "reputation": "high_risk",
+        "confidence_score": 83,
+        "first_seen": "2026-11-22T18:36:32.353481+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Initial Access",
+      "mitre_techniques": [
+        "T1071.001 - Web Protocols Command and Control",
+        "T1190 - Exploit Public-Facing Application"
+      ]
+    },
+    "tags": [
+      "ransomware",
+      "critical",
+      "act-002",
+      "feed-src-003"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 510,
+      "is_zero_day": true,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa639"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1011",
+    "title": "Volt Typhoon LotL Stealth Infiltration into Water SCADA Systems [Variant #12]",
+    "threat_type": "APT",
+    "severity": "Critical",
+    "cvss_score": 9.6,
+    "confidence": 80,
+    "description": "Detailed tactical intelligence report on APT activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-12T18:36:32.351829+00:00",
+    "source_id": "SRC-001",
+    "actor_id": "ACT-004",
+    "cve_ids": [
+      "CVE-2026-1184"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-16737",
+        "type": "url",
+        "value": "https://cdn-evil-16.net/payload_9438.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 89,
+        "first_seen": "2026-11-22T18:36:32.353522+00:00"
+      },
+      {
+        "ioc_id": "IOC-97983",
+        "type": "domain",
+        "value": "c2-telemetry-256.org",
+        "reputation": "suspicious",
+        "confidence_score": 91,
+        "first_seen": "2026-11-22T18:36:32.353536+00:00"
+      },
+      {
+        "ioc_id": "IOC-17094",
+        "type": "url",
+        "value": "https://cdn-evil-70.net/payload_5157.bin",
+        "reputation": "high_risk",
+        "confidence_score": 99,
+        "first_seen": "2026-11-22T18:36:32.353551+00:00"
+      },
+      {
+        "ioc_id": "IOC-66463",
+        "type": "url",
+        "value": "https://cdn-evil-29.net/payload_3490.bin",
+        "reputation": "suspicious",
+        "confidence_score": 90,
+        "first_seen": "2026-11-22T18:36:32.353565+00:00"
+      },
+      {
+        "ioc_id": "IOC-95788",
+        "type": "ipv4",
+        "value": "159.225.136.46",
+        "reputation": "high_risk",
+        "confidence_score": 97,
+        "first_seen": "2026-11-22T18:36:32.353580+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Command & Control",
+      "mitre_techniques": [
+        "T1071.001 - Web Protocols Command and Control",
+        "T1055 - Process Injection"
+      ]
+    },
+    "tags": [
+      "apt",
+      "critical",
+      "act-004",
+      "feed-src-001"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 979,
+      "is_zero_day": true,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa63a"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1012",
+    "title": "RedLine Infostealer New Variant Bypassing Windows Defender via DLL Sideloading [Variant #13]",
+    "threat_type": "Infostealer",
+    "severity": "High",
+    "cvss_score": 8.4,
+    "confidence": 97,
+    "description": "Detailed tactical intelligence report on Infostealer activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-17T18:36:32.351829+00:00",
+    "source_id": "SRC-007",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-54816",
+        "type": "ipv4",
+        "value": "96.238.167.103",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.353632+00:00"
+      },
+      {
+        "ioc_id": "IOC-28479",
+        "type": "ipv4",
+        "value": "141.192.140.187",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 91,
+        "first_seen": "2026-11-22T18:36:32.353645+00:00"
+      },
+      {
+        "ioc_id": "IOC-85533",
+        "type": "domain",
+        "value": "c2-auth-691.org",
+        "reputation": "suspicious",
+        "confidence_score": 88,
+        "first_seen": "2026-11-22T18:36:32.353658+00:00"
+      },
+      {
+        "ioc_id": "IOC-92268",
+        "type": "url",
+        "value": "https://cdn-evil-53.net/payload_4773.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 89,
+        "first_seen": "2026-11-22T18:36:32.353670+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Initial Access",
+      "mitre_techniques": [
+        "T1059.001 - PowerShell Execution",
+        "T1071.001 - Web Protocols Command and Control"
+      ]
+    },
+    "tags": [
+      "infostealer",
+      "high",
+      "act-005",
+      "feed-src-007"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 1312,
+      "is_zero_day": false,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa63b"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1013",
+    "title": "Lazarus Targeting Web3 Developers via Weaponized NPM Dependency Confusion [Variant #14]",
+    "threat_type": "Phishing",
+    "severity": "High",
+    "cvss_score": 8.9,
+    "confidence": 92,
+    "description": "Detailed tactical intelligence report on Phishing activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-22T18:36:32.351829+00:00",
+    "source_id": "SRC-002",
+    "actor_id": "ACT-003",
+    "cve_ids": [
+      "CVE-2026-4409"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-29150",
+        "type": "domain",
+        "value": "c2-gateway-938.org",
+        "reputation": "high_risk",
+        "confidence_score": 88,
+        "first_seen": "2026-11-22T18:36:32.353707+00:00"
+      },
+      {
+        "ioc_id": "IOC-67766",
+        "type": "ipv4",
+        "value": "70.199.153.234",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 97,
+        "first_seen": "2026-11-22T18:36:32.353720+00:00"
+      },
+      {
+        "ioc_id": "IOC-62346",
+        "type": "url",
+        "value": "https://cdn-evil-18.net/payload_2491.bin",
+        "reputation": "suspicious",
+        "confidence_score": 80,
+        "first_seen": "2026-11-22T18:36:32.353733+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Credential Access",
+      "mitre_techniques": [
+        "T1486 - Data Encrypted for Impact",
+        "T1566.001 - Spearphishing Attachment"
+      ]
+    },
+    "tags": [
+      "phishing",
+      "high",
+      "act-003",
+      "feed-src-002"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 4729,
+      "is_zero_day": false,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa63c"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1014",
+    "title": "APT29 Spearphishing Campaign Impersonating Diplomatic Attache Invitations [Variant #15]",
+    "threat_type": "APT",
+    "severity": "High",
+    "cvss_score": 8.7,
+    "confidence": 92,
+    "description": "Detailed tactical intelligence report on APT activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-17T18:36:32.351829+00:00",
+    "source_id": "SRC-002",
+    "actor_id": "ACT-001",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-27703",
+        "type": "domain",
+        "value": "c2-update-917.org",
+        "reputation": "high_risk",
+        "confidence_score": 82,
+        "first_seen": "2026-11-22T18:36:32.353766+00:00"
+      },
+      {
+        "ioc_id": "IOC-94968",
+        "type": "domain",
+        "value": "c2-sync-779.org",
+        "reputation": "suspicious",
+        "confidence_score": 79,
+        "first_seen": "2026-11-22T18:36:32.353778+00:00"
+      },
+      {
+        "ioc_id": "IOC-92586",
+        "type": "domain",
+        "value": "c2-telemetry-469.org",
+        "reputation": "suspicious",
+        "confidence_score": 78,
+        "first_seen": "2026-11-22T18:36:32.353789+00:00"
+      },
+      {
+        "ioc_id": "IOC-38352",
+        "type": "ipv4",
+        "value": "78.85.194.24",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.353803+00:00"
+      },
+      {
+        "ioc_id": "IOC-71869",
+        "type": "domain",
+        "value": "c2-auth-234.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.353815+00:00"
+      },
+      {
+        "ioc_id": "IOC-16769",
+        "type": "ipv4",
+        "value": "170.119.92.161",
+        "reputation": "suspicious",
+        "confidence_score": 89,
+        "first_seen": "2026-11-22T18:36:32.353828+00:00"
+      },
+      {
+        "ioc_id": "IOC-38634",
+        "type": "url",
+        "value": "https://cdn-evil-68.net/payload_9319.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.353847+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Impact / Encryption",
+      "mitre_techniques": [
+        "T1041 - Exfiltration Over C2 Channel",
+        "T1486 - Data Encrypted for Impact"
+      ]
+    },
+    "tags": [
+      "apt",
+      "high",
+      "act-001",
+      "feed-src-002"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 3553,
+      "is_zero_day": false,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa63d"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1015",
+    "title": "Mirai-Variant Botnet 'DarkStorm' Exploiting Zero-Day in IoT Routers [Variant #16]",
+    "threat_type": "Botnet",
+    "severity": "Medium",
+    "cvss_score": 7.2,
+    "confidence": 83,
+    "description": "Detailed tactical intelligence report on Botnet activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-14T18:36:32.351829+00:00",
+    "source_id": "SRC-006",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-22295",
+        "type": "sha256",
+        "value": "3350e4a5811a6210ec9929e6c92a107534f329d0cef583f4dfce53c82d5071cc",
+        "reputation": "high_risk",
+        "confidence_score": 100,
+        "first_seen": "2026-11-22T18:36:32.353915+00:00"
+      },
+      {
+        "ioc_id": "IOC-11495",
+        "type": "url",
+        "value": "https://cdn-evil-25.net/payload_6262.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 82,
+        "first_seen": "2026-11-22T18:36:32.353934+00:00"
+      },
+      {
+        "ioc_id": "IOC-42399",
+        "type": "domain",
+        "value": "c2-sync-831.org",
+        "reputation": "high_risk",
+        "confidence_score": 87,
+        "first_seen": "2026-11-22T18:36:32.353947+00:00"
+      },
+      {
+        "ioc_id": "IOC-70265",
+        "type": "sha256",
+        "value": "aa627dd6c750c44397dc6d7f034a27161d9a3255086f53ce65d5671cc6a23076",
+        "reputation": "high_risk",
+        "confidence_score": 92,
+        "first_seen": "2026-11-22T18:36:32.353972+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Command & Control",
+      "mitre_techniques": [
+        "T1055 - Process Injection",
+        "T1486 - Data Encrypted for Impact"
+      ]
+    },
+    "tags": [
+      "botnet",
+      "medium",
+      "act-005",
+      "feed-src-006"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 901,
+      "is_zero_day": false,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa63e"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1016",
+    "title": "Scattered Spider Multi-Factor Authentication Fatigue Campaign against Okta Tenants [Variant #17]",
+    "threat_type": "Phishing",
+    "severity": "High",
+    "cvss_score": 8.5,
+    "confidence": 98,
+    "description": "Detailed tactical intelligence report on Phishing activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-17T18:36:32.351829+00:00",
+    "source_id": "SRC-003",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2026-1184"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-19625",
+        "type": "ipv4",
+        "value": "185.66.89.111",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 91,
+        "first_seen": "2026-11-22T18:36:32.354191+00:00"
+      },
+      {
+        "ioc_id": "IOC-80955",
+        "type": "ipv4",
+        "value": "141.222.209.204",
+        "reputation": "high_risk",
+        "confidence_score": 97,
+        "first_seen": "2026-11-22T18:36:32.354519+00:00"
+      },
+      {
+        "ioc_id": "IOC-88876",
+        "type": "domain",
+        "value": "c2-telemetry-443.org",
+        "reputation": "suspicious",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.354544+00:00"
+      },
+      {
+        "ioc_id": "IOC-65022",
+        "type": "sha256",
+        "value": "01d05debc95eb22022ba4cf1cfad1ed3fcf72b882dd015c7b71755272e38122a",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.354588+00:00"
+      },
+      {
+        "ioc_id": "IOC-94567",
+        "type": "sha256",
+        "value": "22114d38503cbdf16748d9efbf69f251f24b0aa5f95eaa568941401d490bf477",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 77,
+        "first_seen": "2026-11-22T18:36:32.354616+00:00"
+      },
+      {
+        "ioc_id": "IOC-94225",
+        "type": "ipv4",
+        "value": "94.164.114.29",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 92,
+        "first_seen": "2026-11-22T18:36:32.354632+00:00"
+      },
+      {
+        "ioc_id": "IOC-53149",
+        "type": "url",
+        "value": "https://cdn-evil-43.net/payload_5811.bin",
+        "reputation": "high_risk",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.354646+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Command & Control",
+      "mitre_techniques": [
+        "T1078 - Valid Accounts",
+        "T1566.001 - Spearphishing Attachment"
+      ]
+    },
+    "tags": [
+      "phishing",
+      "high",
+      "act-005",
+      "feed-src-003"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 4915,
+      "is_zero_day": false,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa63f"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1017",
+    "title": "BlackCat/ALPHV Successor Group Deploying Rust-based Cross-Platform Encryptor [Variant #18]",
+    "threat_type": "Ransomware",
+    "severity": "Critical",
+    "cvss_score": 9.7,
+    "confidence": 82,
+    "description": "Detailed tactical intelligence report on Ransomware activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-29T18:36:32.351829+00:00",
+    "source_id": "SRC-005",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-4409"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-97792",
+        "type": "domain",
+        "value": "c2-telemetry-407.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.354712+00:00"
+      },
+      {
+        "ioc_id": "IOC-36140",
+        "type": "domain",
+        "value": "c2-telemetry-187.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 92,
+        "first_seen": "2026-11-22T18:36:32.354724+00:00"
+      },
+      {
+        "ioc_id": "IOC-68714",
+        "type": "domain",
+        "value": "c2-sync-741.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 79,
+        "first_seen": "2026-11-22T18:36:32.354738+00:00"
+      },
+      {
+        "ioc_id": "IOC-15077",
+        "type": "sha256",
+        "value": "18368d1a4d144bdf0e248893d702af839743fb154aa343814e2ae23808b9d133",
+        "reputation": "high_risk",
+        "confidence_score": 78,
+        "first_seen": "2026-11-22T18:36:32.354764+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Credential Access",
+      "mitre_techniques": [
+        "T1059.001 - PowerShell Execution",
+        "T1566.001 - Spearphishing Attachment"
+      ]
+    },
+    "tags": [
+      "ransomware",
+      "critical",
+      "act-002",
+      "feed-src-005"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 825,
+      "is_zero_day": true,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa640"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1018",
+    "title": "Qakbot Successor 'Pikabot' Re-emerging with Modular Proxy Payloads [Variant #19]",
+    "threat_type": "Trojan",
+    "severity": "Medium",
+    "cvss_score": 7.6,
+    "confidence": 81,
+    "description": "Detailed tactical intelligence report on Trojan activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-19T18:36:32.351829+00:00",
+    "source_id": "SRC-005",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-54713",
+        "type": "ipv4",
+        "value": "175.227.62.200",
+        "reputation": "suspicious",
+        "confidence_score": 98,
+        "first_seen": "2026-11-22T18:36:32.354973+00:00"
+      },
+      {
+        "ioc_id": "IOC-53713",
+        "type": "url",
+        "value": "https://cdn-evil-50.net/payload_9634.bin",
+        "reputation": "suspicious",
+        "confidence_score": 75,
+        "first_seen": "2026-11-22T18:36:32.354996+00:00"
+      },
+      {
+        "ioc_id": "IOC-38195",
+        "type": "sha256",
+        "value": "9e3a617e87553bc88b22e186273f03dd7c40977acb8319f6cb13d591d1c7c6cb",
+        "reputation": "high_risk",
+        "confidence_score": 91,
+        "first_seen": "2026-11-22T18:36:32.355039+00:00"
+      },
+      {
+        "ioc_id": "IOC-76179",
+        "type": "ipv4",
+        "value": "56.243.107.199",
+        "reputation": "high_risk",
+        "confidence_score": 92,
+        "first_seen": "2026-11-22T18:36:32.355065+00:00"
+      },
+      {
+        "ioc_id": "IOC-96631",
+        "type": "ipv4",
+        "value": "141.243.248.49",
+        "reputation": "high_risk",
+        "confidence_score": 88,
+        "first_seen": "2026-11-22T18:36:32.355082+00:00"
+      },
+      {
+        "ioc_id": "IOC-23331",
+        "type": "ipv4",
+        "value": "129.171.206.210",
+        "reputation": "suspicious",
+        "confidence_score": 87,
+        "first_seen": "2026-11-22T18:36:32.355099+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Credential Access",
+      "mitre_techniques": [
+        "T1041 - Exfiltration Over C2 Channel",
+        "T1055 - Process Injection"
+      ]
+    },
+    "tags": [
+      "trojan",
+      "medium",
+      "act-005",
+      "feed-src-005"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 946,
+      "is_zero_day": false,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa641"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1019",
+    "title": "Rogue AS99120 Hosting Malicious Cobalt Strike Beacons for Eastern Cybercartels [Variant #20]",
+    "threat_type": "Command and Control",
+    "severity": "High",
+    "cvss_score": 8.8,
+    "confidence": 94,
+    "description": "Detailed tactical intelligence report on Command and Control activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-18T18:36:32.351829+00:00",
+    "source_id": "SRC-006",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-66239",
+        "type": "url",
+        "value": "https://cdn-evil-42.net/payload_2478.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.355161+00:00"
+      },
+      {
+        "ioc_id": "IOC-98183",
+        "type": "url",
+        "value": "https://cdn-evil-65.net/payload_6085.bin",
+        "reputation": "high_risk",
+        "confidence_score": 87,
+        "first_seen": "2026-11-22T18:36:32.355174+00:00"
+      },
+      {
+        "ioc_id": "IOC-19984",
+        "type": "ipv4",
+        "value": "69.185.133.75",
+        "reputation": "high_risk",
+        "confidence_score": 76,
+        "first_seen": "2026-11-22T18:36:32.355189+00:00"
+      },
+      {
+        "ioc_id": "IOC-45667",
+        "type": "sha256",
+        "value": "1dc9ed488c89a1b65f36703674feccf6cc274691d11bb2e52acee669bad83783",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 75,
+        "first_seen": "2026-11-22T18:36:32.355223+00:00"
+      },
+      {
+        "ioc_id": "IOC-48649",
+        "type": "ipv4",
+        "value": "145.235.6.198",
+        "reputation": "suspicious",
+        "confidence_score": 100,
+        "first_seen": "2026-11-22T18:36:32.355240+00:00"
+      },
+      {
+        "ioc_id": "IOC-92106",
+        "type": "ipv4",
+        "value": "46.130.132.176",
+        "reputation": "suspicious",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.355257+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Impact / Encryption",
+      "mitre_techniques": [
+        "T1078 - Valid Accounts",
+        "T1041 - Exfiltration Over C2 Channel"
+      ]
+    },
+    "tags": [
+      "command and control",
+      "high",
+      "act-002",
+      "feed-src-006"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 1201,
+      "is_zero_day": false,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa642"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1020",
+    "title": "LockBit 4.0 Exploiting Edge Firewalls with New Anti-Analysis Modules [Variant #21]",
+    "threat_type": "Ransomware",
+    "severity": "Critical",
+    "cvss_score": 9.8,
+    "confidence": 92,
+    "description": "Detailed tactical intelligence report on Ransomware activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-16T18:36:32.351829+00:00",
+    "source_id": "SRC-003",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-25757",
+        "type": "ipv4",
+        "value": "45.159.105.201",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 82,
+        "first_seen": "2026-11-22T18:36:32.355306+00:00"
+      },
+      {
+        "ioc_id": "IOC-97713",
+        "type": "ipv4",
+        "value": "146.110.150.70",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.355323+00:00"
+      },
+      {
+        "ioc_id": "IOC-18689",
+        "type": "url",
+        "value": "https://cdn-evil-86.net/payload_8258.bin",
+        "reputation": "suspicious",
+        "confidence_score": 99,
+        "first_seen": "2026-11-22T18:36:32.355337+00:00"
+      },
+      {
+        "ioc_id": "IOC-85011",
+        "type": "domain",
+        "value": "c2-auth-901.org",
+        "reputation": "high_risk",
+        "confidence_score": 80,
+        "first_seen": "2026-11-22T18:36:32.355352+00:00"
+      },
+      {
+        "ioc_id": "IOC-82801",
+        "type": "ipv4",
+        "value": "119.217.96.158",
+        "reputation": "suspicious",
+        "confidence_score": 92,
+        "first_seen": "2026-11-22T18:36:32.355371+00:00"
+      },
+      {
+        "ioc_id": "IOC-52950",
+        "type": "url",
+        "value": "https://cdn-evil-79.net/payload_9505.bin",
+        "reputation": "suspicious",
+        "confidence_score": 83,
+        "first_seen": "2026-11-22T18:36:32.355394+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "False Positive",
+      "status": "Benign / Whitelisted",
+      "kill_chain_stage": "Credential Access",
+      "mitre_techniques": [
+        "T1486 - Data Encrypted for Impact",
+        "T1190 - Exploit Public-Facing Application"
+      ]
+    },
+    "tags": [
+      "ransomware",
+      "critical",
+      "act-002",
+      "feed-src-003"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 2985,
+      "is_zero_day": true,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa643"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1021",
+    "title": "Volt Typhoon LotL Stealth Infiltration into Water SCADA Systems [Variant #22]",
+    "threat_type": "APT",
+    "severity": "Critical",
+    "cvss_score": 9.6,
+    "confidence": 90,
+    "description": "Detailed tactical intelligence report on APT activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-20T18:36:32.351829+00:00",
+    "source_id": "SRC-001",
+    "actor_id": "ACT-004",
+    "cve_ids": [
+      "CVE-2026-1184"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-69830",
+        "type": "ipv4",
+        "value": "92.90.59.181",
+        "reputation": "high_risk",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.355442+00:00"
+      },
+      {
+        "ioc_id": "IOC-39062",
+        "type": "domain",
+        "value": "c2-gateway-564.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.355456+00:00"
+      },
+      {
+        "ioc_id": "IOC-39976",
+        "type": "ipv4",
+        "value": "71.47.11.175",
+        "reputation": "high_risk",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.355472+00:00"
+      },
+      {
+        "ioc_id": "IOC-20049",
+        "type": "url",
+        "value": "https://cdn-evil-40.net/payload_8285.bin",
+        "reputation": "high_risk",
+        "confidence_score": 76,
+        "first_seen": "2026-11-22T18:36:32.355487+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Initial Access",
+      "mitre_techniques": [
+        "T1486 - Data Encrypted for Impact",
+        "T1055 - Process Injection"
+      ]
+    },
+    "tags": [
+      "apt",
+      "critical",
+      "act-004",
+      "feed-src-001"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 1712,
+      "is_zero_day": true,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa644"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1022",
+    "title": "RedLine Infostealer New Variant Bypassing Windows Defender via DLL Sideloading [Variant #23]",
+    "threat_type": "Infostealer",
+    "severity": "High",
+    "cvss_score": 8.4,
+    "confidence": 86,
+    "description": "Detailed tactical intelligence report on Infostealer activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-20T18:36:32.351829+00:00",
+    "source_id": "SRC-007",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-89220",
+        "type": "url",
+        "value": "https://cdn-evil-46.net/payload_5069.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.355530+00:00"
+      },
+      {
+        "ioc_id": "IOC-43429",
+        "type": "url",
+        "value": "https://cdn-evil-13.net/payload_9167.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 85,
+        "first_seen": "2026-11-22T18:36:32.355548+00:00"
+      },
+      {
+        "ioc_id": "IOC-56468",
+        "type": "ipv4",
+        "value": "60.92.47.148",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 87,
+        "first_seen": "2026-11-22T18:36:32.355565+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Command & Control",
+      "mitre_techniques": [
+        "T1055 - Process Injection",
+        "T1041 - Exfiltration Over C2 Channel"
+      ]
+    },
+    "tags": [
+      "infostealer",
+      "high",
+      "act-005",
+      "feed-src-007"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 2219,
+      "is_zero_day": false,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa645"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1023",
+    "title": "Lazarus Targeting Web3 Developers via Weaponized NPM Dependency Confusion [Variant #24]",
+    "threat_type": "Phishing",
+    "severity": "High",
+    "cvss_score": 8.9,
+    "confidence": 88,
+    "description": "Detailed tactical intelligence report on Phishing activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-23T18:36:32.351829+00:00",
+    "source_id": "SRC-002",
+    "actor_id": "ACT-003",
+    "cve_ids": [
+      "CVE-2026-4409"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-25117",
+        "type": "domain",
+        "value": "c2-sync-321.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 77,
+        "first_seen": "2026-11-22T18:36:32.355605+00:00"
+      },
+      {
+        "ioc_id": "IOC-29662",
+        "type": "url",
+        "value": "https://cdn-evil-44.net/payload_5441.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 80,
+        "first_seen": "2026-11-22T18:36:32.355619+00:00"
+      },
+      {
+        "ioc_id": "IOC-59218",
+        "type": "domain",
+        "value": "c2-gateway-691.org",
+        "reputation": "high_risk",
+        "confidence_score": 78,
+        "first_seen": "2026-11-22T18:36:32.355633+00:00"
+      },
+      {
+        "ioc_id": "IOC-24091",
+        "type": "sha256",
+        "value": "c56204b8072bf61d5c07ca5c1863d774c269cfb1e80e068a854dbdd8b47d8028",
+        "reputation": "suspicious",
+        "confidence_score": 99,
+        "first_seen": "2026-11-22T18:36:32.355668+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Credential Access",
+      "mitre_techniques": [
+        "T1566.001 - Spearphishing Attachment",
+        "T1486 - Data Encrypted for Impact"
+      ]
+    },
+    "tags": [
+      "phishing",
+      "high",
+      "act-003",
+      "feed-src-002"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 1990,
+      "is_zero_day": false,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa646"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1024",
+    "title": "APT29 Spearphishing Campaign Impersonating Diplomatic Attache Invitations [Variant #25]",
+    "threat_type": "APT",
+    "severity": "High",
+    "cvss_score": 8.7,
+    "confidence": 95,
+    "description": "Detailed tactical intelligence report on APT activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-04T18:36:32.351829+00:00",
+    "source_id": "SRC-002",
+    "actor_id": "ACT-001",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-68898",
+        "type": "ipv4",
+        "value": "57.123.166.12",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 83,
+        "first_seen": "2026-11-22T18:36:32.355725+00:00"
+      },
+      {
+        "ioc_id": "IOC-34937",
+        "type": "ipv4",
+        "value": "137.21.236.148",
+        "reputation": "high_risk",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.355741+00:00"
+      },
+      {
+        "ioc_id": "IOC-74546",
+        "type": "sha256",
+        "value": "f711b21bba9a64e1a3757b8c731f80c7c6d84a2392862e0ae0f367767277e5f9",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 91,
+        "first_seen": "2026-11-22T18:36:32.355771+00:00"
+      },
+      {
+        "ioc_id": "IOC-43889",
+        "type": "sha256",
+        "value": "c7b9dea9b32ed33bc41e5653b764a33d828a4ce4124cf70f6ed95cea1a129c73",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 87,
+        "first_seen": "2026-11-22T18:36:32.355800+00:00"
+      },
+      {
+        "ioc_id": "IOC-59744",
+        "type": "ipv4",
+        "value": "160.237.31.117",
+        "reputation": "high_risk",
+        "confidence_score": 92,
+        "first_seen": "2026-11-22T18:36:32.355817+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Command & Control",
+      "mitre_techniques": [
+        "T1071.001 - Web Protocols Command and Control",
+        "T1078 - Valid Accounts"
+      ]
+    },
+    "tags": [
+      "apt",
+      "high",
+      "act-001",
+      "feed-src-002"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 1969,
+      "is_zero_day": false,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa647"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1025",
+    "title": "Mirai-Variant Botnet 'DarkStorm' Exploiting Zero-Day in IoT Routers [Variant #26]",
+    "threat_type": "Botnet",
+    "severity": "Medium",
+    "cvss_score": 7.2,
+    "confidence": 82,
+    "description": "Detailed tactical intelligence report on Botnet activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-14T18:36:32.351829+00:00",
+    "source_id": "SRC-006",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-48701",
+        "type": "domain",
+        "value": "c2-update-525.org",
+        "reputation": "high_risk",
+        "confidence_score": 76,
+        "first_seen": "2026-11-22T18:36:32.355862+00:00"
+      },
+      {
+        "ioc_id": "IOC-89756",
+        "type": "sha256",
+        "value": "4208066ea4cb57510f347434cc1dbcc4f262b4dd9998d297685f78344ee6e6e7",
+        "reputation": "high_risk",
+        "confidence_score": 78,
+        "first_seen": "2026-11-22T18:36:32.355890+00:00"
+      },
+      {
+        "ioc_id": "IOC-93584",
+        "type": "ipv4",
+        "value": "89.72.78.248",
+        "reputation": "high_risk",
+        "confidence_score": 89,
+        "first_seen": "2026-11-22T18:36:32.355906+00:00"
+      },
+      {
+        "ioc_id": "IOC-15581",
+        "type": "url",
+        "value": "https://cdn-evil-66.net/payload_1722.bin",
+        "reputation": "suspicious",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.355920+00:00"
+      },
+      {
+        "ioc_id": "IOC-27054",
+        "type": "url",
+        "value": "https://cdn-evil-68.net/payload_4014.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 81,
+        "first_seen": "2026-11-22T18:36:32.355933+00:00"
+      },
+      {
+        "ioc_id": "IOC-58448",
+        "type": "ipv4",
+        "value": "192.200.197.29",
+        "reputation": "high_risk",
+        "confidence_score": 98,
+        "first_seen": "2026-11-22T18:36:32.355949+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Command & Control",
+      "mitre_techniques": [
+        "T1071.001 - Web Protocols Command and Control",
+        "T1078 - Valid Accounts"
+      ]
+    },
+    "tags": [
+      "botnet",
+      "medium",
+      "act-005",
+      "feed-src-006"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 4610,
+      "is_zero_day": false,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa648"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1026",
+    "title": "Scattered Spider Multi-Factor Authentication Fatigue Campaign against Okta Tenants [Variant #27]",
+    "threat_type": "Phishing",
+    "severity": "High",
+    "cvss_score": 8.5,
+    "confidence": 81,
+    "description": "Detailed tactical intelligence report on Phishing activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-19T18:36:32.351829+00:00",
+    "source_id": "SRC-003",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2026-1184"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-28282",
+        "type": "url",
+        "value": "https://cdn-evil-77.net/payload_5465.bin",
+        "reputation": "high_risk",
+        "confidence_score": 85,
+        "first_seen": "2026-11-22T18:36:32.355993+00:00"
+      },
+      {
+        "ioc_id": "IOC-62061",
+        "type": "url",
+        "value": "https://cdn-evil-37.net/payload_2311.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 91,
+        "first_seen": "2026-11-22T18:36:32.356008+00:00"
+      },
+      {
+        "ioc_id": "IOC-30773",
+        "type": "url",
+        "value": "https://cdn-evil-90.net/payload_1833.bin",
+        "reputation": "high_risk",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.356026+00:00"
+      },
+      {
+        "ioc_id": "IOC-92664",
+        "type": "domain",
+        "value": "c2-gateway-823.org",
+        "reputation": "high_risk",
+        "confidence_score": 79,
+        "first_seen": "2026-11-22T18:36:32.356041+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Credential Access",
+      "mitre_techniques": [
+        "T1059.001 - PowerShell Execution",
+        "T1055 - Process Injection"
+      ]
+    },
+    "tags": [
+      "phishing",
+      "high",
+      "act-005",
+      "feed-src-003"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 4877,
+      "is_zero_day": false,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa649"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1027",
+    "title": "BlackCat/ALPHV Successor Group Deploying Rust-based Cross-Platform Encryptor [Variant #28]",
+    "threat_type": "Ransomware",
+    "severity": "Critical",
+    "cvss_score": 9.7,
+    "confidence": 89,
+    "description": "Detailed tactical intelligence report on Ransomware activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-23T18:36:32.351829+00:00",
+    "source_id": "SRC-005",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-4409"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-42802",
+        "type": "domain",
+        "value": "c2-update-740.org",
+        "reputation": "high_risk",
+        "confidence_score": 83,
+        "first_seen": "2026-11-22T18:36:32.356082+00:00"
+      },
+      {
+        "ioc_id": "IOC-90242",
+        "type": "ipv4",
+        "value": "121.84.115.96",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.356100+00:00"
+      },
+      {
+        "ioc_id": "IOC-30767",
+        "type": "ipv4",
+        "value": "119.33.34.23",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 76,
+        "first_seen": "2026-11-22T18:36:32.356117+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Initial Access",
+      "mitre_techniques": [
+        "T1566.001 - Spearphishing Attachment",
+        "T1071.001 - Web Protocols Command and Control"
+      ]
+    },
+    "tags": [
+      "ransomware",
+      "critical",
+      "act-002",
+      "feed-src-005"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 1189,
+      "is_zero_day": true,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa64a"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1028",
+    "title": "Qakbot Successor 'Pikabot' Re-emerging with Modular Proxy Payloads [Variant #29]",
+    "threat_type": "Trojan",
+    "severity": "Medium",
+    "cvss_score": 7.6,
+    "confidence": 97,
+    "description": "Detailed tactical intelligence report on Trojan activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-19T18:36:32.351829+00:00",
+    "source_id": "SRC-005",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-98867",
+        "type": "ipv4",
+        "value": "145.88.203.223",
+        "reputation": "high_risk",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.356167+00:00"
+      },
+      {
+        "ioc_id": "IOC-33963",
+        "type": "url",
+        "value": "https://cdn-evil-71.net/payload_6494.bin",
+        "reputation": "suspicious",
+        "confidence_score": 80,
+        "first_seen": "2026-11-22T18:36:32.356186+00:00"
+      },
+      {
+        "ioc_id": "IOC-41746",
+        "type": "ipv4",
+        "value": "188.220.190.79",
+        "reputation": "high_risk",
+        "confidence_score": 85,
+        "first_seen": "2026-11-22T18:36:32.356209+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Initial Access",
+      "mitre_techniques": [
+        "T1190 - Exploit Public-Facing Application",
+        "T1486 - Data Encrypted for Impact"
+      ]
+    },
+    "tags": [
+      "trojan",
+      "medium",
+      "act-005",
+      "feed-src-005"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 4288,
+      "is_zero_day": false,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa64b"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1029",
+    "title": "Rogue AS99120 Hosting Malicious Cobalt Strike Beacons for Eastern Cybercartels [Variant #30]",
+    "threat_type": "Command and Control",
+    "severity": "High",
+    "cvss_score": 8.8,
+    "confidence": 99,
+    "description": "Detailed tactical intelligence report on Command and Control activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-15T18:36:32.351829+00:00",
+    "source_id": "SRC-006",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-16310",
+        "type": "sha256",
+        "value": "6a03fe9ad5acd8ff79aa8fdd7e38b6485d65c6affb753fcc280b35085ec0d822",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.356277+00:00"
+      },
+      {
+        "ioc_id": "IOC-45836",
+        "type": "url",
+        "value": "https://cdn-evil-45.net/payload_9079.bin",
+        "reputation": "high_risk",
+        "confidence_score": 97,
+        "first_seen": "2026-11-22T18:36:32.356293+00:00"
+      },
+      {
+        "ioc_id": "IOC-82215",
+        "type": "ipv4",
+        "value": "71.132.166.136",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 85,
+        "first_seen": "2026-11-22T18:36:32.356311+00:00"
+      },
+      {
+        "ioc_id": "IOC-47483",
+        "type": "url",
+        "value": "https://cdn-evil-83.net/payload_9903.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 78,
+        "first_seen": "2026-11-22T18:36:32.356326+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Command & Control",
+      "mitre_techniques": [
+        "T1071.001 - Web Protocols Command and Control",
+        "T1041 - Exfiltration Over C2 Channel"
+      ]
+    },
+    "tags": [
+      "command and control",
+      "high",
+      "act-002",
+      "feed-src-006"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 1372,
+      "is_zero_day": false,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa64c"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1030",
+    "title": "LockBit 4.0 Exploiting Edge Firewalls with New Anti-Analysis Modules [Variant #31]",
+    "threat_type": "Ransomware",
+    "severity": "Critical",
+    "cvss_score": 9.8,
+    "confidence": 81,
+    "description": "Detailed tactical intelligence report on Ransomware activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-29T18:36:32.351829+00:00",
+    "source_id": "SRC-003",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-97113",
+        "type": "url",
+        "value": "https://cdn-evil-91.net/payload_2642.bin",
+        "reputation": "high_risk",
+        "confidence_score": 81,
+        "first_seen": "2026-11-22T18:36:32.356431+00:00"
+      },
+      {
+        "ioc_id": "IOC-76403",
+        "type": "sha256",
+        "value": "740ff20a5348ccadd3be6857b1e19b06bd0f5926c888c5bfd21116fc0714df9f",
+        "reputation": "suspicious",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.356499+00:00"
+      },
+      {
+        "ioc_id": "IOC-35159",
+        "type": "ipv4",
+        "value": "165.225.141.139",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 82,
+        "first_seen": "2026-11-22T18:36:32.356522+00:00"
+      },
+      {
+        "ioc_id": "IOC-65566",
+        "type": "domain",
+        "value": "c2-gateway-384.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 97,
+        "first_seen": "2026-11-22T18:36:32.356540+00:00"
+      },
+      {
+        "ioc_id": "IOC-16103",
+        "type": "domain",
+        "value": "c2-sync-448.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 80,
+        "first_seen": "2026-11-22T18:36:32.356556+00:00"
+      },
+      {
+        "ioc_id": "IOC-62759",
+        "type": "sha256",
+        "value": "093ee0920eba71a29bc11675812449a82b8e3f04bc264dbaae80b95241d9919d",
+        "reputation": "suspicious",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.356589+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Credential Access",
+      "mitre_techniques": [
+        "T1041 - Exfiltration Over C2 Channel",
+        "T1059.001 - PowerShell Execution"
+      ]
+    },
+    "tags": [
+      "ransomware",
+      "critical",
+      "act-002",
+      "feed-src-003"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 902,
+      "is_zero_day": true,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa64d"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1031",
+    "title": "Volt Typhoon LotL Stealth Infiltration into Water SCADA Systems [Variant #32]",
+    "threat_type": "APT",
+    "severity": "Critical",
+    "cvss_score": 9.6,
+    "confidence": 90,
+    "description": "Detailed tactical intelligence report on APT activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-15T18:36:32.351829+00:00",
+    "source_id": "SRC-001",
+    "actor_id": "ACT-004",
+    "cve_ids": [
+      "CVE-2026-1184"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-20192",
+        "type": "url",
+        "value": "https://cdn-evil-93.net/payload_9092.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.356805+00:00"
+      },
+      {
+        "ioc_id": "IOC-16409",
+        "type": "url",
+        "value": "https://cdn-evil-21.net/payload_1383.bin",
+        "reputation": "suspicious",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.356866+00:00"
+      },
+      {
+        "ioc_id": "IOC-79837",
+        "type": "domain",
+        "value": "c2-sync-447.org",
+        "reputation": "high_risk",
+        "confidence_score": 99,
+        "first_seen": "2026-11-22T18:36:32.356903+00:00"
+      },
+      {
+        "ioc_id": "IOC-71514",
+        "type": "sha256",
+        "value": "c11fa265fe8b93fec28c36c7998c83f53dfe45dd58fabd8eff12c196157fd7fb",
+        "reputation": "suspicious",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.356942+00:00"
+      },
+      {
+        "ioc_id": "IOC-32335",
+        "type": "sha256",
+        "value": "378f74d16f4fece872f9bcade2f7a09e0ac592e1e856f018048cc55f8cfcd4e4",
+        "reputation": "high_risk",
+        "confidence_score": 81,
+        "first_seen": "2026-11-22T18:36:32.356967+00:00"
+      },
+      {
+        "ioc_id": "IOC-51335",
+        "type": "sha256",
+        "value": "601a3654dee0b1121bb7b5febf864e6587762709e240ccdec93db198fb3c1fb9",
+        "reputation": "suspicious",
+        "confidence_score": 79,
+        "first_seen": "2026-11-22T18:36:32.356993+00:00"
+      },
+      {
+        "ioc_id": "IOC-45705",
+        "type": "url",
+        "value": "https://cdn-evil-30.net/payload_6365.bin",
+        "reputation": "high_risk",
+        "confidence_score": 90,
+        "first_seen": "2026-11-22T18:36:32.357008+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Initial Access",
+      "mitre_techniques": [
+        "T1059.001 - PowerShell Execution",
+        "T1041 - Exfiltration Over C2 Channel"
+      ]
+    },
+    "tags": [
+      "apt",
+      "critical",
+      "act-004",
+      "feed-src-001"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 4083,
+      "is_zero_day": true,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa64e"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1032",
+    "title": "RedLine Infostealer New Variant Bypassing Windows Defender via DLL Sideloading [Variant #33]",
+    "threat_type": "Infostealer",
+    "severity": "High",
+    "cvss_score": 8.4,
+    "confidence": 86,
+    "description": "Detailed tactical intelligence report on Infostealer activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-03T18:36:32.351829+00:00",
+    "source_id": "SRC-007",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-12713",
+        "type": "url",
+        "value": "https://cdn-evil-95.net/payload_5800.bin",
+        "reputation": "high_risk",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.357064+00:00"
+      },
+      {
+        "ioc_id": "IOC-23236",
+        "type": "sha256",
+        "value": "e7ee6e6c7a28b39aa17cb7aa963426579629bc050648702fa7d93318077d2965",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.357092+00:00"
+      },
+      {
+        "ioc_id": "IOC-75110",
+        "type": "domain",
+        "value": "c2-telemetry-892.org",
+        "reputation": "high_risk",
+        "confidence_score": 76,
+        "first_seen": "2026-11-22T18:36:32.357105+00:00"
+      },
+      {
+        "ioc_id": "IOC-81574",
+        "type": "sha256",
+        "value": "3e0c4add1c4e81f5e9268651dcd37319aa94712962218e57d182394686e27d8f",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 77,
+        "first_seen": "2026-11-22T18:36:32.357131+00:00"
+      },
+      {
+        "ioc_id": "IOC-39265",
+        "type": "domain",
+        "value": "c2-update-777.org",
+        "reputation": "suspicious",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.357144+00:00"
+      },
+      {
+        "ioc_id": "IOC-81364",
+        "type": "sha256",
+        "value": "08f87894f9cd2299c4c435fcf8f5f012705ebe8874d1f3ad155968ca564f5162",
+        "reputation": "suspicious",
+        "confidence_score": 90,
+        "first_seen": "2026-11-22T18:36:32.357210+00:00"
+      },
+      {
+        "ioc_id": "IOC-22325",
+        "type": "domain",
+        "value": "c2-sync-325.org",
+        "reputation": "suspicious",
+        "confidence_score": 86,
+        "first_seen": "2026-11-22T18:36:32.357232+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Credential Access",
+      "mitre_techniques": [
+        "T1566.001 - Spearphishing Attachment",
+        "T1055 - Process Injection"
+      ]
+    },
+    "tags": [
+      "infostealer",
+      "high",
+      "act-005",
+      "feed-src-007"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 1471,
+      "is_zero_day": false,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa64f"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1033",
+    "title": "Lazarus Targeting Web3 Developers via Weaponized NPM Dependency Confusion [Variant #34]",
+    "threat_type": "Phishing",
+    "severity": "High",
+    "cvss_score": 8.9,
+    "confidence": 99,
+    "description": "Detailed tactical intelligence report on Phishing activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-06T18:36:32.351829+00:00",
+    "source_id": "SRC-002",
+    "actor_id": "ACT-003",
+    "cve_ids": [
+      "CVE-2026-4409"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-22906",
+        "type": "url",
+        "value": "https://cdn-evil-23.net/payload_7879.bin",
+        "reputation": "suspicious",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.357283+00:00"
+      },
+      {
+        "ioc_id": "IOC-69974",
+        "type": "sha256",
+        "value": "b55d0c4710a9fb79125ac0255f11a9686289c32f40c87f821474dab435fb2710",
+        "reputation": "high_risk",
+        "confidence_score": 77,
+        "first_seen": "2026-11-22T18:36:32.357309+00:00"
+      },
+      {
+        "ioc_id": "IOC-66698",
+        "type": "url",
+        "value": "https://cdn-evil-19.net/payload_1110.bin",
+        "reputation": "high_risk",
+        "confidence_score": 97,
+        "first_seen": "2026-11-22T18:36:32.357322+00:00"
+      },
+      {
+        "ioc_id": "IOC-32362",
+        "type": "domain",
+        "value": "c2-gateway-378.org",
+        "reputation": "suspicious",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.357335+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Initial Access",
+      "mitre_techniques": [
+        "T1059.001 - PowerShell Execution",
+        "T1078 - Valid Accounts"
+      ]
+    },
+    "tags": [
+      "phishing",
+      "high",
+      "act-003",
+      "feed-src-002"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 3116,
+      "is_zero_day": false,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa650"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1034",
+    "title": "APT29 Spearphishing Campaign Impersonating Diplomatic Attache Invitations [Variant #35]",
+    "threat_type": "APT",
+    "severity": "High",
+    "cvss_score": 8.7,
+    "confidence": 81,
+    "description": "Detailed tactical intelligence report on APT activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-12T18:36:32.351829+00:00",
+    "source_id": "SRC-002",
+    "actor_id": "ACT-001",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-84697",
+        "type": "url",
+        "value": "https://cdn-evil-94.net/payload_9732.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 100,
+        "first_seen": "2026-11-22T18:36:32.357371+00:00"
+      },
+      {
+        "ioc_id": "IOC-14538",
+        "type": "sha256",
+        "value": "a6b07c303967252890fe6397a858bddb479a98bc05811bffdeea4758f32f481b",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 79,
+        "first_seen": "2026-11-22T18:36:32.357395+00:00"
+      },
+      {
+        "ioc_id": "IOC-25501",
+        "type": "domain",
+        "value": "c2-auth-641.org",
+        "reputation": "suspicious",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.357409+00:00"
+      },
+      {
+        "ioc_id": "IOC-78410",
+        "type": "url",
+        "value": "https://cdn-evil-87.net/payload_8793.bin",
+        "reputation": "high_risk",
+        "confidence_score": 91,
+        "first_seen": "2026-11-22T18:36:32.357431+00:00"
+      },
+      {
+        "ioc_id": "IOC-71205",
+        "type": "domain",
+        "value": "c2-gateway-689.org",
+        "reputation": "suspicious",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.357447+00:00"
+      },
+      {
+        "ioc_id": "IOC-51686",
+        "type": "domain",
+        "value": "c2-telemetry-812.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.357463+00:00"
+      },
+      {
+        "ioc_id": "IOC-51179",
+        "type": "domain",
+        "value": "c2-telemetry-211.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 89,
+        "first_seen": "2026-11-22T18:36:32.357480+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Impact / Encryption",
+      "mitre_techniques": [
+        "T1190 - Exploit Public-Facing Application",
+        "T1041 - Exfiltration Over C2 Channel"
+      ]
+    },
+    "tags": [
+      "apt",
+      "high",
+      "act-001",
+      "feed-src-002"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 3511,
+      "is_zero_day": false,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa651"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1035",
+    "title": "Mirai-Variant Botnet 'DarkStorm' Exploiting Zero-Day in IoT Routers [Variant #36]",
+    "threat_type": "Botnet",
+    "severity": "Medium",
+    "cvss_score": 7.2,
+    "confidence": 87,
+    "description": "Detailed tactical intelligence report on Botnet activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-15T18:36:32.351829+00:00",
+    "source_id": "SRC-006",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-76030",
+        "type": "ipv4",
+        "value": "65.29.170.38",
+        "reputation": "suspicious",
+        "confidence_score": 82,
+        "first_seen": "2026-11-22T18:36:32.357535+00:00"
+      },
+      {
+        "ioc_id": "IOC-68221",
+        "type": "sha256",
+        "value": "d43844eb244732c176861ef675292e94bd85c24c390db9dabc346570a087bf86",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.357570+00:00"
+      },
+      {
+        "ioc_id": "IOC-29458",
+        "type": "sha256",
+        "value": "5ea3122083d889b5210cc6441c5c268d7ac2b017a8a91a260ceff27c8bf3c48a",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 92,
+        "first_seen": "2026-11-22T18:36:32.357603+00:00"
+      },
+      {
+        "ioc_id": "IOC-89666",
+        "type": "domain",
+        "value": "c2-telemetry-720.org",
+        "reputation": "suspicious",
+        "confidence_score": 82,
+        "first_seen": "2026-11-22T18:36:32.357619+00:00"
+      },
+      {
+        "ioc_id": "IOC-97079",
+        "type": "ipv4",
+        "value": "75.158.145.230",
+        "reputation": "high_risk",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.357638+00:00"
+      },
+      {
+        "ioc_id": "IOC-69422",
+        "type": "ipv4",
+        "value": "67.59.61.240",
+        "reputation": "high_risk",
+        "confidence_score": 91,
+        "first_seen": "2026-11-22T18:36:32.357659+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Credential Access",
+      "mitre_techniques": [
+        "T1486 - Data Encrypted for Impact",
+        "T1071.001 - Web Protocols Command and Control"
+      ]
+    },
+    "tags": [
+      "botnet",
+      "medium",
+      "act-005",
+      "feed-src-006"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 55,
+      "is_zero_day": false,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa652"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1036",
+    "title": "Scattered Spider Multi-Factor Authentication Fatigue Campaign against Okta Tenants [Variant #37]",
+    "threat_type": "Phishing",
+    "severity": "High",
+    "cvss_score": 8.5,
+    "confidence": 83,
+    "description": "Detailed tactical intelligence report on Phishing activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-08T18:36:32.351829+00:00",
+    "source_id": "SRC-003",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2026-1184"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-27149",
+        "type": "url",
+        "value": "https://cdn-evil-55.net/payload_1850.bin",
+        "reputation": "suspicious",
+        "confidence_score": 80,
+        "first_seen": "2026-11-22T18:36:32.357725+00:00"
+      },
+      {
+        "ioc_id": "IOC-72831",
+        "type": "domain",
+        "value": "c2-auth-248.org",
+        "reputation": "suspicious",
+        "confidence_score": 80,
+        "first_seen": "2026-11-22T18:36:32.357737+00:00"
+      },
+      {
+        "ioc_id": "IOC-16066",
+        "type": "ipv4",
+        "value": "50.189.198.56",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 80,
+        "first_seen": "2026-11-22T18:36:32.357757+00:00"
+      },
+      {
+        "ioc_id": "IOC-69392",
+        "type": "ipv4",
+        "value": "189.226.225.97",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 77,
+        "first_seen": "2026-11-22T18:36:32.357769+00:00"
+      },
+      {
+        "ioc_id": "IOC-85355",
+        "type": "sha256",
+        "value": "3c1fcf219225a6369ffffd30aaea681e1d9f9315eed33bc2964af640701668da",
+        "reputation": "suspicious",
+        "confidence_score": 89,
+        "first_seen": "2026-11-22T18:36:32.357799+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Command & Control",
+      "mitre_techniques": [
+        "T1190 - Exploit Public-Facing Application",
+        "T1071.001 - Web Protocols Command and Control"
+      ]
+    },
+    "tags": [
+      "phishing",
+      "high",
+      "act-005",
+      "feed-src-003"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 2437,
+      "is_zero_day": false,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa653"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1037",
+    "title": "BlackCat/ALPHV Successor Group Deploying Rust-based Cross-Platform Encryptor [Variant #38]",
+    "threat_type": "Ransomware",
+    "severity": "Critical",
+    "cvss_score": 9.7,
+    "confidence": 94,
+    "description": "Detailed tactical intelligence report on Ransomware activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-26T18:36:32.351829+00:00",
+    "source_id": "SRC-005",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-4409"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-92408",
+        "type": "sha256",
+        "value": "804eaf9fc345c1f651e6f0144c09a1db00e190add9398086ed059e203a7eeb96",
+        "reputation": "suspicious",
+        "confidence_score": 78,
+        "first_seen": "2026-11-22T18:36:32.357850+00:00"
+      },
+      {
+        "ioc_id": "IOC-67502",
+        "type": "url",
+        "value": "https://cdn-evil-40.net/payload_4519.bin",
+        "reputation": "suspicious",
+        "confidence_score": 98,
+        "first_seen": "2026-11-22T18:36:32.357862+00:00"
+      },
+      {
+        "ioc_id": "IOC-98173",
+        "type": "ipv4",
+        "value": "154.28.73.216",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 82,
+        "first_seen": "2026-11-22T18:36:32.357875+00:00"
+      },
+      {
+        "ioc_id": "IOC-66430",
+        "type": "url",
+        "value": "https://cdn-evil-67.net/payload_1913.bin",
+        "reputation": "suspicious",
+        "confidence_score": 100,
+        "first_seen": "2026-11-22T18:36:32.357887+00:00"
+      },
+      {
+        "ioc_id": "IOC-13862",
+        "type": "sha256",
+        "value": "a732f5b089d909aaa65c8b84f13c8c7b1ab45ad08e027207acd6d4f519b85933",
+        "reputation": "suspicious",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.357916+00:00"
+      },
+      {
+        "ioc_id": "IOC-14536",
+        "type": "url",
+        "value": "https://cdn-evil-27.net/payload_2446.bin",
+        "reputation": "suspicious",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.357933+00:00"
+      },
+      {
+        "ioc_id": "IOC-73458",
+        "type": "url",
+        "value": "https://cdn-evil-89.net/payload_8066.bin",
+        "reputation": "high_risk",
+        "confidence_score": 100,
+        "first_seen": "2026-11-22T18:36:32.357948+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Initial Access",
+      "mitre_techniques": [
+        "T1055 - Process Injection",
+        "T1041 - Exfiltration Over C2 Channel"
+      ]
+    },
+    "tags": [
+      "ransomware",
+      "critical",
+      "act-002",
+      "feed-src-005"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 2792,
+      "is_zero_day": true,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa654"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1038",
+    "title": "Qakbot Successor 'Pikabot' Re-emerging with Modular Proxy Payloads [Variant #39]",
+    "threat_type": "Trojan",
+    "severity": "Medium",
+    "cvss_score": 7.6,
+    "confidence": 81,
+    "description": "Detailed tactical intelligence report on Trojan activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-26T18:36:32.351829+00:00",
+    "source_id": "SRC-005",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-32352",
+        "type": "ipv4",
+        "value": "75.41.95.142",
+        "reputation": "suspicious",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.357990+00:00"
+      },
+      {
+        "ioc_id": "IOC-93691",
+        "type": "url",
+        "value": "https://cdn-evil-25.net/payload_1386.bin",
+        "reputation": "suspicious",
+        "confidence_score": 78,
+        "first_seen": "2026-11-22T18:36:32.358003+00:00"
+      },
+      {
+        "ioc_id": "IOC-62352",
+        "type": "domain",
+        "value": "c2-sync-919.org",
+        "reputation": "suspicious",
+        "confidence_score": 75,
+        "first_seen": "2026-11-22T18:36:32.358020+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "False Positive",
+      "status": "Benign / Whitelisted",
+      "kill_chain_stage": "Initial Access",
+      "mitre_techniques": [
+        "T1041 - Exfiltration Over C2 Channel",
+        "T1071.001 - Web Protocols Command and Control"
+      ]
+    },
+    "tags": [
+      "trojan",
+      "medium",
+      "act-005",
+      "feed-src-005"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 401,
+      "is_zero_day": false,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa655"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1039",
+    "title": "Rogue AS99120 Hosting Malicious Cobalt Strike Beacons for Eastern Cybercartels [Variant #40]",
+    "threat_type": "Command and Control",
+    "severity": "High",
+    "cvss_score": 8.8,
+    "confidence": 81,
+    "description": "Detailed tactical intelligence report on Command and Control activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-28T18:36:32.351829+00:00",
+    "source_id": "SRC-006",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-71187",
+        "type": "sha256",
+        "value": "42dd4e285b382b2df185ee3f183c38cc523b1bcbf69d65d52aaf59d35364df9f",
+        "reputation": "suspicious",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.358068+00:00"
+      },
+      {
+        "ioc_id": "IOC-22403",
+        "type": "url",
+        "value": "https://cdn-evil-76.net/payload_8145.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 82,
+        "first_seen": "2026-11-22T18:36:32.358080+00:00"
+      },
+      {
+        "ioc_id": "IOC-82662",
+        "type": "domain",
+        "value": "c2-update-782.org",
+        "reputation": "suspicious",
+        "confidence_score": 86,
+        "first_seen": "2026-11-22T18:36:32.358092+00:00"
+      },
+      {
+        "ioc_id": "IOC-40986",
+        "type": "ipv4",
+        "value": "138.56.150.185",
+        "reputation": "high_risk",
+        "confidence_score": 83,
+        "first_seen": "2026-11-22T18:36:32.358107+00:00"
+      },
+      {
+        "ioc_id": "IOC-94637",
+        "type": "sha256",
+        "value": "7b96b2f3b8b260784673110619416fd2780d343fe25f7755d6250018af1b9452",
+        "reputation": "high_risk",
+        "confidence_score": 77,
+        "first_seen": "2026-11-22T18:36:32.358134+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Command & Control",
+      "mitre_techniques": [
+        "T1486 - Data Encrypted for Impact",
+        "T1566.001 - Spearphishing Attachment"
+      ]
+    },
+    "tags": [
+      "command and control",
+      "high",
+      "act-002",
+      "feed-src-006"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 3597,
+      "is_zero_day": false,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa656"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1040",
+    "title": "LockBit 4.0 Exploiting Edge Firewalls with New Anti-Analysis Modules [Variant #41]",
+    "threat_type": "Ransomware",
+    "severity": "Critical",
+    "cvss_score": 9.8,
+    "confidence": 90,
+    "description": "Detailed tactical intelligence report on Ransomware activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-11T18:36:32.351829+00:00",
+    "source_id": "SRC-003",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-77158",
+        "type": "url",
+        "value": "https://cdn-evil-37.net/payload_1849.bin",
+        "reputation": "high_risk",
+        "confidence_score": 91,
+        "first_seen": "2026-11-22T18:36:32.358173+00:00"
+      },
+      {
+        "ioc_id": "IOC-18926",
+        "type": "url",
+        "value": "https://cdn-evil-32.net/payload_1059.bin",
+        "reputation": "suspicious",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.358186+00:00"
+      },
+      {
+        "ioc_id": "IOC-92121",
+        "type": "sha256",
+        "value": "99a3e049e568096bda1768a6aef25f8d850352e5410a74808c1955461510cf59",
+        "reputation": "suspicious",
+        "confidence_score": 100,
+        "first_seen": "2026-11-22T18:36:32.358221+00:00"
+      },
+      {
+        "ioc_id": "IOC-25089",
+        "type": "url",
+        "value": "https://cdn-evil-99.net/payload_8825.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.358235+00:00"
+      },
+      {
+        "ioc_id": "IOC-16057",
+        "type": "domain",
+        "value": "c2-telemetry-387.org",
+        "reputation": "high_risk",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.358251+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Initial Access",
+      "mitre_techniques": [
+        "T1566.001 - Spearphishing Attachment",
+        "T1190 - Exploit Public-Facing Application"
+      ]
+    },
+    "tags": [
+      "ransomware",
+      "critical",
+      "act-002",
+      "feed-src-003"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 796,
+      "is_zero_day": true,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa657"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1041",
+    "title": "Volt Typhoon LotL Stealth Infiltration into Water SCADA Systems [Variant #42]",
+    "threat_type": "APT",
+    "severity": "Critical",
+    "cvss_score": 9.6,
+    "confidence": 99,
+    "description": "Detailed tactical intelligence report on APT activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-13T18:36:32.351829+00:00",
+    "source_id": "SRC-001",
+    "actor_id": "ACT-004",
+    "cve_ids": [
+      "CVE-2026-1184"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-39881",
+        "type": "domain",
+        "value": "c2-gateway-985.org",
+        "reputation": "high_risk",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.358302+00:00"
+      },
+      {
+        "ioc_id": "IOC-88065",
+        "type": "ipv4",
+        "value": "143.210.241.201",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 90,
+        "first_seen": "2026-11-22T18:36:32.358321+00:00"
+      },
+      {
+        "ioc_id": "IOC-54793",
+        "type": "domain",
+        "value": "c2-sync-108.org",
+        "reputation": "suspicious",
+        "confidence_score": 83,
+        "first_seen": "2026-11-22T18:36:32.358337+00:00"
+      },
+      {
+        "ioc_id": "IOC-22874",
+        "type": "url",
+        "value": "https://cdn-evil-54.net/payload_4038.bin",
+        "reputation": "high_risk",
+        "confidence_score": 97,
+        "first_seen": "2026-11-22T18:36:32.358351+00:00"
+      },
+      {
+        "ioc_id": "IOC-74134",
+        "type": "domain",
+        "value": "c2-auth-125.org",
+        "reputation": "suspicious",
+        "confidence_score": 81,
+        "first_seen": "2026-11-22T18:36:32.358369+00:00"
+      },
+      {
+        "ioc_id": "IOC-93933",
+        "type": "sha256",
+        "value": "d6980b9b420aba9ff7a8b0f50960cdab339f928a36d31a27a39b92c55697f315",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 76,
+        "first_seen": "2026-11-22T18:36:32.358400+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Credential Access",
+      "mitre_techniques": [
+        "T1071.001 - Web Protocols Command and Control",
+        "T1059.001 - PowerShell Execution"
+      ]
+    },
+    "tags": [
+      "apt",
+      "critical",
+      "act-004",
+      "feed-src-001"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 4306,
+      "is_zero_day": true,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa658"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1042",
+    "title": "RedLine Infostealer New Variant Bypassing Windows Defender via DLL Sideloading [Variant #43]",
+    "threat_type": "Infostealer",
+    "severity": "High",
+    "cvss_score": 8.4,
+    "confidence": 90,
+    "description": "Detailed tactical intelligence report on Infostealer activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-21T18:36:32.351829+00:00",
+    "source_id": "SRC-007",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-39963",
+        "type": "url",
+        "value": "https://cdn-evil-46.net/payload_2994.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 95,
+        "first_seen": "2026-11-22T18:36:32.358439+00:00"
+      },
+      {
+        "ioc_id": "IOC-45567",
+        "type": "sha256",
+        "value": "2761831b6ab527fee6838819b42275bc4dd15e734d4203c1c900269b9085a302",
+        "reputation": "high_risk",
+        "confidence_score": 99,
+        "first_seen": "2026-11-22T18:36:32.358471+00:00"
+      },
+      {
+        "ioc_id": "IOC-94005",
+        "type": "ipv4",
+        "value": "156.174.198.227",
+        "reputation": "high_risk",
+        "confidence_score": 90,
+        "first_seen": "2026-11-22T18:36:32.358487+00:00"
+      },
+      {
+        "ioc_id": "IOC-86084",
+        "type": "ipv4",
+        "value": "138.120.172.248",
+        "reputation": "high_risk",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.358502+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Command & Control",
+      "mitre_techniques": [
+        "T1566.001 - Spearphishing Attachment",
+        "T1071.001 - Web Protocols Command and Control"
+      ]
+    },
+    "tags": [
+      "infostealer",
+      "high",
+      "act-005",
+      "feed-src-007"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 4119,
+      "is_zero_day": false,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa659"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1043",
+    "title": "Lazarus Targeting Web3 Developers via Weaponized NPM Dependency Confusion [Variant #44]",
+    "threat_type": "Phishing",
+    "severity": "High",
+    "cvss_score": 8.9,
+    "confidence": 81,
+    "description": "Detailed tactical intelligence report on Phishing activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-23T18:36:32.351829+00:00",
+    "source_id": "SRC-002",
+    "actor_id": "ACT-003",
+    "cve_ids": [
+      "CVE-2026-4409"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-98870",
+        "type": "url",
+        "value": "https://cdn-evil-30.net/payload_2047.bin",
+        "reputation": "high_risk",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.358546+00:00"
+      },
+      {
+        "ioc_id": "IOC-67200",
+        "type": "sha256",
+        "value": "551b8e937b6bd9eab5db7783acae26846e22ba0d09f7c154c378c2b14e7bb51f",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 89,
+        "first_seen": "2026-11-22T18:36:32.358578+00:00"
+      },
+      {
+        "ioc_id": "IOC-57593",
+        "type": "url",
+        "value": "https://cdn-evil-60.net/payload_1464.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 98,
+        "first_seen": "2026-11-22T18:36:32.358592+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Command & Control",
+      "mitre_techniques": [
+        "T1059.001 - PowerShell Execution",
+        "T1486 - Data Encrypted for Impact"
+      ]
+    },
+    "tags": [
+      "phishing",
+      "high",
+      "act-003",
+      "feed-src-002"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 2409,
+      "is_zero_day": false,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa65a"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1044",
+    "title": "APT29 Spearphishing Campaign Impersonating Diplomatic Attache Invitations [Variant #45]",
+    "threat_type": "APT",
+    "severity": "High",
+    "cvss_score": 8.7,
+    "confidence": 89,
+    "description": "Detailed tactical intelligence report on APT activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-12T18:36:32.351829+00:00",
+    "source_id": "SRC-002",
+    "actor_id": "ACT-001",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-16957",
+        "type": "sha256",
+        "value": "87188a94252a78864acd62661569884a40ce5f624056ae425afee672e0dca9c6",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 87,
+        "first_seen": "2026-11-22T18:36:32.358654+00:00"
+      },
+      {
+        "ioc_id": "IOC-42677",
+        "type": "url",
+        "value": "https://cdn-evil-40.net/payload_7092.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.358669+00:00"
+      },
+      {
+        "ioc_id": "IOC-16141",
+        "type": "url",
+        "value": "https://cdn-evil-83.net/payload_9864.bin",
+        "reputation": "high_risk",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.358684+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Impact / Encryption",
+      "mitre_techniques": [
+        "T1566.001 - Spearphishing Attachment",
+        "T1486 - Data Encrypted for Impact"
+      ]
+    },
+    "tags": [
+      "apt",
+      "high",
+      "act-001",
+      "feed-src-002"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 2309,
+      "is_zero_day": false,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa65b"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1045",
+    "title": "Mirai-Variant Botnet 'DarkStorm' Exploiting Zero-Day in IoT Routers [Variant #46]",
+    "threat_type": "Botnet",
+    "severity": "Medium",
+    "cvss_score": 7.2,
+    "confidence": 84,
+    "description": "Detailed tactical intelligence report on Botnet activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-18T18:36:32.351829+00:00",
+    "source_id": "SRC-006",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-80251",
+        "type": "domain",
+        "value": "c2-gateway-316.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 97,
+        "first_seen": "2026-11-22T18:36:32.358729+00:00"
+      },
+      {
+        "ioc_id": "IOC-75414",
+        "type": "url",
+        "value": "https://cdn-evil-16.net/payload_5825.bin",
+        "reputation": "suspicious",
+        "confidence_score": 94,
+        "first_seen": "2026-11-22T18:36:32.358746+00:00"
+      },
+      {
+        "ioc_id": "IOC-34601",
+        "type": "sha256",
+        "value": "2313a70e9ddce2e53b229780553308d74f94161636e7f70ba2f684c9284ef014",
+        "reputation": "suspicious",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.358772+00:00"
+      },
+      {
+        "ioc_id": "IOC-91503",
+        "type": "ipv4",
+        "value": "67.75.183.104",
+        "reputation": "suspicious",
+        "confidence_score": 100,
+        "first_seen": "2026-11-22T18:36:32.358787+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Impact / Encryption",
+      "mitre_techniques": [
+        "T1071.001 - Web Protocols Command and Control",
+        "T1055 - Process Injection"
+      ]
+    },
+    "tags": [
+      "botnet",
+      "medium",
+      "act-005",
+      "feed-src-006"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 2927,
+      "is_zero_day": false,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa65c"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1046",
+    "title": "Scattered Spider Multi-Factor Authentication Fatigue Campaign against Okta Tenants [Variant #47]",
+    "threat_type": "Phishing",
+    "severity": "High",
+    "cvss_score": 8.5,
+    "confidence": 92,
+    "description": "Detailed tactical intelligence report on Phishing activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-08T18:36:32.351829+00:00",
+    "source_id": "SRC-003",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2026-1184"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-60505",
+        "type": "domain",
+        "value": "c2-telemetry-911.org",
+        "reputation": "suspicious",
+        "confidence_score": 77,
+        "first_seen": "2026-11-22T18:36:32.358831+00:00"
+      },
+      {
+        "ioc_id": "IOC-61923",
+        "type": "ipv4",
+        "value": "114.174.162.164",
+        "reputation": "suspicious",
+        "confidence_score": 84,
+        "first_seen": "2026-11-22T18:36:32.358849+00:00"
+      },
+      {
+        "ioc_id": "IOC-21864",
+        "type": "url",
+        "value": "https://cdn-evil-66.net/payload_6215.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 85,
+        "first_seen": "2026-11-22T18:36:32.358865+00:00"
+      },
+      {
+        "ioc_id": "IOC-78096",
+        "type": "url",
+        "value": "https://cdn-evil-10.net/payload_5899.bin",
+        "reputation": "suspicious",
+        "confidence_score": 88,
+        "first_seen": "2026-11-22T18:36:32.358881+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Command & Control",
+      "mitre_techniques": [
+        "T1071.001 - Web Protocols Command and Control",
+        "T1041 - Exfiltration Over C2 Channel"
+      ]
+    },
+    "tags": [
+      "phishing",
+      "high",
+      "act-005",
+      "feed-src-003"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 2393,
+      "is_zero_day": false,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa65d"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1047",
+    "title": "BlackCat/ALPHV Successor Group Deploying Rust-based Cross-Platform Encryptor [Variant #48]",
+    "threat_type": "Ransomware",
+    "severity": "Critical",
+    "cvss_score": 9.7,
+    "confidence": 96,
+    "description": "Detailed tactical intelligence report on Ransomware activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-10-11T18:36:32.351829+00:00",
+    "source_id": "SRC-005",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-4409"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-21129",
+        "type": "domain",
+        "value": "c2-telemetry-821.org",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 96,
+        "first_seen": "2026-11-22T18:36:32.358930+00:00"
+      },
+      {
+        "ioc_id": "IOC-11385",
+        "type": "ipv4",
+        "value": "96.64.110.191",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 100,
+        "first_seen": "2026-11-22T18:36:32.358949+00:00"
+      },
+      {
+        "ioc_id": "IOC-63304",
+        "type": "ipv4",
+        "value": "122.26.235.53",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 85,
+        "first_seen": "2026-11-22T18:36:32.358968+00:00"
+      },
+      {
+        "ioc_id": "IOC-55662",
+        "type": "ipv4",
+        "value": "66.250.237.81",
+        "reputation": "high_risk",
+        "confidence_score": 91,
+        "first_seen": "2026-11-22T18:36:32.358987+00:00"
+      },
+      {
+        "ioc_id": "IOC-82722",
+        "type": "domain",
+        "value": "c2-telemetry-211.org",
+        "reputation": "suspicious",
+        "confidence_score": 91,
+        "first_seen": "2026-11-22T18:36:32.359003+00:00"
+      },
+      {
+        "ioc_id": "IOC-23253",
+        "type": "url",
+        "value": "https://cdn-evil-25.net/payload_5845.bin",
+        "reputation": "suspicious",
+        "confidence_score": 92,
+        "first_seen": "2026-11-22T18:36:32.359019+00:00"
+      },
+      {
+        "ioc_id": "IOC-19590",
+        "type": "ipv4",
+        "value": "121.206.65.153",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 86,
+        "first_seen": "2026-11-22T18:36:32.359038+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Impact / Encryption",
+      "mitre_techniques": [
+        "T1190 - Exploit Public-Facing Application",
+        "T1486 - Data Encrypted for Impact"
+      ]
+    },
+    "tags": [
+      "ransomware",
+      "critical",
+      "act-002",
+      "feed-src-005"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 1626,
+      "is_zero_day": true,
+      "remediation_status": "Open"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa65e"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1048",
+    "title": "Qakbot Successor 'Pikabot' Re-emerging with Modular Proxy Payloads [Variant #49]",
+    "threat_type": "Trojan",
+    "severity": "Medium",
+    "cvss_score": 7.6,
+    "confidence": 84,
+    "description": "Detailed tactical intelligence report on Trojan activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-01T18:36:32.351829+00:00",
+    "source_id": "SRC-005",
+    "actor_id": "ACT-005",
+    "cve_ids": [
+      "CVE-2025-21298"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-19883",
+        "type": "url",
+        "value": "https://cdn-evil-52.net/payload_2632.bin",
+        "reputation": "suspicious",
+        "confidence_score": 76,
+        "first_seen": "2026-11-22T18:36:32.359093+00:00"
+      },
+      {
+        "ioc_id": "IOC-33950",
+        "type": "ipv4",
+        "value": "74.92.242.61",
+        "reputation": "high_risk",
+        "confidence_score": 92,
+        "first_seen": "2026-11-22T18:36:32.359110+00:00"
+      },
+      {
+        "ioc_id": "IOC-11929",
+        "type": "sha256",
+        "value": "c7a555a04b150a19fc32efc32f7802e46140b48839b078d38d25a55276dacf04",
+        "reputation": "high_risk",
+        "confidence_score": 93,
+        "first_seen": "2026-11-22T18:36:32.359149+00:00"
+      },
+      {
+        "ioc_id": "IOC-56119",
+        "type": "domain",
+        "value": "c2-update-292.org",
+        "reputation": "high_risk",
+        "confidence_score": 99,
+        "first_seen": "2026-11-22T18:36:32.359165+00:00"
+      },
+      {
+        "ioc_id": "IOC-33322",
+        "type": "domain",
+        "value": "c2-telemetry-152.org",
+        "reputation": "suspicious",
+        "confidence_score": 86,
+        "first_seen": "2026-11-22T18:36:32.359181+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Credential Access",
+      "mitre_techniques": [
+        "T1041 - Exfiltration Over C2 Channel",
+        "T1078 - Valid Accounts"
+      ]
+    },
+    "tags": [
+      "trojan",
+      "medium",
+      "act-005",
+      "feed-src-005"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 3861,
+      "is_zero_day": false,
+      "remediation_status": "Patched"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa65f"
+    }
+  },
+  {
+    "threat_id": "CTI-2026-1049",
+    "title": "Rogue AS99120 Hosting Malicious Cobalt Strike Beacons for Eastern Cybercartels [Variant #50]",
+    "threat_type": "Command and Control",
+    "severity": "High",
+    "cvss_score": 8.8,
+    "confidence": 85,
+    "description": "Detailed tactical intelligence report on Command and Control activity originating from observed telemetry. Adversaries observed deploying stealth techniques targeting enterprise infrastructure.",
+    "published_at": "2026-11-04T18:36:32.351829+00:00",
+    "source_id": "SRC-006",
+    "actor_id": "ACT-002",
+    "cve_ids": [
+      "CVE-2026-3021"
+    ],
+    "indicators": [
+      {
+        "ioc_id": "IOC-30518",
+        "type": "sha256",
+        "value": "9f175a0016f3f06b7bd9e004cd0e539e132138ab40f51e34f16b2c703b449236",
+        "reputation": "suspicious",
+        "confidence_score": 97,
+        "first_seen": "2026-11-22T18:36:32.359247+00:00"
+      },
+      {
+        "ioc_id": "IOC-59933",
+        "type": "sha256",
+        "value": "ccd141e5355ad6325e93bcec16c31a1355e0f15a7c74acfac9edcc65a3cbfdb2",
+        "reputation": "high_risk",
+        "confidence_score": 76,
+        "first_seen": "2026-11-22T18:36:32.359280+00:00"
+      },
+      {
+        "ioc_id": "IOC-26129",
+        "type": "ipv4",
+        "value": "145.250.139.243",
+        "reputation": "suspicious",
+        "confidence_score": 76,
+        "first_seen": "2026-11-22T18:36:32.359304+00:00"
+      },
+      {
+        "ioc_id": "IOC-71613",
+        "type": "ipv4",
+        "value": "182.225.52.168",
+        "reputation": "suspicious",
+        "confidence_score": 75,
+        "first_seen": "2026-11-22T18:36:32.359322+00:00"
+      },
+      {
+        "ioc_id": "IOC-73713",
+        "type": "url",
+        "value": "https://cdn-evil-84.net/payload_1200.bin",
+        "reputation": "suspicious",
+        "confidence_score": 75,
+        "first_seen": "2026-11-22T18:36:32.359342+00:00"
+      },
+      {
+        "ioc_id": "IOC-27053",
+        "type": "url",
+        "value": "https://cdn-evil-13.net/payload_6760.bin",
+        "reputation": "confirmed_malicious",
+        "confidence_score": 81,
+        "first_seen": "2026-11-22T18:36:32.359360+00:00"
+      },
+      {
+        "ioc_id": "IOC-28024",
+        "type": "sha256",
+        "value": "7d418eb88260b772f657fbcc8558ec8daad254694a492f035b15bbe3a07ce862",
+        "reputation": "high_risk",
+        "confidence_score": 92,
+        "first_seen": "2026-11-22T18:36:32.359392+00:00"
+      }
+    ],
+    "classification": {
+      "verdict": "Actual Threat",
+      "status": "Active Threat",
+      "kill_chain_stage": "Credential Access",
+      "mitre_techniques": [
+        "T1059.001 - PowerShell Execution",
+        "T1078 - Valid Accounts"
+      ]
+    },
+    "tags": [
+      "command and control",
+      "high",
+      "act-002",
+      "feed-src-006"
+    ],
+    "telemetry": {
+      "targeted_hosts_count": 985,
+      "is_zero_day": false,
+      "remediation_status": "In Mitigation"
+    },
+    "_id": {
+      "$oid": "6b03363060872151ccfaa660"
+    }
+  }
+]
