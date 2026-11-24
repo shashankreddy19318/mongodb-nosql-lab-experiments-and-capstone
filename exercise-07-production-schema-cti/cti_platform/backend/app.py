@@ -20,6 +20,7 @@ from indexing_scripts import setup_indexes
 import lab7_1_analysis
 import lab7_2_working_set
 import monitor_wiredtiger_threats
+import chatbot_engine
 
 app = Flask(__name__, static_folder="../frontend", static_url_path="")
 
@@ -504,6 +505,22 @@ def get_monitoring_stream():
         "last_check": monitoring_state["last_check"],
         "history": monitoring_state["history"],
         "recent_discoveries": monitoring_state["recent_discoveries"]
+    })
+
+
+@app.route("/api/chat", methods=["POST"])
+def chat():
+    """Chatbot conversational endpoint for Sentinel AI Copilot."""
+    data = request.json or {}
+    message = data.get("message", "").strip()
+    if not message:
+        return jsonify({"status": "error", "message": "Empty message"}), 400
+
+    response = chatbot_engine.process_chat_message(message)
+    return jsonify({
+        "status": "success",
+        "reply": response.get("reply", ""),
+        "suggested_actions": response.get("suggested_actions", [])
     })
 
 
