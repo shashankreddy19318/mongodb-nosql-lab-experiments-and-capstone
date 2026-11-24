@@ -1,5 +1,7 @@
 # Distributed NoSQL Databases & Cyber Threat Intelligence LLM Platform
 
+[![Docker Hub](https://img.shields.io/badge/docker%20hub-shashankreddy30%2Fmongodb--nosql--labs--and--capstone-blue.svg?logo=docker)](https://hub.docker.com/r/shashankreddy30/mongodb-nosql-labs-and-capstone)
+[![Docker Hub Alt](https://img.shields.io/badge/docker%20hub-shashankreddy30%2Fthreat--intel--app-blue.svg?logo=docker)](https://hub.docker.com/r/shashankreddy30/threat-intel-app)
 [![MongoDB Version](https://img.shields.io/badge/MongoDB-7.0-green.svg?logo=mongodb)](https://www.mongodb.com/)
 [![Python](https://img.shields.io/badge/Python-3.10%20%7C%203.11-yellow.svg?logo=python)](https://www.python.org/)
 [![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg?logo=docker)](https://www.docker.com/)
