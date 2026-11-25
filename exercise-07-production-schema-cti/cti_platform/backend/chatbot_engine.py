@@ -46,15 +46,17 @@ def process_chat_message(user_msg: str) -> dict:
             ]
         }
 
-    # 1.5 DIRECT LAPTOP HARDWARE & SYSTEM TELEMETRY (YES / NO ANSWERS)
+    # 1.5 DIRECT LAPTOP HARDWARE, SOFTWARE & SYSTEM TELEMETRY (YES / NO ANSWERS)
     laptop_triggers = [
         "laptop", "computer", "pc", "battery", "charging", "charger", "plugged", "unplugged",
         "ram", "memory", "storage", "c drive", "disk", "free space", "cpu", "processor",
-        "core", "cores", "windows", "win11", "win 11", "docker", "specs", "hardware", "host"
+        "core", "cores", "windows", "win11", "win 11", "docker", "specs", "hardware", "host",
+        "installed", "install", "claude", "chrome", "vscode", "vs code", "brave", "opera",
+        "canva", "capcut", "antigravity", "software", "program", "app"
     ]
-    if any(k in msg for k in laptop_triggers):
-        # Exclude purely database cache terms unless laptop/hardware is explicitly stated
-        if not ("wiredtiger" in msg or "cache hit ratio" in msg) or any(k in msg for k in ["laptop", "battery", "ram", "disk", "charging"]):
+    if any(k in msg for k in laptop_triggers) or re.search(r'\b(is|do i have|check if)\s+.*\s+(installed|running|present)\b', msg):
+        # Exclude purely database cache terms unless laptop/hardware/install is explicitly stated
+        if not ("wiredtiger" in msg or "cache hit ratio" in msg) or any(k in msg for k in ["laptop", "battery", "ram", "disk", "charging", "installed", "claude"]):
             return laptop_telemetry.evaluate_laptop_query(user_msg)
 
     # 2. WIREDTIGER CACHE / LAB 7.2 QUERIES

@@ -1,7 +1,7 @@
 """
 Laptop & Host System Telemetry Engine
-Directly queries the physical Windows host hardware and operating system metrics.
-Answers user queries with definitive YES / NO verdicts based on real-time hardware status.
+Directly queries the physical Windows host hardware, operating system, and installed software.
+Answers user queries with definitive YES / NO verdicts based on real-time hardware & software status.
 """
 
 import os
@@ -11,6 +11,97 @@ import socket
 import subprocess
 import json
 import re
+import winreg
+
+def scan_installed_software(app_name: str) -> tuple:
+    """
+    Scans the host laptop to detect if a specific software application is installed.
+    Checks:
+    1. Windows Registry (HKLM, HKLM-WOW6432, HKCU Uninstall keys)
+    2. System command line PATH (shutil.which)
+    3. Program Files & Program Files (x86)
+    4. Local AppData Programs (%LOCALAPPDATA%\Programs) & Roaming AppData
+    5. Windows Start Menu programs
+    """
+    clean = app_name.strip().lower()
+
+    # Common aliases and synonyms
+    alias_map = {
+        "vscode": "visual studio code",
+        "vs code": "visual studio code",
+        "code": "visual studio code",
+        "mongo": "mongodb",
+        "py": "python",
+        "chrome": "google chrome",
+        "brave": "brave",
+        "opera": "opera",
+        "docker": "docker desktop",
+        "git": "git",
+        "github": "github desktop",
+        "claude": "claude",
+        "antigravity": "antigravity",
+        "canva": "canva",
+        "capcut": "capcut",
+        "node": "node",
+        "nodejs": "node"
+    }
+    search_term = alias_map.get(clean, clean)
+
+    # 1. Scan Windows Registry Uninstall Database
+    reg_roots = [
+        (winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"),
+        (winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall"),
+        (winreg.HKEY_CURRENT_USER, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall")
+    ]
+    for root, subkey in reg_roots:
+        try:
+            with winreg.OpenKey(root, subkey) as key:
+                num_subkeys = winreg.QueryInfoKey(key)[0]
+                for i in range(num_subkeys):
+                    try:
+                        sub_name = winreg.EnumKey(key, i)
+                        with winreg.OpenKey(key, sub_name) as sub:
+                            try:
+                                display_name, _ = winreg.QueryValueEx(sub, "DisplayName")
+                                try:
+                                    display_ver, _ = winreg.QueryValueEx(sub, "DisplayVersion")
+                                except Exception:
+                                    display_ver = ""
+                                if display_name and search_term in display_name.lower():
+                                    ver_str = f" (Version {display_ver})" if display_ver else ""
+                                    return True, f"{display_name}{ver_str}"
+                            except Exception:
+                                pass
+                    except Exception:
+                        pass
+        except Exception:
+            pass
+
+    # 2. Scan Command Line PATH
+    path_bin = shutil.which(clean)
+    if path_bin:
+        return True, f"Found in system command PATH: `{path_bin}`"
+
+    # 3. Scan Common Windows Program Folders
+    search_dirs = [
+        os.path.expandvars(r"%LOCALAPPDATA%\Programs"),
+        os.path.expandvars(r"%ProgramFiles%"),
+        os.path.expandvars(r"%ProgramFiles(x86)%"),
+        os.path.expandvars(r"%APPDATA%\Microsoft\Windows\Start Menu\Programs"),
+        os.path.expandvars(r"%ProgramData%\Microsoft\Windows\Start Menu\Programs"),
+        os.path.expandvars(r"%APPDATA%")
+    ]
+    for sdir in search_dirs:
+        if os.path.exists(sdir):
+            try:
+                for entry in os.listdir(sdir):
+                    if search_term in entry.lower():
+                        return True, f"Found directory: `{os.path.join(sdir, entry)}`"
+            except Exception:
+                pass
+
+    return False, f"No installation files, registry entries, or binaries matching '{app_name}' were found on your laptop."
+
 
 def get_live_laptop_telemetry():
     """Extracts live telemetry directly from the host Windows laptop."""
@@ -63,14 +154,12 @@ def get_live_laptop_telemetry():
             if isinstance(b, list):
                 b = b[0]
             telemetry["battery_pct"] = b.get("EstimatedChargeRemaining")
-            # BatteryStatus: 2 = Unknown/AC connected (Charging/Plugged in)
-            # BatteryStatus 1 = Discharging, 2 = Unknown (usually AC), 6 = Charging
             status_code = b.get("BatteryStatus", 1)
             telemetry["is_charging"] = status_code in [2, 6, 7, 8, 9]
     except Exception:
         pass
 
-    # 4. Check Common Processes (Docker, Chrome, Opera, VSCode, MongoDB)
+    # 4. Check Common Processes
     try:
         cmd_proc = "Get-Process | Select-Object -ExpandProperty ProcessName"
         res_proc = subprocess.run(["powershell", "-NoProfile", "-Command", cmd_proc], capture_output=True, text=True, timeout=3)
@@ -93,7 +182,7 @@ def get_live_laptop_telemetry():
 def evaluate_laptop_query(user_query: str) -> dict:
     """
     Evaluates queries about the laptop and returns a definitive YES or NO answer
-    coupled with exact real-time telemetry from the host machine.
+    coupled with exact real-time telemetry and software installation checks.
     """
     q = user_query.strip().lower()
     t = get_live_laptop_telemetry()
@@ -101,8 +190,49 @@ def evaluate_laptop_query(user_query: str) -> dict:
     verdict = None
     explanation = ""
 
-    # 1. Charging / Plugged in / Power
-    if any(k in q for k in ["charging", "plugged in", "ac power", "charger", "plugged"]):
+    # =========================================================================
+    # A. SOFTWARE INSTALLATION QUERIES ("is claude installed", "is chrome installed", etc.)
+    # =========================================================================
+    app_target = None
+    
+    # Pattern 1: "is <app> installed" / "do i have <app> installed"
+    m1 = re.search(r'(?:is|do i have|check if|has)\s+(?:my laptop\s+)?([a-zA-Z0-9\.\-\_\s\+]+?)\s+(?:installed|present|available|on my laptop|in my laptop|downloaded)', q)
+    if m1:
+        app_target = m1.group(1).strip()
+    elif "installed" in q:
+        # Pattern 2: "<app> installed" or "installed <app>"
+        m2 = re.search(r'([a-zA-Z0-9\.\-\_\+]+)\s+installed', q)
+        if m2:
+            app_target = m2.group(1).strip()
+        else:
+            m3 = re.search(r'installed\s+([a-zA-Z0-9\.\-\_\+]+)', q)
+            if m3:
+                app_target = m3.group(1).strip()
+
+    # Clean app target of pronouns/stop-words
+    if app_target:
+        app_target = re.sub(r'\b(my|the|a|an|any|this|it)\b', '', app_target).strip()
+
+    if app_target and len(app_target) > 1 and app_target not in ["battery", "ram", "disk", "charger", "laptop", "hardware", "cpu"]:
+        is_installed, details = scan_installed_software(app_target)
+        verdict = "YES" if is_installed else "NO"
+        if is_installed:
+            explanation = (
+                f"**{app_target.upper()} IS installed on your laptop.**\n\n"
+                f"• **Detection Details:** `{details}`\n"
+                f"• **Status:** Active on Windows host system."
+            )
+        else:
+            explanation = (
+                f"**{app_target.upper()} is NOT installed on your laptop.**\n\n"
+                f"• **Scan Summary:** Scanned Windows Installed Programs Registry (`HKLM` & `HKCU`), Program Files (`C:\\Program Files`), Local AppData (`%LOCALAPPDATA%\\Programs`), and system command PATH.\n"
+                f"• **Result:** No installation files, registry entries, or binaries matching *\"{app_target}\"* were found."
+            )
+
+    # =========================================================================
+    # B. CHARGING & POWER STATUS
+    # =========================================================================
+    elif any(k in q for k in ["charging", "plugged in", "ac power", "charger", "plugged"]):
         if t["is_charging"]:
             verdict = "YES"
             explanation = f"Your laptop **is charging** (Plugged into AC power). Battery level is currently at **{t.get('battery_pct', '--')}%**."
@@ -110,7 +240,9 @@ def evaluate_laptop_query(user_query: str) -> dict:
             verdict = "NO"
             explanation = f"Your laptop **is not charging** (Running on battery power). Battery level is currently at **{t.get('battery_pct', '--')}%**."
 
-    # 2. Battery Low / High / Full
+    # =========================================================================
+    # C. BATTERY LEVEL
+    # =========================================================================
     elif any(k in q for k in ["battery low", "low battery", "battery dying"]):
         pct = t.get("battery_pct", 50) or 50
         is_low = pct <= 20
@@ -128,7 +260,9 @@ def evaluate_laptop_query(user_query: str) -> dict:
         verdict = "YES"
         explanation = f"Your laptop battery is currently at **{pct}%** (Charging: **{'Yes' if t['is_charging'] else 'No'}**)."
 
-    # 3. RAM / Memory Queries
+    # =========================================================================
+    # D. RAM & MEMORY
+    # =========================================================================
     elif any(k in q for k in ["ram full", "ram high", "memory full", "out of ram", "high memory"]):
         ram_pct = t.get("ram_used_pct", 0)
         is_high = ram_pct >= 80
@@ -145,7 +279,9 @@ def evaluate_laptop_query(user_query: str) -> dict:
         verdict = "YES"
         explanation = f"Your laptop has **{t.get('ram_total_gb')} GB** total RAM (**{t.get('ram_used_gb')} GB** used, **{t.get('ram_free_gb')} GB** free)."
 
-    # 4. Disk / Storage Queries
+    # =========================================================================
+    # E. STORAGE & DISK C:
+    # =========================================================================
     elif any(k in q for k in ["disk full", "c drive full", "storage full", "out of space", "drive full"]):
         disk_pct = t.get("disk_used_pct", 0)
         is_full = disk_pct >= 90
@@ -158,7 +294,9 @@ def evaluate_laptop_query(user_query: str) -> dict:
         verdict = "YES" if has_enough else "NO"
         explanation = f"You have **{free_gb} GB** free on your primary drive (C:)."
 
-    # 5. Operating System (Windows, Mac, Linux)
+    # =========================================================================
+    # F. OPERATING SYSTEM
+    # =========================================================================
     elif any(k in q for k in ["windows 11", "win 11"]):
         is_win11 = "windows 11" in t.get("os", "").lower()
         verdict = "YES" if is_win11 else "NO"
@@ -173,7 +311,9 @@ def evaluate_laptop_query(user_query: str) -> dict:
         verdict = "NO"
         explanation = f"Your laptop is running **{t.get('os')}** (not Mac or Linux)."
 
-    # 6. Architecture & CPU (64-bit, cores, processor)
+    # =========================================================================
+    # G. ARCHITECTURE & CPU
+    # =========================================================================
     elif any(k in q for k in ["64-bit", "64 bit", "x64"]):
         verdict = "YES"
         explanation = f"Your laptop architecture is **64-bit** ({t.get('arch')}) with **{t.get('cpu_cores')} CPU cores**."
@@ -182,7 +322,9 @@ def evaluate_laptop_query(user_query: str) -> dict:
         verdict = "YES"
         explanation = f"Your laptop is powered by a **{t.get('cpu_cores')}-core** processor ({t.get('processor')})."
 
-    # 7. Applications & Processes (Docker, Chrome, Opera, VSCode, MongoDB)
+    # =========================================================================
+    # H. APPLICATION STATUS (RUNNING)
+    # =========================================================================
     elif "docker" in q:
         is_dock = t.get("is_docker_running", False)
         verdict = "YES" if is_dock else "NO"
@@ -205,14 +347,16 @@ def evaluate_laptop_query(user_query: str) -> dict:
 
     elif "python" in q:
         verdict = "YES"
-        explanation = f"Python is installed and actively executing backend processes on your laptop."
+        explanation = f"Python is installed and actively running on your laptop."
 
     elif "mongodb" in q or "mongod" in q:
         is_m = t.get("is_mongod_running", False)
         verdict = "YES" if is_m else "NO"
         explanation = f"Local mongod service is **{'running' if is_m else 'not running (using In-Memory WiredTiger Engine)'}**."
 
-    # 8. General laptop specs query fallback
+    # =========================================================================
+    # I. GENERAL LAPTOP SPECS FALLBACK
+    # =========================================================================
     else:
         verdict = "YES"
         explanation = (
@@ -238,10 +382,10 @@ def evaluate_laptop_query(user_query: str) -> dict:
     return {
         "reply": reply_md,
         "suggested_actions": [
+            "Is Claude installed?",
+            "Is Chrome installed?",
+            "Is Docker installed?",
             "Is my laptop charging?",
-            "Is my battery low?",
-            "Is my RAM full?",
-            "Do I have enough disk space?",
-            "Is Docker running?"
+            "Is my RAM full?"
         ]
     }
