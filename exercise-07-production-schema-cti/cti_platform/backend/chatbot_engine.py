@@ -7,6 +7,7 @@ and Lab 7.1/7.2 explanations.
 import re
 import datetime
 from database import db_manager
+import laptop_telemetry
 
 def get_live_cache_metrics():
     status = db_manager.get_server_status()
@@ -25,24 +26,36 @@ def process_chat_message(user_msg: str) -> dict:
     msg = user_msg.strip().lower()
 
     # 1. GREETING / HELP
-    if re.search(r'\b(hi|hello|hey|help|who are you|what can you do)\b', msg):
+    if re.search(r'\b(hi|hello|hey|help|who are you|what can you do)\b', msg) and not any(k in msg for k in ["laptop", "battery", "ram", "disk", "charging"]):
         return {
             "reply": (
-                "👋 **Hello, Analyst! I'm Sentinel AI**, your Cyber Threat Intelligence & NoSQL Copilot.\n\n"
-                "I can assist you with real-time database queries and Lab 7 concepts:\n"
-                "- 🎯 **Threat Queries:** *'List critical ransomware'*, *'Tell me about LockBit'*, *'Show recent IOCs'*\n"
-                "- 🧬 **Lab 7.1 Architecture:** *'Why reference sources instead of embedding?'*, *'$bsonSize limit check'*\n"
-                "- ⚡ **Lab 7.2 Working Set:** *'What is the current cache hit ratio?'*, *'Explain WiredTiger cache'*\n"
-                "- 🔍 **Adversary Origin:** *'Which sources are actual threats?'*\n\n"
-                "How can I help you investigate today?"
+                "👋 **Hello, Analyst! I'm Sentinel AI**, your CTI & Host Laptop Copilot.\n\n"
+                "I am **connected directly to your laptop hardware** and can answer queries with a definitive **YES or NO**:\n"
+                "- 💻 **Laptop Hardware:** *'Is my laptop charging?'*, *'Is my battery low?'*, *'Is my RAM full?'*, *'Do I have enough disk space?'*, *'Is Docker running?'*\n"
+                "- 🎯 **CTI Threat Telemetry:** *'List critical ransomware'*, *'Tell me about LockBit'*, *'Show recent IOCs'*\n"
+                "- 🧬 **NoSQL Lab 7.1 Architecture:** *'Why reference sources instead of embedding?'*, *'$bsonSize limit check'*\n"
+                "- ⚡ **NoSQL Lab 7.2 Working Set:** *'What is the current cache hit ratio?'*, *'Explain WiredTiger cache'*\n\n"
+                "Ask me any question about your laptop or database!"
             ),
             "suggested_actions": [
-                "List critical threats",
-                "What is the current cache hit ratio?",
-                "Why reference sources instead of embedding?",
-                "Explain the 16 MB limit"
+                "Is my laptop charging?",
+                "Is my battery low?",
+                "Is my RAM full?",
+                "Do I have enough disk space?",
+                "What is the current cache hit ratio?"
             ]
         }
+
+    # 1.5 DIRECT LAPTOP HARDWARE & SYSTEM TELEMETRY (YES / NO ANSWERS)
+    laptop_triggers = [
+        "laptop", "computer", "pc", "battery", "charging", "charger", "plugged", "unplugged",
+        "ram", "memory", "storage", "c drive", "disk", "free space", "cpu", "processor",
+        "core", "cores", "windows", "win11", "win 11", "docker", "specs", "hardware", "host"
+    ]
+    if any(k in msg for k in laptop_triggers):
+        # Exclude purely database cache terms unless laptop/hardware is explicitly stated
+        if not ("wiredtiger" in msg or "cache hit ratio" in msg) or any(k in msg for k in ["laptop", "battery", "ram", "disk", "charging"]):
+            return laptop_telemetry.evaluate_laptop_query(user_msg)
 
     # 2. WIREDTIGER CACHE / LAB 7.2 QUERIES
     if any(k in msg for k in ["cache", "wiredtiger", "hit ratio", "working set", "serverstatus"]):

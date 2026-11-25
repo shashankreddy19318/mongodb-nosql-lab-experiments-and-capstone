@@ -121,10 +121,12 @@ function sendSuggestion(text) {
 function clearChat() {
   const messagesContainer = document.getElementById('chat-messages');
   messagesContainer.innerHTML = '';
-  appendMessage('bot', "Conversation reset. How can I assist your cyber threat investigation or NoSQL lab today?", [
-    "What is the current cache hit ratio?",
-    "List critical ransomware threats",
-    "Why reference sources instead of embedding?"
+  appendMessage('bot', "Conversation reset. I am connected to your laptop hardware and database. Ask me anything to get a **YES / NO** verdict!", [
+    "Is my laptop charging?",
+    "Is my battery low?",
+    "Is my RAM full?",
+    "Do I have enough disk space?",
+    "What is the current cache hit ratio?"
   ]);
 }
 
@@ -144,11 +146,12 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     const container = document.getElementById('chat-messages');
     if (container && container.children.length === 0) {
-      appendMessage('bot', "👋 **Welcome to Sentinel Copilot!** I'm your AI assistant for Cyber Threat Intelligence and NoSQL Lab 7.\n\nAsk me anything about active threats, MongoDB schema patterns, or WiredTiger cache metrics!", [
-        "What is the current cache hit ratio?",
-        "List critical threats",
-        "Why reference sources instead of embedding?",
-        "Explain the 16 MB limit"
+      appendMessage('bot', "👋 **Welcome to Sentinel Copilot!**\n\nI am **connected directly to your laptop hardware** and can answer queries with a definitive **YES or NO** verdict (battery, charging, RAM, disk space, OS, processes), plus CTI threats and WiredTiger cache metrics!", [
+        "Is my laptop charging?",
+        "Is my battery low?",
+        "Is my RAM full?",
+        "Do I have enough disk space?",
+        "Is Docker running?"
       ]);
     }
   }, 1000);
