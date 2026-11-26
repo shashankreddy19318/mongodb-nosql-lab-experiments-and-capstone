@@ -187,6 +187,21 @@ sequenceDiagram
 
 ---
 
+## 🚀 Running the Project
+
+### 1-Click Launch (Windows Desktop):
+Simply double-click the included batch launcher:
+```cmd
+start website.bat
+```
+*(Or run `start_website.bat` from CMD / PowerShell).*  
+This will:
+1. Detect Python 3.10+ automatically.
+2. Initialize the Sentinel AI platform and all 18 NoSQL experiment endpoints.
+3. Automatically launch your default web browser to the interactive UI at **`http://localhost:8000`**.
+
+---
+
 ## 🐳 Docker Deployment & Verification
 
 The unified Docker image is published on Docker Hub and contains the entire suite:
