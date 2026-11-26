@@ -158,6 +158,7 @@ def scan_installed_software(app_name: str) -> tuple:
     # 3. Scan Common Windows Program Folders
     search_dirs = [
         os.path.expandvars(r"%LOCALAPPDATA%\Programs"),
+        os.path.expandvars(r"%LOCALAPPDATA%\Packages"),
         os.path.expandvars(r"%ProgramFiles%"),
         os.path.expandvars(r"%ProgramFiles(x86)%"),
         os.path.expandvars(r"%APPDATA%\Microsoft\Windows\Start Menu\Programs"),
@@ -169,9 +170,20 @@ def scan_installed_software(app_name: str) -> tuple:
             try:
                 for entry in os.listdir(sdir):
                     if search_term in entry.lower():
-                        return True, f"Found directory: `{os.path.join(sdir, entry)}`"
+                        return True, f"Found on laptop in `{os.path.join(sdir, entry)}`"
             except Exception:
                 pass
+
+    # 4. Scan Modern Windows Store / AppModel Registry
+    try:
+        appx_key = r"Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\Repository\Packages"
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, appx_key) as key:
+            for i in range(winreg.QueryInfoKey(key)[0]):
+                pkg = winreg.EnumKey(key, i)
+                if search_term in pkg.lower():
+                    return True, f"Verified Windows Store installation: `{pkg}`"
+    except Exception:
+        pass
 
     return False, f"No installation files, registry entries, or binaries matching '{app_name}' were found on your laptop."
 
