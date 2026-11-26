@@ -52,9 +52,11 @@ def process_chat_message(user_msg: str) -> dict:
         "ram", "memory", "storage", "c drive", "disk", "free space", "cpu", "processor",
         "core", "cores", "windows", "win11", "win 11", "docker", "specs", "hardware", "host",
         "installed", "install", "claude", "chrome", "vscode", "vs code", "brave", "opera",
-        "canva", "capcut", "antigravity", "software", "program", "app"
+        "canva", "capcut", "antigravity", "software", "program", "app", "application",
+        "python", "node", "git", "github", "mongodb", "slack", "discord", "postman",
+        "spotify", "zoom", "teams", "figma", "notion"
     ]
-    if any(k in msg for k in laptop_triggers) or re.search(r'\b(is|do i have|check if)\s+.*\s+(installed|running|present)\b', msg):
+    if any(k in msg for k in laptop_triggers) or re.search(r'\b(is|do i have|check if|has)\s+.*\s+(installed|running|present|available|on my laptop)\b', msg):
         # Exclude purely database cache terms unless laptop/hardware/install is explicitly stated
         if not ("wiredtiger" in msg or "cache hit ratio" in msg) or any(k in msg for k in ["laptop", "battery", "ram", "disk", "charging", "installed", "claude"]):
             return laptop_telemetry.evaluate_laptop_query(user_msg)
