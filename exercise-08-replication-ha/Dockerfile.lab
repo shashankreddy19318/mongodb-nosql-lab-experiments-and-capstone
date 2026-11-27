@@ -1,0 +1,6 @@
+FROM shashankreddy30/mongodb-nosql-labs-and-capstone:latest
+WORKDIR /workspace
+COPY . /workspace/
+ENV PYTHONUNBUFFERED=1
+ENTRYPOINT ["python", "-c", "import sys; sys.path.insert(0, '/app'); from app.threat_service import init_threat_database; init_threat_database(); import app.exercises_service as ex; from rich.console import Console; from rich.panel import Panel; from rich.table import Table; import json; c=Console(); r=ex.run_exercise_8(); t=Table(title='Distributed NoSQL Lab 08 Execution Details', border_style='cyan'); t.add_column('Property', style='yellow'); t.add_column('Value', style='white'); [t.add_row(k, json.dumps(v, indent=2) if isinstance(v, (list, dict)) else str(v)) for k, v in r.items()]; c.print(); c.print(Panel.fit(f'[bold green]✔ LAB 08 VERIFICATION: {r.get(\"status\", \"PASS\")}[/bold green]\\n[cyan]{r.get(\"exercise\", \"\")}[/cyan]\\n[dim]{r.get(\"details\", \"\")}[/dim]', title='[bold cyan]NoSQL MongoDB Lab 08 Demonstration[/bold cyan]', border_style='green')); c.print(t); c.print()"]
+CMD ["demo"]
