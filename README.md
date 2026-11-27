@@ -206,12 +206,36 @@ This will:
 
 The unified Docker image is published on Docker Hub and contains the entire suite:
 
-### 1. Run All 18 Exercises via CLI:
+### 1. Run All 18 Exercises via CLI (Master Unified Image):
 ```bash
 docker run --rm shashankreddy30/mongodb-nosql-labs-and-capstone:latest demo
 ```
 
-### 2. Launch the Web Application & REST API:
+### 2. Run Individual Laboratory Images (Labs 01 to 18):
+Each of the 18 laboratory modules is also published as an isolated, standalone Docker container:
+
+| Lab # | Topic / Module Name | Docker Hub Repository | Direct Run Command |
+| :---: | :--- | :--- | :--- |
+| **01** | Core Document Model & Schema Flexibility | `shashankreddy30/mongodb-lab01` | `docker run --rm shashankreddy30/mongodb-lab01:latest` |
+| **02** | CRUD Operations, Projections & Array Filters | `shashankreddy30/mongodb-lab02` | `docker run --rm shashankreddy30/mongodb-lab02:latest` |
+| **03** | Document Modeling & Normalization Analysis | `shashankreddy30/mongodb-lab03` | `docker run --rm shashankreddy30/mongodb-lab03:latest` |
+| **04** | Schema Design Patterns (Subset & Bucket) | `shashankreddy30/mongodb-lab04` | `docker run --rm shashankreddy30/mongodb-lab04:latest` |
+| **05** | Advanced Querying & Aggregation Framework | `shashankreddy30/mongodb-lab05` | `docker run --rm shashankreddy30/mongodb-lab05:latest` |
+| **06** | Compound, Multikey & Text Indexing | `shashankreddy30/mongodb-lab06` | `docker run --rm shashankreddy30/mongodb-lab06:latest` |
+| **07** | Production CTI Schema & WiredTiger Cache | `shashankreddy30/mongodb-lab07` | `docker run --rm shashankreddy30/mongodb-lab07:latest` |
+| **08** | Replica Set High Availability (rs0) | `shashankreddy30/mongodb-lab08` | `docker run --rm shashankreddy30/mongodb-lab08:latest` |
+| **09** | CAP Theorem & Write Concern Benchmarks | `shashankreddy30/mongodb-lab09` | `docker run --rm shashankreddy30/mongodb-lab09:latest` |
+| **10** | Multi-Document ACID Transactions | `shashankreddy30/mongodb-lab10` | `docker run --rm shashankreddy30/mongodb-lab10:latest` |
+| **11** | Sharding Strategies & Scatter-Gather | `shashankreddy30/mongodb-lab11` | `docker run --rm shashankreddy30/mongodb-lab11:latest` |
+| **12** | Enterprise RBAC & Security Redaction | `shashankreddy30/mongodb-lab12` | `docker run --rm shashankreddy30/mongodb-lab12:latest` |
+| **13** | Containerization, Compose & K8s StatefulSets | `shashankreddy30/mongodb-lab13` | `docker run --rm shashankreddy30/mongodb-lab13:latest` |
+| **14** | Operational Monitoring & Backup Restore | `shashankreddy30/mongodb-lab14` | `docker run --rm shashankreddy30/mongodb-lab14:latest` |
+| **15** | Multi-Tenant SaaS REST API | `shashankreddy30/mongodb-lab15` | `docker run --rm shashankreddy30/mongodb-lab15:latest` |
+| **16** | Polyglot Persistence Architecture | `shashankreddy30/mongodb-lab16` | `docker run --rm shashankreddy30/mongodb-lab16:latest` |
+| **17** | AI-Native Vector Search & RAG Memory | `shashankreddy30/mongodb-lab17` | `docker run --rm shashankreddy30/mongodb-lab17:latest` |
+| **18** | Comparative Capstone & Benchmarking | `shashankreddy30/mongodb-lab18` | `docker run --rm shashankreddy30/mongodb-lab18:latest` |
+
+### 3. Launch the Web Application & REST API:
 ```bash
 docker run -d -p 8000:8000 -p 8501:8501 --name aegis-platform shashankreddy30/mongodb-nosql-labs-and-capstone:latest api
 ```
